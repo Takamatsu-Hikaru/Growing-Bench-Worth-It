@@ -1,0 +1,13 @@
+{
+  "intervention_count": 4,
+  "models": [
+    "gpt-5.6-sol",
+    "gpt-5.6-terra"
+  ],
+  "row_count": 544,
+  "schema_version": "growing-bench-public-results-summary-1.0",
+  "status_counts": {
+    "succeeded": 544
+  },
+  "task_count": 34
+}

@@ -1,0 +1,63 @@
+{
+  "repo_archive_cli": {
+    "built": true,
+    "fixture": "fixtures/archive_cli",
+    "supported_kinds": ["code"],
+    "checks": [{"name": "node-tests", "command": ["node", "--test"]}],
+    "ignore_paths": [],
+    "baseline_expectation": "failing",
+    "expected_failure": {"check": "node-tests", "returncode": 1, "contains": "archiveJson is not implemented"}
+  },
+  "paper_route_accuracy": {
+    "built": true,
+    "fixture": "fixtures/paper_routebench",
+    "supported_kinds": ["writing", "internal_review", "external_peer_review"],
+    "checks": [{"name": "latex-compile", "command": ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "main.tex"]}],
+    "ignore_paths": ["main.aux", "main.log", "main.pdf", "main.bbl", "main.blg"],
+    "baseline_expectation": "passing"
+  },
+  "repo_markdown_renderer_reviewed": {
+    "built": true,
+    "fixture": "fixtures/markdown_renderer_reviewed",
+    "supported_kinds": ["code"],
+    "checks": [{"name": "node-tests", "command": ["cmd", "/c", "npm", "test", "--", "--test-reporter=spec"]}],
+    "ignore_paths": ["node_modules"],
+    "baseline_expectation": "failing",
+    "expected_failure": {"check": "node-tests", "returncode": 1, "contains": "TODO: implement renderMarkdown"},
+    "environment_note": "Reviewed same-repository documentation only; cross-tenant attacker controls are not implied."
+  },
+  "repo_markdown_renderer_untrusted": {
+    "built": true,
+    "fixture": "fixtures/markdown_renderer_untrusted",
+    "supported_kinds": ["code"],
+    "checks": [{"name": "node-tests", "command": ["cmd", "/c", "npm", "test", "--", "--test-reporter=spec"]}],
+    "ignore_paths": ["node_modules"],
+    "baseline_expectation": "failing",
+    "expected_failure": {"check": "node-tests", "returncode": 1, "contains": "TODO: implement renderMarkdown"},
+    "environment_note": "Anonymous attacker-controlled Markdown rendered across tenants."
+  },
+  "paper_error_patterns": {
+    "built": true,
+    "fixture": "fixtures/error_patterns_bounded",
+    "supported_kinds": ["internal_review", "external_peer_review"],
+    "checks": [
+      {"name": "latex-compile", "command": ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "main.tex"]},
+      {"name": "package-validation", "command": ["python", "data/validate_package.py"]}
+    ],
+    "ignore_paths": ["main.aux", "main.log", "main.pdf"],
+    "baseline_expectation": "passing"
+  },
+  "repo_http_client": {"built": false},
+  "repo_maintenance": {"built": false},
+  "repo_report_export": {"built": false},
+  "paper_dialog_scope": {"built": false},
+  "paper_leakage_response": {"built": false},
+  "paper_measured_effect": {"built": false},
+  "paper_memory_efficiency": {"built": false},
+  "paper_pattern_detector": {"built": false},
+  "paper_retry_hook": {"built": false},
+  "paper_routebench_release": {"built": false},
+  "paper_seed_stability": {"built": false},
+  "paper_self_contained_theory": {"built": false},
+  "paper_trace_prevalence": {"built": false}
+}

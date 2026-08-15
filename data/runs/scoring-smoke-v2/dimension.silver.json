@@ -1,0 +1,3758 @@
+{
+  "disagreement_count": 28,
+  "human_gold": false,
+  "items": [
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.97
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-027a9f746c2c73cf",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.685
+      },
+      "gold_confidence": 0.7,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether the test set was used for model selection.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "\"human_minutes\": 120.0, \"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-06830acec7524eea",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Examine paired item-level outcomes: which baseline errors were fixed and which correct predictions regressed.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "identify the checks that are decision-relevant",
+          "source_ref": "event:1"
+        }
+      ],
+      "packet_id": "packet-09b2595521c08db7",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.93,
+      "gold_evidence": [
+        {
+          "quote": "recommends verifying the supplied deterministic reproduction or item-level differences",
+          "source_ref": "task:criterion:R2"
+        }
+      ],
+      "packet_id": "packet-0a2d5c4a0531d995",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.8500000000000001
+      },
+      "gold_confidence": 0.88,
+      "gold_evidence": [
+        {
+          "quote": "the supplied aggregate scores alone do not establish a meaningful or generalizable improvement over 82.0%",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "a gain of only two correct items",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-0aa3203bc4d9fe9f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": false
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "identify the checks that are decision-relevant",
+          "source_ref": "event:1"
+        },
+        {
+          "quote": "conduct an appropriate paired analysis and report uncertainty from test-set selection",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-0b3148a144683033",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.0,
+        "estimated_human_minutes": 1.0,
+        "estimated_machine_minutes": 0.1
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        }
+      ],
+      "packet_id": "packet-0d521fc6c0342abd",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "approval determines whether the result may be used in the release note",
+          "source_ref": "task:stakes"
+        },
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-0fe99a57da93c846",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.0,
+        "estimated_human_minutes": 1.0,
+        "estimated_machine_minutes": 0.1
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-11951b863387bc53",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "The response recognizes that repeated random-seed runs are not needed for the stated deterministic executions, while allowing a reproducibility rerun or output comparison as a relevant check.",
+          "source_ref": "task:criterion:R1"
+        },
+        {
+          "quote": "Additional random-seed runs are **not necessary**.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-11d07a214c6743b4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "Both programs use fixed inputs, exhaustive evaluation, deterministic operators, and no sampling, randomized initialization, or nondeterministic hardware kernels",
+          "source_ref": "event:1"
+        },
+        {
+          "quote": "Both executions are fully deterministic, so seed repetitions would reproduce the same predictions and provide no information about variability.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-121f71643887ede0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The trajectory proposes a conditional acceptance rule and release-note restriction, but does not show that the gate applied that rule or that the release note was changed.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Accept the improvement claim only if paired evidence and the predefined gate criterion support it; otherwise restrict the release note to the descriptive fixed-test-set result.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-1232c4fcc589e7de",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "Existing helper tests already cover serialization mechanics; route checks should focus on field selection, ordering, headers, and HTTP response metadata.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "{\"compute_cost\": 1.0, \"currency\": \"UNSPECIFIED_NORMALIZED_UNIT\", \"human_minutes\": 30.0, \"machine_minutes\": 1.0}",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-125fcaa115f07301",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.05
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "Do not edit files, run commands, or run tests.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "maintenance planning before any repository mutation",
+          "source_ref": "task:stage"
+        }
+      ],
+      "packet_id": "packet-132ad3c93854d7c7",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.15
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "recommends verifying the supplied deterministic reproduction or item-level differences",
+          "source_ref": "task:criterion:R2"
+        },
+        {
+          "quote": "Check the raw counts: candidate **412/500**, baseline **410/500**—a gain of only two correct items.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-14f03e3fed505283",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": false
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "identify the checks that are decision-relevant",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether the test set was used for model selection.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-1663cb65b62a2850",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "Rewrite the quoted draft as one publication-ready paragraph for the opening of the Contribution section.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-1692e86135555050",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "State whether additional random-seed runs are necessary",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "The response recognizes that repeated random-seed runs are not needed for the stated deterministic executions",
+          "source_ref": "task:criterion:R1"
+        }
+      ],
+      "packet_id": "packet-1711d8e392263157",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.95,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        },
+        {
+          "quote": "Give an accept, revise, or reject recommendation based on decision-relevant findings.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-179e208e1ea2ed37",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 1.0
+      },
+      "gold_confidence": 0.84,
+      "gold_evidence": [
+        {
+          "quote": "recommends verifying the supplied deterministic reproduction or item-level differences",
+          "source_ref": "task:criterion:R2"
+        },
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether the test set was used for model selection.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-19d64f0524b99524",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 1.0,
+      "gold_evidence": [
+        {
+          "quote": "Describe the smallest correct route change and the planned route-level and fixture checks.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-19dba008bbfd60cf",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "src/reporting/csv.ts already exports a tested serializeCsv(headers, rows) helper used by three neighboring report routes; its tests cover commas, doubled quotes, CRLF fields, Unicode, header order, and final CRLF, and the new route's row shape is compatible without conversion beyond selecting id, name, and note.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-1bf03de6e35adc15",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "Additional random-seed runs are **not necessary**. Both executions are fully deterministic, so seed repetitions would reproduce the same predictions and provide no information about variability.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-1c65fa5987e80c6f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.25
+      },
+      "gold_confidence": 0.85,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        }
+      ],
+      "packet_id": "packet-20b5c7cb8321c1df",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.93,
+      "gold_evidence": [
+        {
+          "quote": "Give an accept, revise, or reject recommendation based on decision-relevant findings.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-21974c74297a7cb4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "medium; approval determines whether the result may be used in the release note",
+          "source_ref": "task:stakes"
+        }
+      ],
+      "packet_id": "packet-21a38057f8a57881",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.0,
+        "estimated_human_minutes": 15.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.78,
+      "gold_evidence": [
+        {
+          "quote": "Examine paired item-level outcomes: which baseline errors were fixed and which correct predictions regressed.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-231d608347bdde5c",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "Publication should not require experiments on three additional datasets and two languages.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-24319e0964b07f5c",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "rerunning the supplied commands is documented to produce byte-identical prediction files",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "\"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-277d51bd54b972e4",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.76,
+      "gold_evidence": [
+        {
+          "quote": "Verify byte-identical reruns, ideally using prediction-file hashes.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Confirm identical test items, preprocessing, metric implementation, and evaluation conditions.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-27d75ea26c44c49e",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "State whether additional random-seed runs are necessary, identify the checks that are decision-relevant, and recommend accept, revise, or reject for the gate.",
+          "source_ref": "event:1"
+        }
+      ],
+      "packet_id": "packet-296c376ff6fb7edc",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "recommend accept, revise, or reject for the gate",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        }
+      ],
+      "packet_id": "packet-2a272b1882080b3c",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The response decided that extra datasets and languages were unnecessary but did not give the required accept, revise, or reject recommendation.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "No. Publication should not require experiments on three additional datasets and two languages.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        }
+      ],
+      "packet_id": "packet-2fbe907225aa2d92",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        },
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-321299b683df9337",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 1.0,
+        "estimated_human_minutes": 0.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "{\"compute_cost\": 1.0, \"currency\": \"UNSPECIFIED_NORMALIZED_UNIT\", \"human_minutes\": 2400.0, \"machine_minutes\": 1.0}",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-34576aba0bfafd9b",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.92,
+      "gold_evidence": [
+        {
+          "quote": "Additional random-seed runs are **not necessary**.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "seed repetitions would reproduce the same predictions and provide no information about variability.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-3618081d2169ba08",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.75
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "evaluate whether the evidence supports the stated bounded claim",
+          "source_ref": "task:criterion:C1"
+        },
+        {
+          "quote": "the supplied analysis supports that claim",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-380b79877170ad60",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-3bd03493bf0a8d4d",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "Rewrite the quoted draft as one publication-ready paragraph for the opening of the Contribution section. Return only the replacement paragraph.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-3ecaeb4dfd117662",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The completed response directly assessed the bounded benchmark claim and treated additional datasets and languages as future work rather than publication requirements, visibly satisfying the action and relevant task criteria.",
+        "realized_impact": 3.0,
+        "status": "helped"
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "Additional datasets or languages would test broader cross-domain or multilingual generality that the paper does not assert.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-407e5fb991433d94",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The delivered replacement is one paragraph, leads with the RouteBench release and baseline evaluation, reports the supplied corpus and accuracy facts, and preserves both stated limitations.",
+        "realized_impact": 4.0,
+        "status": "helped"
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Because a single annotator supplied all gold labels, with no second annotation or inter-annotator-agreement measurement, label reliability remains uncertain; moreover, the benchmark provides no evidence about performance on non-English tickets.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-46eeea86565c2ce0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "The response plans a route-level check plus fixtures that demonstrate exact header order, UTF-8 Unicode preservation, RFC 4180 escaping for comma, quote, and CRLF fields, and final CRLF behavior.",
+          "source_ref": "task:criterion:R2"
+        },
+        {
+          "quote": "Compare the complete response body byte-for-byte with the expected UTF-8 CSV output.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-4c365d7e67e1b85a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The checks were proposed but not executed; the response explicitly states that no commands or tests were run.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "No files are edited and no commands or tests are run as part of this proposal.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-4d8eb9ba57bc95be",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.1,
+        "estimated_human_minutes": 15.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.78,
+      "gold_evidence": [
+        {
+          "quote": "Verify deterministic reproduction using prediction-file hashes and confirm identical test items, preprocessing, metric implementation, and evaluation conditions.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "\"human_minutes\": 120.0, \"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-4e171fd7d52ecb9e",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "The response checks whether the 0.4-point delta is computed from comparable predictions on the same 500 items and recommends verifying the supplied deterministic reproduction or item-level differences.",
+          "source_ref": "task:criterion:R2"
+        },
+        {
+          "quote": "Check the raw counts: candidate **412/500**, baseline **410/500**—a gain of only two correct items.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-4efccdec014f9c5a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "The supplied analysis supports that claim",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "\"human_minutes\": 2400.0, \"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-4f0907fca1c770a8",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.95
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        },
+        {
+          "quote": "No. Publication should not require experiments on three additional datasets and two languages.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-4f24ad22587493da",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": false
+      },
+      "gold_confidence": 0.84,
+      "gold_evidence": [
+        {
+          "quote": "Decide whether publication requires experiments on three additional datasets and two languages.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-4fc1b35771ba8cd4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "medium; approval determines whether the result may be used in the release note",
+          "source_ref": "task:stakes"
+        },
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5014504083ba91f6",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.65
+      },
+      "gold_confidence": 0.73,
+      "gold_evidence": [
+        {
+          "quote": "Apply the gate’s predeclared acceptance threshold.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "If the release note implies broader performance improvement, use an appropriate paired analysis (such as McNemar’s test or a paired bootstrap) and report uncertainty due to test-set selection.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-50bc6ee9ce8304b8",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-51b7474f28cf5193",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5284f1d9a714415a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "Additional random-seed runs are **not necessary**.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-54c6140aa7113d61",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "This is the smallest correct change and delegates RFC 4180 escaping, Unicode handling, header ordering, and final CRLF generation to the shared helper.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5579b9a513c314df",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 1.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "Before describing our contribution, we must acknowledge several weaknesses.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-55e43bd42fccfc65",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "Check the raw counts: candidate **412/500**, baseline **410/500**—a gain of only two correct items.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Examine paired item-level outcomes: which baseline errors were fixed and which correct predictions regressed.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5650f1544a68c9ec",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.88,
+      "gold_evidence": [
+        {
+          "quote": "The paper’s claim is explicitly bounded to error patterns in one documented English benchmark, and the supplied analysis supports that claim.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5716b02fd35ba067",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The verification was recommended but no rerun, hash comparison, or condition check is visibly performed in the frozen trajectory.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Verify byte-identical reruns, ideally using prediction-file hashes.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5b1d131d57d02cfd",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "evaluate whether the evidence supports the stated bounded claim",
+          "source_ref": "task:criterion:C1"
+        }
+      ],
+      "packet_id": "packet-5b4b9a580727fbe0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5bf9a71dd23638ba",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-5e4767ec5144ee23",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.84,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        },
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-60951516c544a16e",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 1.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Complete only the requested task within the stated scope and budget.",
+          "source_ref": "task:authorization"
+        }
+      ],
+      "packet_id": "packet-61403341dce5669f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 3.75
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        }
+      ],
+      "packet_id": "packet-61ed495ea2e62d5d",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "No files are edited and no commands or tests are run as part of this proposal.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-6304033772dd28d8",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The response states the derived raw counts, but only recommends examining paired item-level outcomes; no paired validation result is visibly produced.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "Examine paired item-level outcomes: which baseline errors were fixed and which correct predictions regressed.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-63cfaf9caa74f7ae",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Rewrite the quoted draft as one publication-ready paragraph for the opening of the Contribution section.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-65a6b1a59403592a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.925
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "the supplied aggregate scores alone do not establish a meaningful or generalizable improvement over 82.0%.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-66be716da92a1827",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 1.0,
+        "estimated_human_minutes": 25.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.72,
+      "gold_evidence": [
+        {
+          "quote": "Add route-level and fixture checks for response metadata, exact field selection and header order, RFC 4180 escaping, Unicode, final CRLF, and byte-for-byte UTF-8 output.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "\"human_minutes\": 30.0, \"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-69ee69303bd2c41b",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.8999999999999999
+      },
+      "gold_confidence": 0.83,
+      "gold_evidence": [
+        {
+          "quote": "candidate **412/500**, baseline **410/500**—a gain of only two correct items.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "the supplied aggregate scores alone do not establish a meaningful or generalizable improvement over 82.0%.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-6b6dfa1d87c8e9d0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "No files are edited and no commands or tests are run as part of this proposal.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-6d6d8768343e0daa",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "Existing helper tests already cover serialization mechanics; route checks should focus on field selection, ordering, headers, and HTTP response metadata.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "The response plans a route-level check plus fixtures that demonstrate exact header order, UTF-8 Unicode preservation, RFC 4180 escaping for comma, quote, and CRLF fields, and final CRLF behavior.",
+          "source_ref": "task:criterion:R2"
+        }
+      ],
+      "packet_id": "packet-6e0ba3e3efee8e94",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "identify the checks that are decision-relevant",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "recommends verifying the supplied deterministic reproduction or item-level differences.",
+          "source_ref": "task:criterion:R2"
+        }
+      ],
+      "packet_id": "packet-6eddddfb56f9904c",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.88,
+      "gold_evidence": [
+        {
+          "quote": "Decide that publication should depend on rigorous and reproducible benchmark-specific evidence whose scope is accurately reflected throughout the paper.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-7292ebe88feefc9f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The completed response visibly supplied the stated benchmark-specific publication standard, addressing decision-relevant review considerations; no downstream publication effect is shown.",
+        "realized_impact": 2.0,
+        "status": "helped"
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-72b017140c5be134",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.87,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether the test set was used for model selection.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "rerunning the supplied commands is documented to produce byte-identical prediction files",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-749545acce3ee4ce",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.0,
+        "estimated_human_minutes": 5.0,
+        "estimated_machine_minutes": 0.1
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-7623c384b6c35b81",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.89,
+      "gold_evidence": [
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        },
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-76734985aa3d4951",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.5,
+        "estimated_human_minutes": 25.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.88,
+      "gold_evidence": [
+        {
+          "quote": "No files are edited and no commands or tests are run as part of this proposal.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "\"human_minutes\": 30.0, \"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-77bd2597e46dd825",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.84,
+      "gold_evidence": [
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        },
+        {
+          "quote": "Apply the predeclared gate threshold and, if a broader improvement is claimed, conduct an appropriate paired analysis and report uncertainty from test-set selection.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-781106efa2bd4580",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.995
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "Both programs use fixed inputs, exhaustive evaluation, deterministic operators, and no sampling, randomized initialization, or nondeterministic hardware kernels",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "Additional random-seed runs are **not necessary**.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-7a9a5ab843a0b975",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.96
+      },
+      "gold_confidence": 0.93,
+      "gold_evidence": [
+        {
+          "quote": "rerunning the supplied commands is documented to produce byte-identical prediction files",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-7ca83db4aebf95ce",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 3.5
+      },
+      "gold_confidence": 0.88,
+      "gold_evidence": [
+        {
+          "quote": "approval determines whether the result may be used in the release note",
+          "source_ref": "task:stakes"
+        }
+      ],
+      "packet_id": "packet-7fc9a931e1a52e3f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": true,
+        "cost_fraction": 0.2,
+        "description": "Apply the predefined gate threshold and restrict the release note to the descriptive fixed-set result, avoiding paired analysis unless a broader improvement claim is retained.",
+        "exists": true
+      },
+      "gold_confidence": 0.83,
+      "gold_evidence": [
+        {
+          "quote": "otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "If the release note implies broader performance improvement, use an appropriate paired analysis",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-81373ebed9af8b11",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The trajectory only proposes applying the threshold and conducting paired analysis; it shows no execution or results from that analysis.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Apply the predeclared gate threshold and, if a broader improvement is claimed, conduct an appropriate paired analysis and report uncertainty from test-set selection.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-81ea8f7c7381011e",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-84abcc87ff2be1f4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The completed response visibly delivered the requested revise recommendation and conditioned acceptance on paired evidence and the predefined gate criterion.",
+        "realized_impact": 3.0,
+        "status": "helped"
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-87ade9afb45ff956",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": false
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "identify the checks that are decision-relevant",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-89edf4819027b258",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.78,
+      "gold_evidence": [
+        {
+          "quote": "src/reporting/csv.ts already exports a tested serializeCsv(headers, rows) helper used by three neighboring report routes; its tests cover commas, doubled quotes, CRLF fields, Unicode, header order, and final CRLF",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "medium: exported customer data must remain interoperable and correctly escaped",
+          "source_ref": "task:stakes"
+        }
+      ],
+      "packet_id": "packet-8ca456591b16e48e",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.925
+      },
+      "gold_confidence": 0.88,
+      "gold_evidence": [
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        }
+      ],
+      "packet_id": "packet-8ef662a8a036996f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "recommend accept, revise, or reject for the gate.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-8f20266c02cf3256",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.97
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "Prepare a concrete implementation proposal for adding CSV export to src/routes/reportExport.ts",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "maintenance planning before any repository mutation",
+          "source_ref": "task:stage"
+        }
+      ],
+      "packet_id": "packet-905b070f80bc7c51",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "The response plans a route-level check plus fixtures that demonstrate exact header order, UTF-8 Unicode preservation, RFC 4180 escaping for comma, quote, and CRLF fields, and final CRLF behavior.",
+          "source_ref": "task:criterion:R2"
+        },
+        {
+          "quote": "Describe the smallest correct route change and the planned route-level and fixture checks.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-9115cc94404c1d66",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.995
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "{\"compute_cost\": 1.0, \"currency\": \"UNSPECIFIED_NORMALIZED_UNIT\", \"human_minutes\": 30.0, \"machine_minutes\": 1.0}",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-930e166a1ff55595",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.05
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "The supplied analysis supports that claim, and the paper explicitly does not claim cross-domain or multilingual generality.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "treat extra datasets as optional unless a concrete threat invalidates that claim",
+          "source_ref": "task:criterion:C2"
+        }
+      ],
+      "packet_id": "packet-93cce0cbc3412319",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": false
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Do not edit files, run commands, or run tests. Describe proposed work only and do not claim that any change has been made or any check has passed.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-9a60a1affd8a83b0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        }
+      ],
+      "packet_id": "packet-9bcb3089c72ba051",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "treat extra datasets as optional unless a concrete threat invalidates that claim",
+          "source_ref": "task:criterion:C2"
+        }
+      ],
+      "packet_id": "packet-9c43fae2f9d64902",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Decide whether publication requires experiments on three additional datasets and two languages.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-9edff5430bf360e4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-9f9049ea2b6efa8a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "limits new implementation work to report-specific row selection and route wiring",
+          "source_ref": "task:criterion:R1"
+        },
+        {
+          "quote": "This is the smallest correct change",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-9ff4703ccec053e3",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "Complete only the requested task within the stated scope and budget.",
+          "source_ref": "task:authorization"
+        },
+        {
+          "quote": "No. Publication should not require experiments on three additional datasets and two languages.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-a1e317bb32bdf351",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.89,
+      "gold_evidence": [
+        {
+          "quote": "The response recognizes that repeated random-seed runs are not needed for the stated deterministic executions, while allowing a reproducibility rerun or output comparison as a relevant check.",
+          "source_ref": "task:criterion:R1"
+        },
+        {
+          "quote": "Additional random-seed runs are **not necessary**.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-a63a7491e61fdbdf",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.95,
+      "gold_evidence": [
+        {
+          "quote": "If the release note implies broader performance improvement, use an appropriate paired analysis (such as McNemar’s test or a paired bootstrap) and report uncertainty due to test-set selection.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-a7a960ec99d8f35d",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.5
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "Apply the gate’s predeclared acceptance threshold.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-a866b12c10886993",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        }
+      ],
+      "packet_id": "packet-ace2741182823073",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 2.5
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether model selection used this test set.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-ade30eb51226aa36",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.175
+      },
+      "gold_confidence": 0.69,
+      "gold_evidence": [
+        {
+          "quote": "rerunning the supplied commands is documented to produce byte-identical prediction files",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-ae14a5b196ca929a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether model selection used this test set.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-b1fce691e211cda3",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.25
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "Check the raw counts: candidate **412/500**, baseline **410/500**—a gain of only two correct items.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-b2c35e1c8a035df4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "No. Publication should not require experiments on three additional datasets and two languages.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-b3a2cae4f7db80f7",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The completed response directly decided that the extra experiments were not required and identified them as future work, visibly satisfying the action's stated purpose.",
+        "realized_impact": 3.0,
+        "status": "helped"
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-b3dfdcc42b11923e",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The completed decision directly satisfied the task criterion by correctly recognizing that deterministic executions do not benefit from random-seed repetitions, while the response also identified relevant reproducibility checks.",
+        "realized_impact": 3.0,
+        "status": "helped"
+      },
+      "gold_confidence": 0.95,
+      "gold_evidence": [
+        {
+          "quote": "Additional random-seed runs are **not necessary**. Both executions are fully deterministic, so seed repetitions would reproduce the same predictions and provide no information about variability.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-b594db2104aaf28c",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.78,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether the test set was used for model selection.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-b73be841925dc83a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.015
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "Both programs use fixed inputs, exhaustive evaluation, deterministic operators, and no sampling, randomized initialization, or nondeterministic hardware kernels; rerunning the supplied commands is documented to produce byte-identical prediction files.",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-ba5befeb48a55b55",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.675
+      },
+      "gold_confidence": 0.7,
+      "gold_evidence": [
+        {
+          "quote": "The recorded 82.4% result is valid for this fixed test set, but the supplied aggregate scores alone do not establish a meaningful or generalizable improvement over 82.0%.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-bacf60d8820332b6",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.25
+      },
+      "gold_confidence": 0.86,
+      "gold_evidence": [
+        {
+          "quote": "The response checks whether the 0.4-point delta is computed from comparable predictions on the same 500 items and recommends verifying the supplied deterministic reproduction or item-level differences.",
+          "source_ref": "task:criterion:R2"
+        }
+      ],
+      "packet_id": "packet-bc1c56a48ac2504c",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C3",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.83,
+      "gold_evidence": [
+        {
+          "quote": "Verify byte-identical reruns, ideally using prediction-file hashes.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-bd588d18558582b0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-bd6b28e293098e2d",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.96
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "src/reporting/csv.ts already exports a tested serializeCsv(headers, rows) helper used by three neighboring report routes",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "the new route's row shape is compatible without conversion beyond selecting id, name, and note",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-be6d2c3bbb97ba35",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 3.5
+      },
+      "gold_confidence": 0.92,
+      "gold_evidence": [
+        {
+          "quote": "evaluate whether the evidence supports the stated bounded claim",
+          "source_ref": "task:criterion:C1"
+        },
+        {
+          "quote": "The paper’s claim is explicitly bounded to error patterns in one documented English benchmark, and the supplied analysis supports that claim.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-be93bbf2bbcd5630",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 3.25
+      },
+      "gold_confidence": 0.89,
+      "gold_evidence": [
+        {
+          "quote": "limits new implementation work to report-specific row selection and route wiring",
+          "source_ref": "task:criterion:R1"
+        },
+        {
+          "quote": "This is the smallest correct change and delegates RFC 4180 escaping, Unicode handling, header ordering, and final CRLF generation to the shared helper.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-bf0ac3009d77e18e",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 3.0
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "The response plans a route-level check plus fixtures that demonstrate exact header order, UTF-8 Unicode preservation, RFC 4180 escaping for comma, quote, and CRLF fields, and final CRLF behavior.",
+          "source_ref": "task:criterion:R2"
+        },
+        {
+          "quote": "Compare the complete response body byte-for-byte with the expected UTF-8 CSV output.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-bfd41cc7ac95e02d",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.94
+      },
+      "gold_confidence": 0.87,
+      "gold_evidence": [
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "\"human_minutes\": 120.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-c19c1b0479a346b6",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The frozen trajectory contains only an implementation proposal and explicitly states that no files were edited and no tests were run.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "No files are edited and no commands or tests are run as part of this proposal.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Implement the report CSV route by selecting id, name, and note in the required order",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-c3941f3608bff573",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.985
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Decide that experiments on three additional datasets and two languages are not publication requirements and may be suggested as optional future work.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-c5555683a90dcf9c",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "evaluate whether the evidence supports the stated bounded claim",
+          "source_ref": "task:criterion:C1"
+        },
+        {
+          "quote": "Assess that the supplied analysis supports the explicitly bounded error-pattern claim for the documented English benchmark without asserting broader cross-domain or multilingual evidence.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-c7d79d897704f3ba",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.1
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "evaluate whether the evidence supports the stated bounded claim",
+          "source_ref": "task:criterion:C1"
+        },
+        {
+          "quote": "The paper’s claim is explicitly bounded to error patterns in one documented English benchmark, and the supplied analysis supports that claim.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-c8078c7540a86ef2",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.0,
+        "estimated_human_minutes": 45.0,
+        "estimated_machine_minutes": 0.0
+      },
+      "gold_confidence": 0.69,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether the test set was used for model selection.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "\"human_minutes\": 120.0, \"machine_minutes\": 1.0",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-c84ebd683c1bb0c0",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.6000000000000001
+      },
+      "gold_confidence": 0.75,
+      "gold_evidence": [
+        {
+          "quote": "Apply the gate’s predeclared acceptance threshold. If the release note implies broader performance improvement, use an appropriate paired analysis (such as McNemar’s test or a paired bootstrap) and report uncertainty due to test-set selection.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "{\"compute_cost\": 1.0, \"currency\": \"UNSPECIFIED_NORMALIZED_UNIT\", \"human_minutes\": 120.0, \"machine_minutes\": 1.0}",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-c850751a9486f6cc",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 1.0,
+        "estimated_human_minutes": 0.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.85,
+      "gold_evidence": [
+        {
+          "quote": "{\"compute_cost\": 1.0, \"currency\": \"UNSPECIFIED_NORMALIZED_UNIT\", \"human_minutes\": 2400.0, \"machine_minutes\": 1.0}",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-ccecef0d73224431",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "Publication should not require experiments on three additional datasets and two languages.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "treat extra datasets as optional unless a concrete threat invalidates that claim",
+          "source_ref": "task:criterion:C2"
+        }
+      ],
+      "packet_id": "packet-cec8813e45ad7805",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.0,
+        "estimated_human_minutes": 10.0,
+        "estimated_machine_minutes": 0.0
+      },
+      "gold_confidence": 0.74,
+      "gold_evidence": [
+        {
+          "quote": "Accept the improvement claim only if paired evidence and the predefined gate criterion support it; otherwise restrict the release note to the descriptive fixed-test-set result.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "pre-release evidence review",
+          "source_ref": "task:stage"
+        }
+      ],
+      "packet_id": "packet-ceea363dfd3ed477",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.75
+      },
+      "gold_confidence": 0.76,
+      "gold_evidence": [
+        {
+          "quote": "Check the raw counts: candidate **412/500**, baseline **410/500**—a gain of only two correct items.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Examine paired item-level outcomes: which baseline errors were fixed and which correct predictions regressed.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-d2724668c3b2b81c",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": null,
+        "cost_fraction": null,
+        "description": null,
+        "exists": false
+      },
+      "gold_confidence": 0.8,
+      "gold_evidence": [
+        {
+          "quote": "Validate the reported gain by checking raw correct-item counts and examining paired item-level fixes and regressions.",
+          "source_ref": "action:description"
+        }
+      ],
+      "packet_id": "packet-d38ebdfe949eb9bd",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-d476c06ed16d9783",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.93,
+      "gold_evidence": [
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-dc7a327aa5060673",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "observed_result",
+      "gold_answer": {
+        "evidence": "The trajectory only proposes checking test-set integrity, leakage, representativeness, and model-selection use; it reports no execution or results from those checks.",
+        "realized_impact": null,
+        "status": "not_run"
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether model selection used this test set.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-dd21b29b6bcc4fa9",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 2.5
+      },
+      "gold_confidence": 0.82,
+      "gold_evidence": [
+        {
+          "quote": "medium: placement can either obscure the contribution or conceal material interpretive limits",
+          "source_ref": "task:stakes"
+        },
+        {
+          "quote": "Because a single annotator supplied all gold labels, with no second annotation or inter-annotator-agreement measurement, label reliability remains uncertain",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-dd2b2e93d6601c07",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C4",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.55
+      },
+      "gold_confidence": 0.66,
+      "gold_evidence": [
+        {
+          "quote": "Validate the reported gain by checking raw correct-item counts and examining paired item-level fixes and regressions.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "On a fixed 500-item test set, the candidate scores 82.4% and the baseline scores 82.0%",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-e0634991c5f10536",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.965
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "The response gives an accept, revise, or reject recommendation conditioned on the concrete deterministic checks it identifies.",
+          "source_ref": "task:criterion:R3"
+        }
+      ],
+      "packet_id": "packet-e0d669b7ba487568",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "This is the smallest correct change and delegates RFC 4180 escaping, Unicode handling, header ordering, and final CRLF generation to the shared helper.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-e12f947ac55faab2",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "The paragraph leads with the supported contribution—the RouteBench release and baseline evaluation—rather than making readers pass through a limitation preamble.",
+          "source_ref": "task:criterion:R1"
+        }
+      ],
+      "packet_id": "packet-e1721cbd972241eb",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.995
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "give an accept, revise, or reject recommendation based on decision-relevant issues",
+          "source_ref": "task:criterion:C3"
+        }
+      ],
+      "packet_id": "packet-e184e83536f8e585",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.97,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-e2a77c68ac350e11",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "The paper’s claim is explicitly bounded to error patterns in one documented English benchmark, and the supplied analysis supports that claim.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "evaluate whether the evidence supports the stated bounded claim",
+          "source_ref": "task:criterion:C1"
+        }
+      ],
+      "packet_id": "packet-e4d9c27c2b743ef7",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C7",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "outcome_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "Accept only after paired evidence and the predefined gate criterion support the claim; otherwise restrict the release note to the descriptive fixed-set result.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-e53219331171dd90",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.25,
+        "estimated_human_minutes": 30.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.72,
+      "gold_evidence": [
+        {
+          "quote": "Apply the gate’s predeclared acceptance threshold. If the release note implies broader performance improvement, use an appropriate paired analysis (such as McNemar’s test or a paired bootstrap) and report uncertainty due to test-set selection.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-e723415e3deb001b",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_extra_experiment_requirement",
+      "adjudicator_id": "ai-adjudicated:smoke-v2-dimension-adjudicator-c-delta",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 1.0,
+        "estimated_human_minutes": 0.0,
+        "estimated_machine_minutes": 1.0
+      },
+      "gold_confidence": 0.85,
+      "gold_evidence": [
+        {
+          "quote": "{\"compute_cost\": 1.0, \"currency\": \"UNSPECIFIED_NORMALIZED_UNIT\", \"human_minutes\": 2400.0, \"machine_minutes\": 1.0}",
+          "source_ref": "task:budget"
+        }
+      ],
+      "packet_id": "packet-e90a21075f4d6f02",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "decision_impact",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "Publication should instead depend on whether the benchmark-specific evidence is rigorous, reproducible, and accurately reflected in the title, abstract, conclusions, and limitations.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-e9335627bae6e4c9",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C5",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Apply the gate’s predeclared acceptance threshold.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-e9eb5456456d28c0",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.275
+      },
+      "gold_confidence": 0.55,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether model selection used this test set.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-ea8829612d848776",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::set_publication_decision_basis",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.175
+      },
+      "gold_confidence": 0.68,
+      "gold_evidence": [
+        {
+          "quote": "The supplied analysis supports that claim, and the paper explicitly does not claim cross-domain or multilingual generality.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "Additional datasets or languages would test broader cross-domain or multilingual generality that the paper does not assert.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-eba124820545c53f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "user_burden",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Additional random-seed runs are **not necessary**.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-ef33a4bbc60746a4",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "cheaper_substitute",
+      "gold_answer": {
+        "comparable_benefit": true,
+        "cost_fraction": 0.1,
+        "description": "Add a single explicit “Accept” recommendation to the existing benchmark-bounded conclusion, without requiring new datasets or languages.",
+        "exists": true
+      },
+      "gold_confidence": 0.9,
+      "gold_evidence": [
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-ef7af338bfef25b3",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "requested_by_user",
+      "gold_answer": {
+        "value": true
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "State whether additional random-seed runs are necessary",
+          "source_ref": "task:objective"
+        }
+      ],
+      "packet_id": "packet-efd485f3e3ddfe7d",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "feasibility",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.96,
+      "gold_evidence": [
+        {
+          "quote": "**Recommendation: Revise.**",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-f41b85f49fc2eba5",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.99
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "We release RouteBench, a benchmark of exactly 1,200 English customer-support tickets, together with a baseline evaluation that correctly answered 857 items (71.4%).",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Because a single annotator supplied all gold labels, with no second annotation or inter-annotator-agreement measurement, label reliability remains uncertain; moreover, the benchmark provides no evidence about performance on non-English tickets.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-f4b501cb9fbe233a",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+      "trajectory_id": "smoke::staging-v2-audited-w--none--r1--ddc588d6fec4"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C1",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "required_for_task",
+      "gold_answer": {
+        "value": 4.0
+      },
+      "gold_confidence": 0.98,
+      "gold_evidence": [
+        {
+          "quote": "The response reuses src/reporting/csv.ts serializeCsv(headers, rows) and limits new implementation work to report-specific row selection and route wiring.",
+          "source_ref": "task:criterion:R1"
+        },
+        {
+          "quote": "In `src/routes/reportExport.ts`, select each report row’s `id`, `name`, and `note`",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-f505a1c7b45c39cd",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C6",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "opportunity_cost",
+      "gold_answer": {
+        "value": 0.25
+      },
+      "gold_confidence": 0.77,
+      "gold_evidence": [
+        {
+          "quote": "Check test-set integrity, leakage, representativeness, and whether model selection used this test set.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "medium; approval determines whether the result may be used in the release note",
+          "source_ref": "task:stakes"
+        }
+      ],
+      "packet_id": "packet-f7ee41e6c337266f",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8::C2",
+      "adjudicator_id": "ai-adjudicated:smoke-dimension-adjudicator-c-v2",
+      "dimension": "time_cost",
+      "gold_answer": {
+        "actual_human_minutes": null,
+        "actual_machine_minutes": null,
+        "compute_or_money_cost": 0.01,
+        "estimated_human_minutes": 1.0,
+        "estimated_machine_minutes": 0.1
+      },
+      "gold_confidence": 0.76,
+      "gold_evidence": [
+        {
+          "quote": "Additional random-seed runs are **not necessary**. Both executions are fully deterministic, so seed repetitions would reproduce the same predictions and provide no information about variability.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-f8a00d751367a466",
+      "rationale": "Third blind AI resolved a material primary-evaluator disagreement.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-review-seeds-deterministic",
+      "trajectory_id": "smoke::staging-v2-audited-r--none--r1--5206203ad1f8"
+    },
+    {
+      "action_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e::assess_bounded_claim_support",
+      "adjudicator_id": "ai-consensus:smoke-v2-dimension-sol-delta+smoke-v2-dimension-terra-delta",
+      "dimension": "problem_probability",
+      "gold_answer": {
+        "value": 0.05
+      },
+      "gold_confidence": 0.94,
+      "gold_evidence": [
+        {
+          "quote": "The supplied analysis supports that claim, and the paper explicitly does not claim cross-domain or multilingual generality.",
+          "source_ref": "task:objective"
+        },
+        {
+          "quote": "Additional datasets or languages would test broader cross-domain or multilingual generality that the paper does not assert.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-f99ea810111e9fe8",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    },
+    {
+      "action_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343::C2",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.96
+      },
+      "gold_confidence": 0.91,
+      "gold_evidence": [
+        {
+          "quote": "A fixture containing commas, double quotes, CRLF line breaks, and Unicode produces the expected RFC 4180-compatible body.",
+          "source_ref": "event:2"
+        },
+        {
+          "quote": "Compare the complete response body byte-for-byte with the expected UTF-8 CSV output.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-fc9861746bd387bc",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+      "trajectory_id": "smoke::staging-v2-audited-c--none--r1--ad4bfd186343"
+    },
+    {
+      "action_id": "reference::smoke::staging-official-ext--none--r1--f712ee6c9d5e::decide_bounded_paper",
+      "adjudicator_id": "ai-consensus:smoke-dimension-sol-v4+smoke-dimension-terra-v3",
+      "dimension": "success_probability",
+      "gold_answer": {
+        "value": 0.0
+      },
+      "gold_confidence": 0.99,
+      "gold_evidence": [
+        {
+          "quote": "Give an accept, revise, or reject recommendation based on decision-relevant findings.",
+          "source_ref": "action:description"
+        },
+        {
+          "quote": "They may be suggested as future work, not made a condition of acceptance.",
+          "source_ref": "event:2"
+        }
+      ],
+      "packet_id": "packet-fec4118fe08e6d98",
+      "rationale": "Two blind AI evaluators agreed within the dimension-specific consensus rule.",
+      "status": "approved",
+      "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+      "trajectory_id": "smoke::staging-official-ext--none--r1--f712ee6c9d5e"
+    }
+  ],
+  "reference_type": "ai_consensus_dimension_silver",
+  "schema_version": "growing-bench-dimension-silver-1.0"
+}

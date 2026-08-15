@@ -1,0 +1,364 @@
+{
+  "matched_group_count": 17,
+  "pairs": [
+    {
+      "domain": "code",
+      "group_id": "code-native",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-native-gzip-v2",
+          "variant": "built-in-gzip-sufficient"
+        },
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-native-streaming-zip-v2",
+          "variant": "streaming-zip-required"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "code",
+      "group_id": "code-reuse",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-reuse-existing-csv-v2",
+          "variant": "compatible-tested-helper-present"
+        },
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-reuse-missing-csv-v2",
+          "variant": "compatible-helper-absent"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "code",
+      "group_id": "code-safety",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-safety-reviewed-markdown-v2",
+          "variant": "reviewed-version-controlled-source"
+        },
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-safety-untrusted-markdown-v2",
+          "variant": "anonymous-cross-tenant-source"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "code",
+      "group_id": "code-scope",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-scope-incident-authorized-v2",
+          "variant": "incident-actions-explicitly-authorized"
+        },
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-scope-no-incident-authorization-v2",
+          "variant": "incident-actions-not-authorized"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "code",
+      "group_id": "code-skill-fit",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-skill-fit-irrelevant-kubernetes-v2",
+          "variant": "injected-skill-irrelevant"
+        },
+        {
+          "domain": "code",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-code-skill-fit-relevant-urllib3-v2",
+          "variant": "injected-skill-version-compatible"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-baseline",
+      "group_type": "triad",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-baseline-pilot",
+          "variant": "feasibility-decision"
+        },
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-baseline-sota",
+          "variant": "general-superiority-decision"
+        },
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-web_candidates-review-baseline-sota",
+          "variant": "state-of-art-claim"
+        }
+      ],
+      "review_context": "internal",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-ci",
+      "group_type": "triad",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-ci-exploratory",
+          "variant": "sample-scoped-observation"
+        },
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-ci-population",
+          "variant": "population-prevalence-estimate"
+        },
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-web_candidates-review-ci-population",
+          "variant": "population-estimate"
+        }
+      ],
+      "review_context": "internal",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-extra-experiment",
+      "group_type": "singleton",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-official_external_peer-review-extra-experiment-irrelevant",
+          "variant": "irrelevant-extra-dataset"
+        }
+      ],
+      "review_context": "external_peer",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-limitations",
+      "group_type": "singleton",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-official_external_peer-review-limitations-acknowledged",
+          "variant": "bounded-acknowledged-limitation"
+        }
+      ],
+      "review_context": "external_peer",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-mechanism",
+      "group_type": "triad",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-mechanism-causal",
+          "variant": "internal-mechanism-claim"
+        },
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-mechanism-descriptive",
+          "variant": "descriptive-detector-claim"
+        },
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-web_candidates-review-mechanism-causal",
+          "variant": "causal-intervention"
+        }
+      ],
+      "review_context": "internal",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-seeds",
+      "group_type": "triad",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-seeds-deterministic",
+          "variant": "deterministic-execution"
+        },
+        {
+          "domain": "review",
+          "review_context": "internal",
+          "task_id": "staging-v2_audited-review-seeds-stochastic",
+          "variant": "stochastic-execution"
+        },
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-web_candidates-review-seeds-stochastic",
+          "variant": "stochastic-headline"
+        }
+      ],
+      "review_context": "internal",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-sota",
+      "group_type": "singleton",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-official_external_peer-review-sota-unclaimed",
+          "variant": "efficiency-without-sota-claim"
+        }
+      ],
+      "review_context": "external_peer",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "review",
+      "group_id": "review-theory",
+      "group_type": "singleton",
+      "members": [
+        {
+          "domain": "review",
+          "review_context": "external_peer",
+          "task_id": "staging-official_external_peer-review-theory-no-empirical",
+          "variant": "self-contained-theorem"
+        }
+      ],
+      "review_context": "external_peer",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "writing",
+      "group_id": "writing-critic",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-writing-critic-imagined-v2",
+          "variant": "objection-not-raised"
+        },
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-writing-critic-raised-v2",
+          "variant": "documented-decision-relevant-objection"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "writing",
+      "group_id": "writing-hedges",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-writing-hedges-estimate-v2",
+          "variant": "sample-based-population-estimate"
+        },
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-writing-hedges-observed-v2",
+          "variant": "complete-fixed-set-observation"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "writing",
+      "group_id": "writing-limitations",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-writing-limitations-contribution-v2",
+          "variant": "contribution-section-opening"
+        },
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-v2_audited-writing-limitations-limitations-v2",
+          "variant": "limitations-section-paragraph"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    },
+    {
+      "domain": "writing",
+      "group_id": "writing-negation",
+      "group_type": "pair",
+      "members": [
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-web_candidates-writing-negation-supported",
+          "variant": "supported-positive-claim"
+        },
+        {
+          "domain": "writing",
+          "review_context": "not_applicable",
+          "task_id": "staging-web_candidates-writing-negation-unsupported",
+          "variant": "unsupported-causal-claim"
+        }
+      ],
+      "review_context": "not_applicable",
+      "schema_version": "growing-bench-pair-1.0"
+    }
+  ],
+  "schema_version": "growing-bench-pairs-1.0",
+  "task_count": 34
+}

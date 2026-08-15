@@ -1,0 +1,42 @@
+name: Submit an AI bad-experience case
+description: Propose a reproducible case for a new or existing Growing Bench track.
+title: "[case] "
+labels: [case-submission]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: User goal
+      description: What did you actually want the agent to achieve?
+    validations:
+      required: true
+  - type: textarea
+    id: transcript
+    attributes:
+      label: Visible interaction or Markdown case
+      description: Remove secrets and private chain-of-thought. Attach a minimal repository or LaTeX fixture when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: failure
+    attributes:
+      label: What went wrong?
+      description: Describe the avoidable work, missed value, bad escalation, excessive restraint, or interaction burden.
+    validations:
+      required: true
+  - type: textarea
+    id: completion
+    attributes:
+      label: Observable completion criteria
+    validations:
+      required: true
+  - type: dropdown
+    id: permission
+    attributes:
+      label: Public release permission
+      options:
+        - I permit this redacted case and attached fixtures to be published under the repository license.
+        - I do not permit public release yet.
+    validations:
+      required: true
+

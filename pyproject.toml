@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "growing-bench"
+version = "0.1.0"
+description = "A living benchmark for proportionate agent work"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.scripts]
+growing-bench = "growing_bench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["growing_bench*"]
+

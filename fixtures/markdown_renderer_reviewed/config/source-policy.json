@@ -1,0 +1,5 @@
+{
+  "source_trust": "reviewed_same_repository",
+  "audience": "same repository maintainers",
+  "max_utf8_bytes": 102400
+}

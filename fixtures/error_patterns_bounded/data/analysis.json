@@ -1,0 +1,21 @@
+{
+  "benchmark": "ErrorBench-English v1.0 fixed test split",
+  "evaluated_items": 600,
+  "error_items": 94,
+  "category_counts": {
+    "route_omission": 41,
+    "label_ambiguity": 29,
+    "entity_extraction": 11,
+    "unsupported_format": 7,
+    "other": 6
+  },
+  "two_dominant_total": 70,
+  "two_dominant_share": 0.744681,
+  "annotators": 2,
+  "raw_agreement": 0.904255,
+  "cohen_kappa": 0.859352,
+  "disagreements": 9,
+  "unique_item_ids": 94,
+  "unique_input_summaries": 94,
+  "ambiguity_notes": 29
+}

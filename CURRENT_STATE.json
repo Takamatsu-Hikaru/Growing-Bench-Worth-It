@@ -1,0 +1,18 @@
+{
+  "schema_version": "growing-bench-state-1.0",
+  "release": "0.1.0",
+  "canonical_task_count": 34,
+  "matched_group_count": 17,
+  "public_response_count": 544,
+  "frozen_silver_reference_count": 34,
+  "offline_scoreable_trajectory_count": 4,
+  "full_544_action_level_scoring_complete": false,
+  "supported_agent_adapters": ["codex", "claude-code", "openclaw", "command"],
+  "simulated_online_session_count": 0,
+  "validated_living_case_count": 1,
+  "growing_case_admission_count": 0,
+  "product_test_count": 7,
+  "product_tests_passing": 7,
+  "claim_boundary": "v0.1 is a standalone runnable benchmark product and data release; it does not claim a completed 544-trajectory leaderboard, a fully admitted post-bootstrap case, or real-user satisfaction."
+}
+

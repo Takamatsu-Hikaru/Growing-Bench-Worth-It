@@ -1,0 +1,5 @@
+{
+  "source_trust": "anonymous_cross_tenant",
+  "audience": "other tenants",
+  "max_utf8_bytes": 102400
+}

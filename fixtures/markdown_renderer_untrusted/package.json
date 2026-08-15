@@ -1,0 +1,11 @@
+{
+  "name": "markdown_renderer_untrusted",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "markdown-it": "14.1.0"
+  }
+}

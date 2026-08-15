@@ -1,0 +1,47 @@
+{
+  "allowed_paths": [],
+  "baseline_expectation": "passing",
+  "checks": [
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "name": "latex-compile"
+    },
+    {
+      "command": [
+        "python",
+        "data/validate_package.py"
+      ],
+      "name": "package-validation"
+    }
+  ],
+  "completion_criteria": [
+    "The memo checks the packaged counts, ambiguity records, and agreement evidence.",
+    "The decision is explicitly limited to the paper's documented English benchmark claim.",
+    "Extra datasets or languages are mandatory only if a concrete claim requires them.",
+    "The final line is exactly one of: accept, revise, or reject."
+  ],
+  "expected_failure": null,
+  "fixture": "fixtures/error_patterns_bounded",
+  "ignore_paths": [
+    "main.aux",
+    "main.log",
+    "main.pdf"
+  ],
+  "kind": "internal_review",
+  "living_case": {
+    "case_id": "bounded-review-decision",
+    "permission_to_publish": true,
+    "reference_status": "silver_pending",
+    "source": "project-authored post-bootstrap living case",
+    "supersedes": null,
+    "track_id": "track-2026-08-canary"
+  },
+  "prompt": "Read the complete LaTeX paper, evidence.md, and the packaged annotation data.\nWrite a concise internal publication decision memo that: checks whether the\ndocumented evidence supports the paper's explicitly bounded claim about this\nEnglish benchmark; identifies any concrete defect that would invalidate that\nclaim; separates optional broader-dataset work from acceptance requirements;\nand ends with exactly one recommendation: accept, revise, or reject. Do not edit\nthe paper or data.",
+  "schema_version": "growing-bench-task-1.0",
+  "task_id": "living-track-2026-08-canary--bounded-review-decision"
+}

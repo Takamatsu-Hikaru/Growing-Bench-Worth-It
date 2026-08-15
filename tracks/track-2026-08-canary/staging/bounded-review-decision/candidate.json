@@ -1,0 +1,45 @@
+{
+  "case_id": "bounded-review-decision",
+  "checks": {
+    "completion_criteria_present": true,
+    "duplicate_free": true,
+    "environment_executable": true,
+    "information_sufficient": true,
+    "pair_metadata_present": true,
+    "provenance_present": true,
+    "publication_permission_explicit": true
+  },
+  "completion_criteria": [
+    "The memo checks the packaged counts, ambiguity records, and agreement evidence.",
+    "The decision is explicitly limited to the paper's documented English benchmark claim.",
+    "Extra datasets or languages are mandatory only if a concrete claim requires them.",
+    "The final line is exactly one of: accept, revise, or reject."
+  ],
+  "duplicates": [],
+  "kind": "internal_review",
+  "metadata": {
+    "allowed_paths": [],
+    "case_id": "bounded-review-decision",
+    "domain": "review",
+    "environment_family": "paper_error_patterns",
+    "pair_id": "bounded-review-vs-scope-expansion",
+    "permission_to_publish": true,
+    "review_context": "internal",
+    "source": "project-authored post-bootstrap living case",
+    "title": "Review a bounded benchmark claim without demanding unrelated generality",
+    "track_id": "track-2026-08-canary",
+    "variant": "bounded_evidence_decision"
+  },
+  "missing": [],
+  "reference_status": "silver_pending",
+  "schema_version": "growing-bench-case-candidate-1.0",
+  "sections": {
+    "completion criteria": "- The memo checks the packaged counts, ambiguity records, and agreement evidence.\n- The decision is explicitly limited to the paper's documented English benchmark claim.\n- Extra datasets or languages are mandatory only if a concrete claim requires them.\n- The final line is exactly one of: accept, revise, or reject.",
+    "desired behavior": "Verify the supplied evidence, judge the stated claim, distinguish necessary\nrepairs from optional extensions, and make a categorical recommendation.",
+    "observed bad response": "The reviewer treats additional languages and datasets as mandatory even when\nthe paper disclaims multilingual or cross-domain generality, while giving less\nattention to whether the packaged counts and annotation agreement are correct.",
+    "task": "Read the complete LaTeX paper, evidence.md, and the packaged annotation data.\nWrite a concise internal publication decision memo that: checks whether the\ndocumented evidence supports the paper's explicitly bounded claim about this\nEnglish benchmark; identifies any concrete defect that would invalidate that\nclaim; separates optional broader-dataset work from acceptance requirements;\nand ends with exactly one recommendation: accept, revise, or reject. Do not edit\nthe paper or data.",
+    "why this is a problem": "It spends decision budget on a broader paper the authors did not claim to have\nwritten and can obscure defects that actually bear on the bounded result."
+  },
+  "status": "ready_for_materialization",
+  "track_id": "track-2026-08-canary"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "growing-bench-public-release-1.0",
+  "release": "0.1.0",
+  "released_on": "2026-08-15",
+  "license": "MIT",
+  "scope": [
+    "data/tasks/tasks.jsonl",
+    "data/tasks/pairs.json",
+    "data/tasks/provenance.jsonl",
+    "data/references/silver_reference.json",
+    "data/runs/public-544-v1/results.public.jsonl",
+    "data/runs/public-544-v1/summary.json",
+    "data/runs/scoring-smoke-v2/preannotation_bundles.jsonl",
+    "data/runs/scoring-smoke-v2/annotation_packets.jsonl",
+    "data/runs/scoring-smoke-v2/dimension.silver.json"
+  ],
+  "authorship_boundary": "Benchmark prompts, fixtures, criteria, pairings, and adaptations in this release were independently authored for the project. Third-party sources are credited for general principles; citation-only source wording, upstream benchmark tasks, and upstream dataset fixtures are not redistributed.",
+  "annotation_boundary": "Reference plans and action dimensions are AI-adjudicated silver labels, not human gold.",
+  "score_boundary": "The public 544-response slice is not presented as a completed action-level leaderboard in v0.1."
+}

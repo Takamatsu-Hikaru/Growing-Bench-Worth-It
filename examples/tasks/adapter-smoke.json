@@ -1,0 +1,21 @@
+{
+  "schema_version": "growing-bench-task-1.0",
+  "task_id": "adapter-smoke",
+  "kind": "code",
+  "fixture": "fixtures/agent_adapter_smoke",
+  "prompt": "Work in the supplied repository. Create answer.txt containing exactly the word done followed by a newline. Do not change any other file. Run the available check before finishing.",
+  "checks": [
+    {
+      "name": "answer-check",
+      "command": ["python", "check.py"]
+    }
+  ],
+  "ignore_paths": ["__pycache__"],
+  "allowed_paths": ["answer.txt"],
+  "baseline_expectation": "failing",
+  "expected_failure": {
+    "check": "answer-check",
+    "returncode": 1,
+    "contains": "answer.txt is missing"
+  }
+}
