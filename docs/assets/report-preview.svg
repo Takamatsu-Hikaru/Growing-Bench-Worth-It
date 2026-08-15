@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Growing Bench report preview</title>
+  <desc id="desc">A report showing task success, necessary action recall, avoidable human time, low-value actions, and a color-coded action timeline.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <text x="64" y="73" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#17202a">Was the work worth it?</text>
+  <text x="64" y="108" font-family="Arial, sans-serif" font-size="20" fill="#667085">Correctness, missed value, and avoidable cost—shown separately.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(64 145)"><rect width="230" height="116" rx="16" fill="white" stroke="#e4e7ec"/><text x="22" y="50" font-size="34" font-weight="700" fill="#087443">96%</text><text x="22" y="82" font-size="16" fill="#667085">Mean task success</text></g>
+    <g transform="translate(310 145)"><rect width="230" height="116" rx="16" fill="white" stroke="#e4e7ec"/><text x="22" y="50" font-size="34" font-weight="700" fill="#087443">92%</text><text x="22" y="82" font-size="16" fill="#667085">Necessary-action recall</text></g>
+    <g transform="translate(556 145)"><rect width="230" height="116" rx="16" fill="white" stroke="#e4e7ec"/><text x="22" y="50" font-size="34" font-weight="700" fill="#b42318">24 min</text><text x="22" y="82" font-size="16" fill="#667085">Avoidable human time</text></g>
+    <g transform="translate(802 145)"><rect width="150" height="116" rx="16" fill="white" stroke="#e4e7ec"/><text x="22" y="50" font-size="34" font-weight="700" fill="#b42318">4</text><text x="22" y="82" font-size="16" fill="#667085">Low value</text></g>
+    <g transform="translate(968 145)"><rect width="168" height="116" rx="16" fill="white" stroke="#e4e7ec"/><text x="22" y="50" font-size="34" font-weight="700" fill="#b54708">1</text><text x="22" y="82" font-size="16" fill="#667085">Required missed</text></g>
+    <g transform="translate(64 294)"><rect width="1072" height="276" rx="16" fill="white" stroke="#e4e7ec"/><rect width="6" height="276" rx="3" fill="#175cd3"/><text x="30" y="45" font-size="23" font-weight="700" fill="#17202a">Internal review · deterministic seed request</text><text x="30" y="78" font-size="16" fill="#667085">Task succeeded, but two low-value checks added 24 avoidable minutes.</text>
+      <g transform="translate(30 108)"><rect width="104" height="28" rx="14" fill="#ecfdf3"/><text x="16" y="20" font-size="12" font-weight="700" fill="#087443">HIGH VALUE</text><text x="125" y="20" font-size="16" fill="#17202a">Reject unnecessary extra seed runs for deterministic execution.</text></g>
+      <g transform="translate(30 158)"><rect width="94" height="28" rx="14" fill="#fef3f2"/><text x="16" y="20" font-size="12" font-weight="700" fill="#b42318">LOW VALUE</text><text x="115" y="20" font-size="16" fill="#17202a">Broad leakage and representativeness audit without a concrete trigger.</text><text x="115" y="45" font-size="13" fill="#667085">45 human min · net value −0.17 · cheaper targeted check available</text></g>
+      <g transform="translate(30 224)"><rect width="72" height="28" rx="14" fill="#eff8ff"/><text x="14" y="20" font-size="12" font-weight="700" fill="#175cd3">MISSED</text><text x="94" y="20" font-size="16" fill="#17202a">Evidence-linked publication recommendation.</text></g>
+    </g>
+  </g>
+</svg>

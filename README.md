@@ -1,12 +1,14 @@
 # Growing Bench
 
-**A living benchmark for AI behavior that is locally defensible but globally unhelpful.**
+**Correct isn’t enough. Growing Bench evaluates whether an agent completed the task and whether its work justified the time, scope, and interaction cost.**
 
-Growing Bench evaluates whether an agent got the task right **and whether its work was worth the time, scope, and interaction cost**. The first track covers defensive coding, defensive writing, mean internal review, and external peer review. Later model-specific failure modes can be appended as new, versioned tracks without rewriting old results.
+It is a living regression suite for useful, proportionate agent work: work that solves the real problem without defensive scope expansion, mean review behavior, missed high-value actions, or expensive ceremony.
 
-The repository is standalone. ARIS and other skills are interventions you can test; they are not runtime dependencies.
+![Growing Bench report preview](docs/assets/report-preview.svg)
 
-## See the whole pipeline in one command
+The preview uses the checked-in four-context smoke: 96% mean task success, 92% necessary-action recall, 24 avoidable human minutes, four low-value selected actions, and one missed required action. ROI remains available as a secondary diagnostic—not the headline.
+
+## Try it in two minutes
 
 ```bash
 git clone https://github.com/Takamatsu-Hikaru/Growing_Bench.git
@@ -15,69 +17,72 @@ python -m pip install -e .
 python -m growing_bench smoke --output runs/first-look
 ```
 
-The smoke makes no model calls. It recomputes an included four-context ROI sample from frozen AI-consensus labels, then runs a real editable workspace through the generic agent adapter, verifies the change, preserves the trajectory and diff, and renders HTML.
+No model call is made. Open:
 
-Open `runs/first-look/report.html` for the score sample and `runs/first-look/live-adapter/report.html` for the workspace run.
+- `runs/first-look/report.html` for the action-value report;
+- `runs/first-look/live-adapter/report.html` for a real workspace run with checks and diff.
 
-Check which live agents and fixture runtimes are available:
+## A result can be correct and still be bad work
+
+In the deterministic internal-review smoke case, the response reaches the requested decision and correctly rejects pointless extra seed runs. It also proposes broad integrity and representativeness audits without a concrete trigger. The task succeeds, but the action-level evaluation identifies two low-value actions and 24 avoidable human minutes.
+
+That distinction is the project: preserve necessary rigor, then show which additional work changed the outcome and which work merely consumed attention.
+
+## Who should use it
+
+- Agent builders comparing behavior across releases.
+- Skill, prompt, and plugin authors testing whether an intervention actually helps.
+- Teams evaluating coding, writing, internal-review, or peer-review agents.
+- Users who want to turn a frustrating interaction into a reproducible regression case.
+
+## Run your Agent or intervention
 
 ```bash
 python -m growing_bench doctor
-```
 
-## Run a real task
-
-```bash
-# Codex
 python -m growing_bench run path/to/task.json --agent codex --output runs/codex-1
-
-# Claude Code
 python -m growing_bench run path/to/task.json --agent claude-code --output runs/claude-1
-
-# OpenClaw
 python -m growing_bench run path/to/task.json --agent openclaw --output runs/openclaw-1
+
+# Apply any prompt/skill text as an intervention overlay
+python -m growing_bench run path/to/task.json --agent codex \
+  --intervention path/to/SKILL.md --output runs/codex-with-skill
 ```
 
-Each run uses a fresh copy of the fixture and retains the prompt, raw stdout/stderr, final answer, test results, changed paths, unified diff, and normalized `trajectory.jsonl`. Completion requires the expected baseline, passing completion checks, and no edits outside `allowed_paths`.
+Every run uses a fresh fixture copy and retains the visible prompt, final response, raw output, checks, changed paths, diff, timing, and normalized `trajectory.jsonl`. Completion requires the expected baseline, passing post-checks, and no changes outside `allowed_paths`.
 
-The `command` adapter supports any other agent that can be launched as a process. See [Agent adapters](docs/AGENT_ADAPTERS.md).
+Codex, Claude Code, OpenClaw, and arbitrary command-line agents share the same artifact contract. See [Agent adapters](docs/AGENT_ADAPTERS.md).
 
-## Add a bad experience as a new case
-
-Start from [`living/examples/case.md`](living/examples/case.md) or [`living/examples/code_case.md`](living/examples/code_case.md), then run:
+## Add a failure case
 
 ```bash
-python -m growing_bench ingest my-case.md --materialize --validate
+python -m growing_bench init-case my-frustrating-case
+python -m growing_bench ingest my-frustrating-case.md --check
+python -m growing_bench ingest my-frustrating-case.md --materialize --validate
 ```
 
-Preflight checks that the goal and completion criteria are observable, provenance and publication permission are present, the case is not a duplicate, pair metadata is coherent, and the declared repository or LaTeX fixture can actually run. A passing case is added to a new track as `silver_pending`; ingestion never silently creates a benchmark score.
+`--check` writes nothing. It reports missing context, observable completion criteria, provenance, publication permission, duplicates, pair metadata, and fixture readiness. Successful materialization enters a versioned track as `silver_pending`; it does not silently create a score.
 
-## What is included
+You can also use the [bad-experience issue template](https://github.com/Takamatsu-Hikaru/Growing_Bench/issues/new/choose). See [Contributing](CONTRIBUTING.md) for the case contract.
 
-- 34 canonical tasks: 10 code, 8 writing, 8 internal review, 8 external peer review.
-- 17 matched groups with variants and provenance.
-- 544 completed public responses: four interventions, two models, two replicates.
+## What ships in v0.1
+
+- 34 released curated tasks across 17 scenario families: 9 matched pairs, 4 triads, and 4 standalone probes.
+- Code, writing, internal review, and external peer review contexts.
+- 544 public responses from two models, four interventions, and two replicates.
 - 34 AI-adjudicated silver reference plans.
-- Executable repository and LaTeX fixtures.
-- A canonical ROI scorer measuring success, necessary-action recall, missed value, avoidable cost, unnecessary actions, and trajectory value.
-- Hugging Face-ready data export via `python -m growing_bench export-hf`.
+- Real repository and LaTeX fixtures.
+- Action-level task success, necessary-action recall, missed value, avoidable cost, unnecessary actions, cheaper substitutes, and trajectory value.
+- JSON/HTML reports and Hugging Face-ready export.
 
-Canonical data and schemas live under `data/`. The evaluator engine is vendored here; no ARIS checkout is required. `legacy/provisional_roi_demo.py` is retained only as historical demo code and is not called by the public CLI.
+Canonical data and schemas live under [`data/`](data/). Stable task IDs retain their historical `staging-` prefix so existing responses and references do not break; release status is carried explicitly in task metadata.
 
-## Main commands
+## Evidence boundaries and current gaps
 
-| Command | Purpose |
-|---|---|
-| `growing-bench smoke` | Offline, one-command reproducibility path |
-| `growing-bench run` | Execute a materialized task with an agent |
-| `growing-bench judge` | Recompute a frozen evaluated run |
-| `growing-bench report` | Render scored or live-run HTML |
-| `growing-bench ingest` | Append a Markdown case to a versioned track |
-| `growing-bench doctor` | Check installed agents and runtimes |
-| `growing-bench export-hf` | Prepare a Hugging Face Dataset tree |
+- AI consensus is a silver reference, not human gold.
+- The 544 public responses are not yet a completed action-level leaderboard.
+- Simulated interaction sessions and real-user experience claims are not included in v0.1.
+- One post-bootstrap Markdown case is validated; no external community case is yet formally admitted and scored.
+- External peer review excludes interaction-burden scoring.
 
-## Evidence boundary
-
-The included references are AI-adjudicated silver references, not human gold. Interaction metrics from simulated sessions must be named simulated burden, correction count, takeover rate, turns-to-success, or avoidable delay—not real user satisfaction. External peer review excludes interaction-burden scoring. The bundled smoke is a reproducibility demonstration, not a leaderboard claim.
-
-See [Contributing](CONTRIBUTING.md) to submit a case or adapter.
+The authoritative snapshot is [`CURRENT_STATE.md`](CURRENT_STATE.md). For automation, put `--json` before the command, for example `growing-bench --json doctor`.

@@ -7,6 +7,7 @@ import sys
 from typing import Any
 
 from .agents import BUILTIN_AGENTS, probe_agent
+from .paths import DEFAULT_SMOKE_SOURCE
 
 
 def _tool(name: str, version_args: list[str]) -> dict[str, Any]:
@@ -23,17 +24,14 @@ def _tool(name: str, version_args: list[str]) -> dict[str, Any]:
 
 def doctor() -> dict[str, Any]:
     agents = {name: probe_agent(name) for name in BUILTIN_AGENTS}
-    tools = {
-        "node": _tool("node", ["--version"]),
-        "pdflatex": _tool("pdflatex", ["--version"]),
-        "docker": _tool("docker", ["--version"]),
-        "git": _tool("git", ["--version"]),
-    }
+    tools = {"node": _tool("node", ["--version"]), "pdflatex": _tool("pdflatex", ["--version"]), "docker": _tool("docker", ["--version"]), "git": _tool("git", ["--version"])}
+    frozen = ("preannotation_bundles.jsonl", "annotation_packets.jsonl", "dimension.silver.json")
+    smoke_ready = all((DEFAULT_SMOKE_SOURCE / name).is_file() for name in frozen)
     return {
-        "schema_version": "growing-bench-doctor-1.0",
+        "schema_version": "growing-bench-doctor-1.1",
         "python": {"available": sys.version_info >= (3, 10), "version": platform.python_version()},
         "platform": platform.platform(), "agents": agents, "tools": tools,
-        "offline_smoke_ready": sys.version_info >= (3, 10),
+        "offline_smoke_ready": smoke_ready,
+        "offline_smoke_note": "ready" if smoke_ready else "clone the repository to access benchmark data and fixtures",
         "live_agent_count": sum(1 for name, row in agents.items() if name != "command" and row["available"]),
     }
-

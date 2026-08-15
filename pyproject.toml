@@ -5,15 +5,19 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "growing-bench"
 version = "0.1.0"
-description = "A living benchmark for proportionate agent work"
+description = "A living regression suite for useful, proportionate agent work"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
+keywords = ["agents", "evaluation", "benchmark", "alignment", "roi"]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Takamatsu-Hikaru/Growing_Bench"
+Issues = "https://github.com/Takamatsu-Hikaru/Growing_Bench/issues"
 
 [project.scripts]
 growing-bench = "growing_bench.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["growing_bench*"]
-
