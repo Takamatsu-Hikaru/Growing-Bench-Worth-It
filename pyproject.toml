@@ -13,8 +13,8 @@ keywords = ["agents", "evaluation", "benchmark", "alignment", "roi"]
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/Takamatsu-Hikaru/Growing_Bench"
-Issues = "https://github.com/Takamatsu-Hikaru/Growing_Bench/issues"
+Homepage = "https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It"
+Issues = "https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/issues"
 
 [project.scripts]
 growing-bench = "growing_bench.cli:main"
