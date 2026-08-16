@@ -1,0 +1,43 @@
+--- before/src/upload.py
++++ after/src/upload.py
+@@ -1,2 +1,39 @@
++import json
++
++
++_MAX_UPLOAD_BYTES = 4096
++_REQUIRED_FIELDS = {"name", "workers"}
++
++
++def _object_without_duplicates(pairs):
++    result = {}
++    for key, value in pairs:
++        if key in result:
++            raise ValueError(f"duplicate field: {key}")
++        result[key] = value
++    return result
++
++
+ def parse_upload(raw):
+-    raise NotImplementedError('WORKSPACE_TASK_INCOMPLETE')
++    if not isinstance(raw, (bytes, bytearray, memoryview)):
++        raise ValueError("upload must be bytes")
++
++    raw = bytes(raw)
++    if len(raw) > _MAX_UPLOAD_BYTES:
++        raise ValueError("upload exceeds 4096 bytes")
++
++    text = raw.decode("utf-8")
++    config = json.loads(text, object_pairs_hook=_object_without_duplicates)
++
++    if not isinstance(config, dict):
++        raise ValueError("configuration must be a JSON object")
++    if set(config) != _REQUIRED_FIELDS:
++        raise ValueError("configuration must contain only name and workers")
++    if not isinstance(config["name"], str):
++        raise ValueError("name must be a string")
++
++    workers = config["workers"]
++    if type(workers) is not int or not 1 <= workers <= 32:
++        raise ValueError("workers must be an integer from 1 through 32")
++
++    return config

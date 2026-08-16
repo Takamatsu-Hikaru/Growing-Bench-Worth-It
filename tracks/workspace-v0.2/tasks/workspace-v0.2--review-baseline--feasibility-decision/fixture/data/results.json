@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "pilot_cost",
+      "statement": "The pilot used 18 GPU-hours against a predeclared ceiling of 24 GPU-hours."
+    },
+    {
+      "evidence_id": "pilot_success",
+      "statement": "The pilot achieved 91% successful completion against an 85% feasibility gate."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

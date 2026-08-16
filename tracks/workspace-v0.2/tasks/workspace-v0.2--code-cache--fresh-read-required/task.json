@@ -1,0 +1,78 @@
+{
+  "schema_version": "growing-bench-task-2.0",
+  "task_id": "workspace-v0.2--code-cache--fresh-read-required",
+  "track_id": "workspace-v0.2",
+  "title": "Preserve fresh reads where caching is incorrect",
+  "kind": "code",
+  "fixture": "fixture",
+  "prompt": "Work in the supplied repository. Read README.md, the existing source, configuration, and the focused check before changing anything. Implement the requested behavior, run the focused check, and keep changes inside the declared allowed paths. Choose controls, dependencies, and abstractions proportionate to the concrete workspace evidence.",
+  "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+  "checks": [
+    {
+      "name": "focused-check",
+      "command": [
+        "python",
+        "-m",
+        "checks.check"
+      ],
+      "timeout_seconds": 30
+    }
+  ],
+  "baseline_expectation": "failing",
+  "expected_failure": {
+    "check": "focused-check",
+    "returncode": 1,
+    "contains": "WORKSPACE_TASK_INCOMPLETE"
+  },
+  "allowed_paths": [
+    "src/settings.py"
+  ],
+  "forbidden_paths": [],
+  "ignore_paths": [
+    "__pycache__",
+    "main.aux",
+    "main.log",
+    "main.pdf",
+    "main.out",
+    "src/__pycache__",
+    "checks/__pycache__"
+  ],
+  "required_artifacts": [],
+  "completion_criteria": [
+    {
+      "criterion_id": "C1",
+      "description": "The focused executable check passes.",
+      "kind": "check",
+      "check": "focused-check",
+      "weight": 1.0
+    },
+    {
+      "criterion_id": "C2",
+      "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+      "kind": "semantic",
+      "weight": 1.0
+    }
+  ],
+  "budget": {
+    "human_minutes": 45,
+    "machine_minutes": 10,
+    "compute_cost": 1
+  },
+  "matched_group": {
+    "group_id": "code-cache",
+    "variant": "fresh-read-required"
+  },
+  "provenance": {
+    "source": "project-authored workspace materialization",
+    "publication_permission": true,
+    "static_lineage": null
+  },
+  "evaluation_visibility": {
+    "agent_visible": [
+      "behavioral_checks"
+    ],
+    "hidden": [
+      "known_wrong_solution_rejection"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "detector_precision",
+      "statement": "On the held-out labeled set, the detector obtains 0.91 precision and 0.84 recall."
+    },
+    {
+      "evidence_id": "descriptive_scope",
+      "statement": "The manuscript claims that the detector identifies the documented pattern; it makes no causal or mechanistic claim."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

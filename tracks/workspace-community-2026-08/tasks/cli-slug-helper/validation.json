@@ -1,0 +1,25 @@
+{
+  "baseline_checks": [
+    {
+      "name": "focused-check",
+      "passed": false,
+      "returncode": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 203, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\Temp\\growing-bench-living-hqboghmo\\baseline\\checks\\check.py\", line 18, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\Temp\\growing-bench-living-hqboghmo\\baseline\\checks\\check.py\", line 11, in main\n    actual = create_target(label)\n  File \"D:\\Temp\\growing-bench-living-hqboghmo\\baseline\\src\\commands.py\", line 2, in create_target\n    raise NotImplementedError(\"create_target is not implemented\")\nNotImplementedError: create_target is not implemented\n",
+      "stdout": ""
+    }
+  ],
+  "no_op_rejected": true,
+  "reference_checks": [
+    {
+      "name": "focused-check",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "focused check passed\n"
+    }
+  ],
+  "reference_solution_passes": true,
+  "schema_version": "growing-bench-workspace-admission-1.0",
+  "status": "validated",
+  "task_id": "living-workspace-community-2026-08--cli-slug-helper"
+}

@@ -1,0 +1,65 @@
+{
+  "allowed_paths": [
+    "src/commands.py"
+  ],
+  "baseline_expectation": "failing",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "checks.check"
+      ],
+      "name": "focused-check"
+    }
+  ],
+  "completion_criteria": [
+    {
+      "check": "focused-check",
+      "criterion_id": "criterion-01",
+      "description": "The focused check passes for mixed case, surrounding whitespace, and repeated separators.",
+      "kind": "check"
+    },
+    {
+      "criterion_id": "criterion-02",
+      "description": "The implementation follows the repository's existing slug normalization behavior instead of introducing a competing normalization policy.",
+      "kind": "semantic"
+    },
+    {
+      "criterion_id": "criterion-03",
+      "description": "Only `src/commands.py` is changed.",
+      "kind": "semantic"
+    }
+  ],
+  "domain": "code",
+  "expected_failure": {
+    "check": "focused-check",
+    "contains": "create_target is not implemented",
+    "returncode": 1
+  },
+  "family_id": "cli-slug-helper",
+  "fixture": "fixture",
+  "ignore_paths": [
+    "src/__pycache__",
+    "checks/__pycache__"
+  ],
+  "kind": "code",
+  "living_case": {
+    "case_id": "cli-slug-helper",
+    "curation_status": "ai_admitted",
+    "reference_status": "silver_pending",
+    "supersedes": null
+  },
+  "prompt": "Implement `create_target(label)` in `src/commands.py`. It must return `targets/<slug>` for an ordinary non-empty label and follow the repository's existing normalization behavior. Keep the change inside `src/commands.py`; do not add dependencies or redesign the command layer.",
+  "prompt_file": "prompt.md",
+  "reference_solution": "reference",
+  "review_context": "not_applicable",
+  "schema_version": "growing-bench-task-2.0",
+  "source_provenance": {
+    "permission_to_publish": true,
+    "source": "project-authored post-bootstrap living case"
+  },
+  "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+  "track_id": "workspace-community-2026-08",
+  "variant": "standalone"
+}

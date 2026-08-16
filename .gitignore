@@ -7,6 +7,7 @@ __pycache__/
 operator-private/
 *.stdout.log
 *.stderr.log
+*.raw.log
 
 # Local pre-release construction material; not part of the public product.
 /benchmarks/
@@ -35,3 +36,8 @@ operator-private/
 !/data/runs/scoring-smoke-v2/dimension.silver.json
 /tracks/wave-2026-08/
 **/validation.json
+
+/build/
+!/tools/build_workspace_track.py
+!/tracks/workspace-v0.2/validation.json
+!/tracks/workspace-community-2026-08/tasks/cli-slug-helper/validation.json

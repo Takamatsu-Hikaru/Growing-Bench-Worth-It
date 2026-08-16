@@ -1,0 +1,17 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "Across the full fixed workload, the intervention reduces median latency from 180 ms to 121 ms.",
+  "required_concepts": [
+    "180 ms",
+    "121 ms",
+    "reduces"
+  ],
+  "forbidden_claims": [
+    "not claiming",
+    "cannot prove"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

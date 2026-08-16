@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://growing-bench.dev/schemas/score.schema.json",
+  "title": "Growing Bench canonical trajectory score",
+  "type": "object",
+  "required": ["schema_version", "task_id", "trajectory_id", "task_success", "necessary_action_recall", "selected_action_cost", "trajectory_value", "actions"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "task_id": {"type": "string"},
+    "trajectory_id": {"type": "string"},
+    "task_success": {"type": "number", "minimum": 0, "maximum": 1},
+    "necessary_action_recall": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "selected_action_cost": {"type": "number", "minimum": 0},
+    "trajectory_value": {"type": "number"},
+    "avoidable_human_minutes": {"type": "number", "minimum": 0},
+    "actions": {"type": "array", "items": {"type": "object"}}
+  }
+}

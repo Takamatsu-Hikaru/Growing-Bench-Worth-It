@@ -1,0 +1,482 @@
+{
+  "task": {
+    "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+    "domain": "review",
+    "review_context": "external_peer",
+    "mode": "artifact",
+    "objective": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+    "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+    "stage": "workspace execution",
+    "budget": {
+      "compute_cost": 1,
+      "human_minutes": 45,
+      "machine_minutes": 10
+    },
+    "stakes": {
+      "level": "medium",
+      "concrete_harm": "bounded local benchmark fixture"
+    },
+    "completion_criteria": [
+      {
+        "criterion_id": "C1",
+        "description": "The Agent-visible review schema check passes without revealing the target decision.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "C2",
+        "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+        "weight": 1.0
+      }
+    ],
+    "user_experience_applicable": false,
+    "scoring": {
+      "human_time_weight": 0.8,
+      "machine_time_weight": 0.2,
+      "compute_cost_weight": 0.2,
+      "opportunity_cost_weight": 1.0,
+      "user_burden_weight": 1.0,
+      "missed_value_weight": 1.0,
+      "failed_or_reverted_weight": 0.5,
+      "unjustified_defense_penalty": 0.5,
+      "high_value_threshold": 1.0
+    },
+    "matched_group": {
+      "group_id": "review-mechanism",
+      "variant": "causal-intervention"
+    },
+    "provenance": {
+      "publication_permission": true,
+      "source": "project-authored workspace materialization",
+      "static_lineage": null
+    },
+    "artifacts": [
+      "review.json"
+    ]
+  },
+  "trajectory": {
+    "trajectory_id": "workspace-calibration::workspace-calibration-04",
+    "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+    "events": [
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::user",
+        "kind": "artifact",
+        "content": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0001",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Force; rg --files -g \"AGENTS.md\" -g \"*paper*\" -g \"*evidence*\" -g \"verify_evidence.py\" -g \"*.md\" -g \"*.json\" -g \"*.txt\"'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0002",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Recurse -File | Select-Object FullName,Length; Write-Output '--- main.tex ---'; Get-Content -Raw main.tex; Write-Output '--- sections/evidence.tex ---'; Get-Content -Raw sections\\\\evidence.tex; Write-Output '--- evidence.json ---'; Get-Content -Raw evidence.json; Write-Output '--- data/results.json ---'; Get-Content -Raw data\\\\results.json; Write-Output '--- verify_evidence.py ---'; Get-Content -Raw verify_evidence.py; if (Test-Path checks) { Get-ChildItem checks -Recurse -File | ForEach-Object { Write-Output (\\\"--- \\\" + \"'$_.FullName + \" ---\"); Get-Content -Raw -LiteralPath $_.FullName } }'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0003",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw main.tex; Get-Content -Raw sections\\\\evidence.tex; Get-Content -Raw evidence.json; Get-Content -Raw data\\\\results.json; Get-Content -Raw verify_evidence.py; Get-ChildItem checks -Recurse -File | Select-Object FullName,Length\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0004",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem checks -Recurse -File | Select-Object FullName,Length'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0005",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0006",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw sections\\\\evidence.tex\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0007",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw data\\\\results.json\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0008",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw evidence.json'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0009",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw main.tex'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0010",
+        "kind": "assistant",
+        "content": "The paper and package agree on the central issue: a causal title is unsupported by an observational rollout without a valid identification strategy. I��m running the supplied verifier now and will treat correction of that claim as the blocker, with stronger causal evidence as optional future work.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0011",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0012",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -B verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0013",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -B verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0014",
+        "kind": "assistant",
+        "content": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"revise\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"causal_title\\\",\\n    \\\"observational_only\\\"\\n  ],\\n  \\\"required_actions\\\": [\\n    \\\"Revise the title and all causal language to describe an observed association rather than an intervention-caused performance change, because the causal claim in causal_title is unsupported by the observational design documented in observational_only.\\\"\\n  ],\\n  \\\"optional_actions\\\": [\\n    \\\"In future work, use randomized assignment or a valid causal identification strategy if a causal conclusion is desired.\\\"\\n  ],\\n  \\\"rationale\\\": \\\"Revision is required because causal_title makes a causal claim while observational_only establishes that the evidence is observational and supplies neither randomized assignment nor a valid causal identification strategy. This is a decision-blocking overclaim but is potentially correctable by aligning the title and manuscript conclusions with the supported associational evidence; collecting new causal evidence is optional rather than required for a revised associational paper.\\\"\\n}\\n\"}],\"final\":\"Reviewed the complete paper and evidence package. evidence.json exactly matches data/results.json and satisfies the verifier's asserted record conditions for causal_title and observational_only. Direct execution of verify_evidence.py was attempted with Python and py, but the read-only host policy blocked interpreter execution; its checks were therefore evaluated directly from the inspected script and inputs.\"}",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0015",
+        "kind": "artifact",
+        "content": "Applied model-proposed complete contents to review.json",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0016",
+        "kind": "artifact",
+        "content": "Applied 1 allowed model-proposed file(s); temporary Codex home with 95 discovered user/plugin skills explicitly disabled",
+        "duration_ms": 57868.58050000592
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::final",
+        "kind": "assistant",
+        "content": "Reviewed the complete paper and evidence package. evidence.json exactly matches data/results.json and satisfies the verifier's asserted record conditions for causal_title and observational_only. Direct execution of verify_evidence.py was attempted with Python and py, but the read-only host policy blocked interpreter execution; its checks were therefore evaluated directly from the inspected script and inputs.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::post-check::01",
+        "kind": "tool_result",
+        "content": "python checks/check_review.py",
+        "duration_ms": 85.52780000172788
+      },
+      {
+        "event_id": "workspace-v0.2--review-mechanism--causal-intervention::diff",
+        "kind": "artifact",
+        "content": "--- before/review.json\n+++ after/review.json\n@@ -0,0 +1,14 @@\n+{\n+  \"decision\": \"revise\",\n+  \"evidence_ids\": [\n+    \"causal_title\",\n+    \"observational_only\"\n+  ],\n+  \"required_actions\": [\n+    \"Revise the title and all causal language to describe an observed association rather than an intervention-caused performance change, because the causal claim in causal_title is unsupported by the observational design documented in observational_only.\"\n+  ],\n+  \"optional_actions\": [\n+    \"In future work, use randomized assignment or a valid causal identification strategy if a causal conclusion is desired.\"\n+  ],\n+  \"rationale\": \"Revision is required because causal_title makes a causal claim while observational_only establishes that the evidence is observational and supplies neither randomized assignment nor a valid causal identification strategy. This is a decision-blocking overclaim but is potentially correctable by aligning the title and manuscript conclusions with the supported associational evidence; collecting new causal evidence is optional rather than required for a revised associational paper.\"\n+}\n",
+        "duration_ms": null
+      }
+    ],
+    "task_outcome": {
+      "success": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "C1",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        },
+        {
+          "criterion_id": "C2",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        }
+      ]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "workspace-calibration::workspace-calibration-04::A1",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "trajectory_id": "workspace-calibration::workspace-calibration-04",
+      "description": "Recover from blocked bulk reads by separately reviewing the verifier, evidence records, and manuscript",
+      "action_type": "analysis",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Recurse -File | Select-Object FullName,Length; Write-Output '--- main.tex ---'; Get-Content -Raw main.tex;"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw main.tex; Get-Content -Raw sections\\\\evidence.tex; Get-Content -Raw evidence.json; Get-Content -Raw data"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0007",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw data\\\\results.json\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0008",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw evidence.json'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0009",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw main.tex'"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-04::A2",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "trajectory_id": "workspace-calibration::workspace-calibration-04",
+      "description": "Retry blocked verifier execution with multiple additional interpreter forms",
+      "action_type": "verification",
+      "status": "failed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0011",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0012",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -B verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0013",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -B verify_evidence.py'"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-04::A3",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "trajectory_id": "workspace-calibration::workspace-calibration-04",
+      "description": "Issue a revise decision requiring removal of unsupported causal language while making new causal evidence optional",
+      "action_type": "decision",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0014",
+          "quote": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"revise\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"causal_title\\\",\\n    \\\"observational_only\\\"\\n  ],\\n  \\\"required_actions\\\": [\\n    \\\"Revise the title and all causal language to descri"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0015",
+          "quote": "Applied model-proposed complete contents to review.json"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-04::A4",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "trajectory_id": "workspace-calibration::workspace-calibration-04",
+      "description": "Validate the review schema",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::post-check::01",
+          "quote": "python checks/check_review.py"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-04::A1",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-04::A1",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 2.0,
+      "user_burden": null,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Recurse -File | Select-Object FullName,Length; Write-Output '--- main.tex ---'; Get-Content -Raw main.tex;"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw main.tex; Get-Content -Raw sections\\\\evidence.tex; Get-Content -Raw evidence.json; Get-Content -Raw data"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0007",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw data\\\\results.json\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0008",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw evidence.json'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0009",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw main.tex'"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-04::A2",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-04::A2",
+      "problem_probability": 0.5,
+      "success_probability": 0.2,
+      "required_for_task": 0.0,
+      "outcome_impact": 0.0,
+      "decision_impact": 0.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 2.0,
+      "user_burden": null,
+      "cheaper_substitute": {
+        "description": "Use the inspected verifier source and matching records after the first policy rejection.",
+        "cost_fraction": 0.33,
+        "comparable_benefit": true
+      },
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "no_effect",
+        "realized_impact": 0.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0011",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0012",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -B verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0013",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -B verify_evidence.py'"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-04::A3",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-04::A3",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": null,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0014",
+          "quote": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"revise\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"causal_title\\\",\\n    \\\"observational_only\\\"\\n  ],\\n  \\\"required_actions\\\": [\\n    \\\"Revise the title and all causal language to descri"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0015",
+          "quote": "Applied model-proposed complete contents to review.json"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-04::A4",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-04::A4",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 2.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.0014254633333621314,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": null,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-mechanism--causal-intervention::post-check::01",
+          "quote": "python checks/check_review.py"
+        }
+      ]
+    }
+  ],
+  "human_feedback": null
+}

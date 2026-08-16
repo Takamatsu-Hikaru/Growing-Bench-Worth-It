@@ -1,0 +1,1 @@
+Proposed review.json only; author files remain unchanged. Considered the complete manuscript and evidence package, confirmed record parity manually against verify_evidence.py, and inspected the review schema validator. Direct Python execution was blocked by the read-only host policy.

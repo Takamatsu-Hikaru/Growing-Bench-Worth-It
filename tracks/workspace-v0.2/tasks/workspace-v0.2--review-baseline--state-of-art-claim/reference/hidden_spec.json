@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "sota_claim",
+    "missing_current_baseline"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The state-of-the-art claim lacks its decision-relevant comparison.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

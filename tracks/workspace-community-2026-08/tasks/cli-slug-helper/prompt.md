@@ -1,0 +1,1 @@
+Implement `create_target(label)` in `src/commands.py`. It must return `targets/<slug>` for an ordinary non-empty label and follow the repository's existing normalization behavior. Keep the change inside `src/commands.py`; do not add dependencies or redesign the command layer.

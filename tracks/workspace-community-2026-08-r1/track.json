@@ -1,0 +1,13 @@
+{
+  "schema_version": "growing-bench-track-1.0",
+  "track_id": "workspace-community-2026-08-r1",
+  "source_track_id": "workspace-community-2026-08",
+  "status": "frozen_release_candidate",
+  "release": "0.2.0-rc1",
+  "task_count": 1,
+  "task_ids": [
+    "living-workspace-community-2026-08--cli-slug-helper"
+  ],
+  "score_file": "data/releases/living-cli-slug-helper-v1/score.json",
+  "reference_status": "ai_consensus_silver"
+}

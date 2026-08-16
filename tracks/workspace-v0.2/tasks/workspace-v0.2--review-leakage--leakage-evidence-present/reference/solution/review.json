@@ -1,0 +1,10 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "shared_items",
+    "inflated_metric"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "Confirmed train-test overlap invalidates the reported metric."
+}

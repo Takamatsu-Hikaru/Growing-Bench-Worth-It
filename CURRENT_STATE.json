@@ -1,18 +1,48 @@
 {
-  "schema_version": "growing-bench-state-1.1",
-  "release": "0.1.0",
-  "released_task_count": 34,
-  "scenario_family_count": 17,
-  "scenario_family_breakdown": {"pairs": 9, "triads": 4, "singletons": 4},
-  "public_response_count": 544,
-  "frozen_silver_reference_count": 34,
-  "offline_scoreable_trajectory_count": 4,
-  "full_544_action_level_scoring_complete": false,
-  "supported_agent_adapters": ["codex", "claude-code", "openclaw", "command"],
+  "schema_version": "growing-bench-current-state-2.1",
+  "release": "0.2.0-rc1",
+  "release_status": "preview",
+  "workspace_task_count": 50,
+  "workspace_package_admission": {
+    "passed": 50,
+    "failed": 0
+  },
+  "workspace_semantic_evaluation": {
+    "ai_silver_scored": 8,
+    "not_yet_run": 42
+  },
+  "scenario_family_count": 25,
+  "task_breakdown": {
+    "code": 14,
+    "writing": 12,
+    "internal_review": 12,
+    "external_peer_review": 12
+  },
+  "calibration_trajectory_count": 8,
+  "full_model_matrix_complete": false,
+  "static_auxiliary_response_count": 544,
+  "living_admission_count": 1,
+  "living_tracks": [
+    "workspace-community-2026-08-r1"
+  ],
+  "supported_agent_adapters": [
+    "codex",
+    "claude-code",
+    "openclaw",
+    "command"
+  ],
+  "calibration_executor": "codex-read-only-proposal-plus-allowed-host-executor",
   "simulated_online_session_count": 0,
-  "validated_living_case_count": 1,
-  "external_community_case_admission_count": 0,
-  "shipped_product_test_count": 14,
-  "shipped_product_tests_passing": 14,
-  "claim_boundary": "v0.1 is a standalone runnable regression suite and data release; it does not claim a completed 544-trajectory leaderboard, an admitted external community case, or real-user satisfaction."
+  "tests": {
+    "public_ci": {
+      "run": 25,
+      "passed": 25
+    },
+    "local_extended": {
+      "run": 232,
+      "passed": 232
+    }
+  },
+  "integrity_note": "Git versions, track manifests, packet_set_id, and run cards are authoritative; no redundant per-file SHA-256 inventory is maintained.",
+  "claim_boundary": "50/50 packages pass admission; 8/50 tasks have blind AI silver semantic evaluation. This is not a complete model leaderboard, human gold, observed human-cost study, or real-user satisfaction study."
 }

@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "deterministic_ops",
+    "byte_identical"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "extra_random_seeds"
+  ],
+  "rationale": "Deterministic reruns are relevant; random-seed repetition is not."
+}

@@ -1,0 +1,12 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "single_baseline",
+    "bounded_result"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "declare_general_superiority"
+  ],
+  "rationale": "One baseline supports a bounded comparison, not general superiority."
+}

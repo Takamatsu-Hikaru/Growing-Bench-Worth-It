@@ -1,0 +1,10 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "pilot_cost",
+    "pilot_success"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "The pilot meets its predeclared feasibility gate within budget."
+}

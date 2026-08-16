@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "gate_2_points",
+      "statement": "Before evaluation, the team registered a two-point minimum improvement for the release gate."
+    },
+    {
+      "evidence_id": "gain_2_8",
+      "statement": "Comparable fixed-set evaluation shows a 2.8-point improvement."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

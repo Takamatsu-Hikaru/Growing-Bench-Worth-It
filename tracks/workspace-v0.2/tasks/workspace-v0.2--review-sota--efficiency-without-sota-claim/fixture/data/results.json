@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "memory_minus_45",
+      "statement": "Peak memory is 45% lower than the standard open baseline under the supplied profiler."
+    },
+    {
+      "evidence_id": "matched_accuracy",
+      "statement": "The candidate and baseline have matched accuracy within 0.1 points on identical predictions and scoring code."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

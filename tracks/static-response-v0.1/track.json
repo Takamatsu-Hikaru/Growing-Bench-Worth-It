@@ -1,0 +1,12 @@
+{
+  "track_id": "static-response-v0.1",
+  "schema_version": "growing-bench-track-1.0",
+  "kind": "static_response_calibration",
+  "task_count": 34,
+  "response_count": 544,
+  "task_source": "../../data/tasks/tasks.jsonl",
+  "response_source": "../../data/runs/public-544-v1/results.public.jsonl",
+  "workspace_execution": false,
+  "scoreable_as_workspace_benchmark": false,
+  "status": "frozen_auxiliary"
+}

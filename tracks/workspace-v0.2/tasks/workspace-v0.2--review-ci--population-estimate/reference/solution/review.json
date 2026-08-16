@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "sample_400",
+    "population_headline"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "The population headline relies on a finite sample without uncertainty."
+}

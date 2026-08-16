@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "complete_sample",
+    "scoped_claim"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "mandatory_population_ci"
+  ],
+  "rationale": "The claim is explicitly limited to the observed sample."
+}

@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "complete_sample",
+    "scoped_claim"
+  ],
+  "required_actions": [
+    "mandatory_population_ci"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

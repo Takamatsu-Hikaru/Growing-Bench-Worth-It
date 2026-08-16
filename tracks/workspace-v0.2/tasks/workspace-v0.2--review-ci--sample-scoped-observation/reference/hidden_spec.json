@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "complete_sample",
+    "scoped_claim"
+  ],
+  "forbidden_required_actions": [
+    "mandatory_population_ci"
+  ],
+  "reference_rationale": "The claim is explicitly limited to the observed sample.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

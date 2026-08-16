@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "detector_precision",
+    "descriptive_scope"
+  ],
+  "forbidden_required_actions": [
+    "mandatory_causal_mechanism"
+  ],
+  "reference_rationale": "The evidence supports detection without a mechanism claim.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

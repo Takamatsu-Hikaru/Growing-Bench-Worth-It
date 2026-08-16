@@ -1,0 +1,15 @@
+--- before/review.json
++++ after/review.json
+@@ -0,0 +1,12 @@
++{
++  "decision": "accept",
++  "evidence_ids": [
++    "deterministic_ops",
++    "byte_identical"
++  ],
++  "required_actions": [],
++  "optional_actions": [
++    "Optionally archive prediction-file hashes alongside the supplied commands to simplify future reproducibility audits."
++  ],
++  "rationale": "The decision-relevant package consistently reports fixed inputs, exhaustive evaluation, deterministic operators, and no randomized initialization [deterministic_ops], together with byte-identical predictions across reruns for all 500 items [byte_identical]. The packaged records match data/results.json and satisfy the verifier's evidence checks, so no blocking revision is supported by the verified evidence. Archiving hashes would improve audit convenience but is not required for acceptance."
++}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "growing-bench-calibration-slice-1.0",
+  "model": "gpt-5.6-sol",
+  "adapter": "codex-read-only-proposal-plus-allowed-host-executor",
+  "full_model_matrix": false,
+  "task_count": 8,
+  "runs": [
+    {
+      "run": "code-gzip-rc1",
+      "task_id": "workspace-v0.2--code-native--built-in-gzip-sufficient",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 35.543116199994984,
+      "reused": false
+    },
+    {
+      "run": "code-untrusted-parser-rc1",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 44.1882495999962,
+      "reused": false
+    },
+    {
+      "run": "external-bounded-extra-data-rc1",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 51.43961499999568,
+      "reused": false
+    },
+    {
+      "run": "external-causal-claim-rc1",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 58.3046233999994,
+      "reused": false
+    },
+    {
+      "run": "internal-deterministic-rc1",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "status": "completed_silver_judged",
+      "reused": true
+    },
+    {
+      "run": "internal-stochastic-rc1",
+      "task_id": "workspace-v0.2--review-seeds--stochastic-execution",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 63.19146969999565,
+      "reused": false
+    },
+    {
+      "run": "writing-fixed-observation-rc1",
+      "task_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 48.33589639999991,
+      "reused": false
+    },
+    {
+      "run": "writing-population-estimate-rc1",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "status": "completed_silver_judged",
+      "post_checks_passed": true,
+      "allowed_paths_ok": true,
+      "elapsed_seconds": 49.58210929999768,
+      "reused": false
+    }
+  ],
+  "status": "completed_silver_judged",
+  "release": "0.2.0-rc1",
+  "source_mapping": "slice.run-card.json -> private-map.json -> packets.json -> public source-run-map.json",
+  "agent_isolation": "temporary Codex home with every discovered user/plugin SKILL.md disabled"
+}

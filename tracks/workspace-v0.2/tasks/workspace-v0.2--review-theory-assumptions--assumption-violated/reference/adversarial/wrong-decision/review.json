@@ -1,0 +1,10 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "assumption_counterexample",
+    "proof_dependency"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

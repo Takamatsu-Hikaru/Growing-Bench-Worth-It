@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "detector_precision",
+    "descriptive_scope"
+  ],
+  "required_actions": [
+    "mandatory_causal_mechanism"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

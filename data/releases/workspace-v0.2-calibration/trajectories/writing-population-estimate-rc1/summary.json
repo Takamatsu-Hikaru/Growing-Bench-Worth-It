@@ -1,0 +1,83 @@
+{
+  "agent": "command",
+  "agent_result": {
+    "agent": "command",
+    "agent_version": "user-supplied",
+    "artifacts": {
+      "final": "final.md"
+    },
+    "elapsed_seconds": 47.978712899996026,
+    "finished_at": "2026-08-16T10:14:55.336944Z",
+    "model": "gpt-5.6-sol",
+    "reasoning": "high",
+    "returncode": 0,
+    "schema_version": "growing-bench-agent-run-2.0",
+    "started_at": "2026-08-16T10:14:07.358221Z",
+    "status": "completed",
+    "usage": null,
+    "visible_event_count": 17,
+    "executor_contract": "codex-read-only-proposal-plus-allowed-host-executor",
+    "skill_isolation": "temporary Codex home; discovered user/plugin SKILL.md entries disabled"
+  },
+  "allowed_paths_ok": true,
+  "artifacts": {
+    "after_checks": "checks.after.json",
+    "before_checks": "checks.before.json",
+    "diff": "changes.diff",
+    "final": "agent/final.md",
+    "trajectory": "trajectory.jsonl",
+    "workspace": "workspace"
+  },
+  "baseline_expectation_met": true,
+  "changes": {
+    "added": [],
+    "changed_paths": [
+      "sections/target.tex"
+    ],
+    "modified": [
+      "sections/target.tex"
+    ],
+    "removed": []
+  },
+  "criterion_results": [
+    {
+      "criterion_id": "artifact:sections/target.tex",
+      "description": "Required artifact exists: sections/target.tex",
+      "kind": "file_exists",
+      "status": "passed"
+    },
+    {
+      "criterion_id": "C1",
+      "description": "The Agent-visible format check passes without revealing the target claim.",
+      "kind": "check",
+      "status": "passed"
+    },
+    {
+      "criterion_id": "C2",
+      "description": "The LaTeX project compiles.",
+      "kind": "check",
+      "status": "passed"
+    },
+    {
+      "criterion_id": "C3",
+      "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+      "kind": "semantic",
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 49.58210929999768,
+  "intervention": null,
+  "kind": "writing",
+  "machine_completion_passed": true,
+  "model": "gpt-5.6-sol",
+  "post_checks_passed": true,
+  "schema_version": "growing-bench-run-2.0",
+  "semantic_completion_pending": false,
+  "status": "completed_silver_judged",
+  "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+  "title": "Preserve uncertainty for a population estimate",
+  "unexpected_changed_paths": [],
+  "execution_status": "completed_pending_judgment",
+  "evaluation_status": "ai_consensus_silver",
+  "judgment_artifact": "consensus.json#workspace-calibration-08"
+}

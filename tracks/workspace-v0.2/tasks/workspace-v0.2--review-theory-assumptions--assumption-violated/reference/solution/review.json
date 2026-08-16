@@ -1,0 +1,10 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "assumption_counterexample",
+    "proof_dependency"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "A supplied counterexample violates an assumption used by the theorem."
+}

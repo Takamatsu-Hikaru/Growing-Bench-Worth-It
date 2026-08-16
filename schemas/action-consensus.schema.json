@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://growing-bench.dev/schemas/action-consensus.schema.json",
+  "title": "Growing Bench AI-consensus action ledger",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item_id", "semantic_success", "actions", "missed_actions", "confidence"],
+        "properties": {
+          "item_id": {"type": "string"},
+          "semantic_success": {"enum": [0, 0.5, 1]},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "actions": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"$ref": "#/$defs/action"}},
+          "missed_actions": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "action": {
+      "type": "object",
+      "required": ["description", "action_type", "status", "category", "evidence_event_ids", "required_level", "outcome_impact", "decision_impact", "opportunity_cost"],
+      "properties": {
+        "description": {"type": "string"},
+        "action_type": {"type": "string"},
+        "status": {"type": "string"},
+        "category": {"enum": ["necessary_efficient", "necessary_expensive", "avoidable", "optional_conditional", "proposed_not_executed", "failed_reverted", "unresolved"]},
+        "evidence_event_ids": {"type": "array", "items": {"type": "string"}},
+        "required_level": {"type": "number", "minimum": 0, "maximum": 4},
+        "outcome_impact": {"type": "number", "minimum": 0, "maximum": 4},
+        "decision_impact": {"type": "number", "minimum": 0, "maximum": 4},
+        "opportunity_cost": {"type": "number", "minimum": 0, "maximum": 4}
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "On the evaluated English customer-support dialogs, the method improves intent accuracy by 4.2 points; broader customer-service and multilingual generality has not been tested.",
+  "required_concepts": [
+    "English",
+    "4.2",
+    "has not been tested"
+  ],
+  "forbidden_claims": [
+    "all customer-service settings"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

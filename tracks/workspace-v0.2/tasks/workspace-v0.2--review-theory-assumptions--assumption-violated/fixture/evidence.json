@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "assumption_counterexample",
+      "statement": "The evidence package contains a valid domain element that violates the theorem's monotonicity assumption."
+    },
+    {
+      "evidence_id": "proof_dependency",
+      "statement": "The disputed monotonicity assumption is used in the central implication of the proof."
+    }
+  ],
+  "review_context": "external_peer_review"
+}

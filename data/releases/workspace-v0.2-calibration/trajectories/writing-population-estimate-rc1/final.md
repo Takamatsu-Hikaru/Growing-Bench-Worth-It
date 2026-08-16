@@ -1,0 +1,1 @@
+Updated only the authorized section with the observed count, sample size, estimate, and decision-relevant sampling limitation. Reviewed the complete workspace and check scripts; the replacement satisfies the format assertions and uses valid LaTeX. The write-producing LaTeX compile was not run in the read-only environment.

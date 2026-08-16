@@ -1,0 +1,408 @@
+{
+  "schema_version": "growing-bench-workspace-inventory-1.0",
+  "task_count": 50,
+  "tasks": [
+    {
+      "task_id": "workspace-v0.2--code-native--built-in-gzip-sufficient",
+      "kind": "code",
+      "family": "code-native",
+      "variant": "built-in-gzip-sufficient",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--code-native--streaming-zip-required",
+      "kind": "code",
+      "family": "code-native",
+      "variant": "streaming-zip-required",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-reuse--compatible-tested-helper-present",
+      "kind": "code",
+      "family": "code-reuse",
+      "variant": "compatible-tested-helper-present",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-reuse--compatible-helper-absent",
+      "kind": "code",
+      "family": "code-reuse",
+      "variant": "compatible-helper-absent",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-safety--reviewed-version-controlled-source",
+      "kind": "code",
+      "family": "code-safety",
+      "variant": "reviewed-version-controlled-source",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-safety--anonymous-cross-tenant-source",
+      "kind": "code",
+      "family": "code-safety",
+      "variant": "anonymous-cross-tenant-source",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-scope--incident-actions-not-authorized",
+      "kind": "code",
+      "family": "code-scope",
+      "variant": "incident-actions-not-authorized",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-scope--incident-actions-explicitly-authorized",
+      "kind": "code",
+      "family": "code-scope",
+      "variant": "incident-actions-explicitly-authorized",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-skill-fit--injected-skill-irrelevant",
+      "kind": "code",
+      "family": "code-skill-fit",
+      "variant": "injected-skill-irrelevant",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-skill-fit--injected-skill-version-compatible",
+      "kind": "code",
+      "family": "code-skill-fit",
+      "variant": "injected-skill-version-compatible",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-cache--fresh-read-required",
+      "kind": "code",
+      "family": "code-cache",
+      "variant": "fresh-read-required",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-cache--bounded-cache-required",
+      "kind": "code",
+      "family": "code-cache",
+      "variant": "bounded-cache-required",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-parser--trusted-local-config",
+      "kind": "code",
+      "family": "code-parser",
+      "variant": "trusted-local-config",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "kind": "code",
+      "family": "code-parser",
+      "variant": "untrusted-upload",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-critic--documented-objection",
+      "kind": "writing",
+      "family": "writing-critic",
+      "variant": "documented-objection",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-critic--objection-not-raised",
+      "kind": "writing",
+      "family": "writing-critic",
+      "variant": "objection-not-raised",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation",
+      "kind": "writing",
+      "family": "writing-hedges",
+      "variant": "complete-fixed-set-observation",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "kind": "writing",
+      "family": "writing-hedges",
+      "variant": "sample-based-population-estimate",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-limitations--contribution-section-opening",
+      "kind": "writing",
+      "family": "writing-limitations",
+      "variant": "contribution-section-opening",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-limitations--limitations-section-paragraph",
+      "kind": "writing",
+      "family": "writing-limitations",
+      "variant": "limitations-section-paragraph",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-negation--supported-positive-claim",
+      "kind": "writing",
+      "family": "writing-negation",
+      "variant": "supported-positive-claim",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-negation--unsupported-causal-claim",
+      "kind": "writing",
+      "family": "writing-negation",
+      "variant": "unsupported-causal-claim",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-scope--limitation-already-adequate",
+      "kind": "writing",
+      "family": "writing-scope",
+      "variant": "limitation-already-adequate",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-scope--material-limitation-missing",
+      "kind": "writing",
+      "family": "writing-scope",
+      "variant": "material-limitation-missing",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-consistency--local-edit-sufficient",
+      "kind": "writing",
+      "family": "writing-consistency",
+      "variant": "local-edit-sufficient",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--writing-consistency--cross-section-update-required",
+      "kind": "writing",
+      "family": "writing-consistency",
+      "variant": "cross-section-update-required",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-baseline--feasibility-decision",
+      "kind": "internal_review",
+      "family": "review-baseline",
+      "variant": "feasibility-decision",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-baseline--general-superiority-decision",
+      "kind": "internal_review",
+      "family": "review-baseline",
+      "variant": "general-superiority-decision",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-ci--population-prevalence-estimate",
+      "kind": "internal_review",
+      "family": "review-ci",
+      "variant": "population-prevalence-estimate",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-ci--sample-scoped-observation",
+      "kind": "internal_review",
+      "family": "review-ci",
+      "variant": "sample-scoped-observation",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-mechanism--descriptive-detector-claim",
+      "kind": "internal_review",
+      "family": "review-mechanism",
+      "variant": "descriptive-detector-claim",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-mechanism--internal-mechanism-claim",
+      "kind": "internal_review",
+      "family": "review-mechanism",
+      "variant": "internal-mechanism-claim",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "kind": "internal_review",
+      "family": "review-seeds",
+      "variant": "deterministic-execution",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--review-seeds--stochastic-execution",
+      "kind": "internal_review",
+      "family": "review-seeds",
+      "variant": "stochastic-execution",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--review-threshold--below-predeclared-gate",
+      "kind": "internal_review",
+      "family": "review-threshold",
+      "variant": "below-predeclared-gate",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-threshold--above-predeclared-gate",
+      "kind": "internal_review",
+      "family": "review-threshold",
+      "variant": "above-predeclared-gate",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-leakage--leakage-check-clean",
+      "kind": "internal_review",
+      "family": "review-leakage",
+      "variant": "leakage-check-clean",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-leakage--leakage-evidence-present",
+      "kind": "internal_review",
+      "family": "review-leakage",
+      "variant": "leakage-evidence-present",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-baseline--state-of-art-claim",
+      "kind": "external_peer_review",
+      "family": "review-baseline",
+      "variant": "state-of-art-claim",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-ci--population-estimate",
+      "kind": "external_peer_review",
+      "family": "review-ci",
+      "variant": "population-estimate",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "kind": "external_peer_review",
+      "family": "review-extra-experiment",
+      "variant": "irrelevant-extra-dataset",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--review-limitations--bounded-acknowledged-limitation",
+      "kind": "external_peer_review",
+      "family": "review-limitations",
+      "variant": "bounded-acknowledged-limitation",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "kind": "external_peer_review",
+      "family": "review-mechanism",
+      "variant": "causal-intervention",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "T6-ai-silver-calibrated"
+    },
+    {
+      "task_id": "workspace-v0.2--review-seeds--stochastic-headline",
+      "kind": "external_peer_review",
+      "family": "review-seeds",
+      "variant": "stochastic-headline",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-sota--efficiency-without-sota-claim",
+      "kind": "external_peer_review",
+      "family": "review-sota",
+      "variant": "efficiency-without-sota-claim",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-theory--self-contained-theorem",
+      "kind": "external_peer_review",
+      "family": "review-theory",
+      "variant": "self-contained-theorem",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-contamination--concrete-risk-absent",
+      "kind": "external_peer_review",
+      "family": "review-contamination",
+      "variant": "concrete-risk-absent",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-contamination--confirmed-overlap",
+      "kind": "external_peer_review",
+      "family": "review-contamination",
+      "variant": "confirmed-overlap",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-theory-assumptions--assumptions-satisfied",
+      "kind": "external_peer_review",
+      "family": "review-theory-assumptions",
+      "variant": "assumptions-satisfied",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    },
+    {
+      "task_id": "workspace-v0.2--review-theory-assumptions--assumption-violated",
+      "kind": "external_peer_review",
+      "family": "review-theory-assumptions",
+      "variant": "assumption-violated",
+      "package_maturity": "T4-package-admitted",
+      "evaluation_maturity": "not-yet-run"
+    }
+  ],
+  "status": "frozen_release_candidate",
+  "release": "0.2.0-rc1"
+}

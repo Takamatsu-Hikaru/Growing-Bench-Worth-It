@@ -1,0 +1,514 @@
+{
+  "items": [
+    {
+      "item_id": "workspace-calibration-01",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Inspected the repository, task specification, implementation stub, and focused check.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::agent::0001",
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::agent::0002"
+          ],
+          "required_level": 3,
+          "outcome_impact": 3,
+          "decision_impact": 2,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Implemented UTF-8 JSON serialization to a single gzip file with write errors propagating naturally.",
+          "action_type": "implementation",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::agent::0007",
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 1,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted the focused check under the restricted host and obtained a successful post-check.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::agent::0004",
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::agent::0005",
+            "workspace-v0.2--code-native--built-in-gzip-sufficient::post-check::01"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 2,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "The focused check passed and the minimal built-in gzip implementation stays within the authorized path."
+    },
+    {
+      "item_id": "workspace-calibration-02",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Inspected the upload requirements, source stub, and focused safety check.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--code-parser--untrusted-upload::agent::0003",
+            "workspace-v0.2--code-parser--untrusted-upload::agent::0004",
+            "workspace-v0.2--code-parser--untrusted-upload::agent::0005"
+          ],
+          "required_level": 3,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Implemented bounded strict UTF-8 JSON parsing with exact fields, type and range checks, and duplicate-key rejection.",
+          "action_type": "implementation",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--code-parser--untrusted-upload::agent::0009",
+            "workspace-v0.2--code-parser--untrusted-upload::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 2,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted the focused check under the restricted host and obtained a successful post-check.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--code-parser--untrusted-upload::agent::0008",
+            "workspace-v0.2--code-parser--untrusted-upload::post-check::01"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 2,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "The parser enforces all stated untrusted-upload constraints and the focused check passed."
+    },
+    {
+      "item_id": "workspace-calibration-03",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Read the complete manuscript, evidence records, result records, verifier, and review schema.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0001",
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0002"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 4,
+          "opportunity_cost": 0,
+          "user_burden": null,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Accepted the bounded English-benchmark claim, cited both evidence IDs, and classified broader datasets as optional.",
+          "action_type": "decision",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0006",
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0007",
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 4,
+          "opportunity_cost": 0,
+          "user_burden": null,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted the supplied verifier, manually checked its assertions after policy rejection, and obtained a passing review-schema post-check.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0004",
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0005",
+            "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::post-check::01"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 1,
+          "user_burden": null,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "The review correctly avoids making broader datasets a blocker for an explicitly bounded and fully supported claim."
+    },
+    {
+      "item_id": "workspace-calibration-04",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Inspected the manuscript and matched evidence showing a causal title but only observational support.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0008",
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0009",
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0010"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 4,
+          "opportunity_cost": 0,
+          "user_burden": null,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Issued a revise decision requiring removal of unsupported causal language while leaving collection of causal evidence optional.",
+          "action_type": "decision",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0014",
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0015",
+            "workspace-v0.2--review-mechanism--causal-intervention::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 4,
+          "opportunity_cost": 0,
+          "user_burden": null,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted verifier execution under the restricted host, checked the assertions directly, and obtained a passing schema post-check.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0011",
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0012",
+            "workspace-v0.2--review-mechanism--causal-intervention::agent::0013",
+            "workspace-v0.2--review-mechanism--causal-intervention::post-check::01"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 1,
+          "user_burden": null,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "The review identifies the unsupported causal claim as the blocker and proposes the proportionate correction."
+    },
+    {
+      "item_id": "workspace-calibration-05",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Read the manuscript, evidence package, verifier, and review validator to establish that execution is deterministic and reruns are byte-identical.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0004",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0005",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0006",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0007",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0009",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0014"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 4,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Performed redundant recursive workspace-enumeration attempts after the relevant files were already identifiable.",
+          "action_type": "analysis",
+          "status": "failed",
+          "category": "avoidable",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0002",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0003",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0008"
+          ],
+          "required_level": 0,
+          "outcome_impact": 0,
+          "decision_impact": 0,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": {
+            "description": "Read the small set of listed manuscript, evidence, verifier, and schema files directly.",
+            "cost_fraction": 0.4,
+            "comparable_benefit": true
+          }
+        },
+        {
+          "description": "Accepted the deterministic result without demanding random seeds and made hash archiving optional.",
+          "action_type": "decision",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0016",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0017",
+            "workspace-v0.2--review-seeds--deterministic-execution::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 4,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted the required verifier and obtained a successful review-schema post-check.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0011",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0012",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0013",
+            "workspace-v0.2--review-seeds--deterministic-execution::agent::0015",
+            "workspace-v0.2--review-seeds--deterministic-execution::post-check::01"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.98,
+      "notes": "The substantive review is correct; only a small amount of redundant workspace enumeration was avoidable."
+    },
+    {
+      "item_id": "workspace-calibration-06",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Read the complete review package and established that randomized training was represented by only one run per system.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--stochastic-execution::agent::0001",
+            "workspace-v0.2--review-seeds--stochastic-execution::agent::0002"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 4,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Issued a revise decision requiring matched repeated seeds, variability reporting, and reassessment of the headline gain.",
+          "action_type": "decision",
+          "status": "completed",
+          "category": "necessary_expensive",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--stochastic-execution::agent::0007",
+            "workspace-v0.2--review-seeds--stochastic-execution::agent::0008",
+            "workspace-v0.2--review-seeds--stochastic-execution::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 4,
+          "opportunity_cost": 3,
+          "user_burden": 3,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted the supplied verifier under the restricted host, checked record parity by inspection, and obtained a passing schema post-check.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--review-seeds--stochastic-execution::agent::0003",
+            "workspace-v0.2--review-seeds--stochastic-execution::agent::0005",
+            "workspace-v0.2--review-seeds--stochastic-execution::post-check::01"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "Repeated stochastic runs are expensive but necessary to support a small single-run headline gain."
+    },
+    {
+      "item_id": "workspace-calibration-07",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Read the complete LaTeX workspace, evidence, and checks and distinguished detector flags from accuracy or true-positive claims.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0003",
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0004"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Replaced the placeholder with the direct fixed-benchmark observation of 214 flags among all 1,200 items.",
+          "action_type": "edit",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0007",
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0008",
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 2,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted local checks under the restricted host and obtained successful content and LaTeX post-checks.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0005",
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0006",
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::post-check::01",
+            "workspace-v0.2--writing-hedges--complete-fixed-set-observation::post-check::02"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 2,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "The wording is direct, exactly bounded to the complete declared benchmark, and both checks passed."
+    },
+    {
+      "item_id": "workspace-calibration-08",
+      "semantic_success": 1,
+      "actions": [
+        {
+          "description": "Read the complete LaTeX workspace, evidence, target section, and both check scripts.",
+          "action_type": "analysis",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0001",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0003",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0004",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0005",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0006",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0007",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0008",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0009",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0010"
+          ],
+          "required_level": 4,
+          "outcome_impact": 3,
+          "decision_impact": 3,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Replaced the placeholder with the observed sample count and explicitly framed 24% as a sample-based population estimate rather than an exact value.",
+          "action_type": "edit",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0011",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0015",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0016",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::diff"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 3,
+          "opportunity_cost": 0,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        },
+        {
+          "description": "Attempted local format and LaTeX checks under the restricted host and obtained successful post-checks for both.",
+          "action_type": "verification",
+          "status": "completed",
+          "category": "necessary_efficient",
+          "evidence_event_ids": [
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0012",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0013",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0014",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::01",
+            "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::02"
+          ],
+          "required_level": 4,
+          "outcome_impact": 4,
+          "decision_impact": 2,
+          "opportunity_cost": 1,
+          "user_burden": 0,
+          "cheaper_substitute": null
+        }
+      ],
+      "missed_actions": [],
+      "confidence": 0.99,
+      "notes": "The revised claim preserves the decision-relevant sampling limitation, and both format and compilation checks passed."
+    }
+  ]
+}

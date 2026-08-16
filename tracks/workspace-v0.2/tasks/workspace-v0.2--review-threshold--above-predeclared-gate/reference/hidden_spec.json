@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "gate_2_points",
+    "gain_2_8"
+  ],
+  "forbidden_required_actions": [
+    "invent_higher_gate"
+  ],
+  "reference_rationale": "The result clears the declared gate under comparable evaluation.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

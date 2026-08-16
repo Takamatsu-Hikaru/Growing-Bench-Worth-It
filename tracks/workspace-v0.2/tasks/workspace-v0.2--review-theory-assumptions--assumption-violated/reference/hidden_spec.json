@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "reject",
+  "required_evidence_ids": [
+    "assumption_counterexample",
+    "proof_dependency"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "A supplied counterexample violates an assumption used by the theorem.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "mechanism_claim",
+    "no_intervention"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The paper claims an internal mechanism without decision-relevant evidence.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

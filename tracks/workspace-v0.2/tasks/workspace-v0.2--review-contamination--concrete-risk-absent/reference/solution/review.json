@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "new_private_test",
+    "collection_after_training"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "open_ended_contamination_audit"
+  ],
+  "rationale": "The documented collection boundary addresses the concrete risk."
+}

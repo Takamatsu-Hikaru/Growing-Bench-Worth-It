@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "new_private_test",
+    "collection_after_training"
+  ],
+  "required_actions": [
+    "open_ended_contamination_audit"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

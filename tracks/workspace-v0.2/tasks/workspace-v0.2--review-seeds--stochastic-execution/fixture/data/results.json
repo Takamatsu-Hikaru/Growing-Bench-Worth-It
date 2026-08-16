@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "random_init",
+      "statement": "Training uses randomized initialization and shuffled minibatches."
+    },
+    {
+      "evidence_id": "single_run",
+      "statement": "The headline 0.8-point gain comes from one training run for each system."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

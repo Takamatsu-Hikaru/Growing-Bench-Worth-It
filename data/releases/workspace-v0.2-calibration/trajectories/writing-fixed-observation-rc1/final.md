@@ -1,0 +1,1 @@
+Replaced the placeholder with a direct, benchmark-bounded flag rate. Inspected the complete workspace and check scripts; the proposed content satisfies the static format assertions and has valid LaTeX syntax. Execution was blocked by the read-only host, and pdflatex was not run because it writes build artifacts.

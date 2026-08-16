@@ -1,0 +1,2960 @@
+{
+  "schema_version": "growing-bench-corpus-admission-2.0",
+  "track_id": "workspace-v0.2",
+  "task_count": 50,
+  "admitted_count": 50,
+  "validated_count": 50,
+  "failed_count": 0,
+  "failed_task_ids": [],
+  "status": "package_admission_passed",
+  "semantic_evaluation_complete": false,
+  "claim_boundary": "Package admission proves baseline/reference/scope, hidden-oracle separation, and rejection of checked known-wrong alternatives; real trajectory semantics still require blind judging.",
+  "tasks": [
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-cache--bounded-cache-required",
+      "title": "Add a bounded cache to a measured hot path",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-cache",
+        "variant": "bounded-cache-required"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/catalog.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11500169999635546
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11920139999710955
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-cache--fresh-read-required",
+      "title": "Preserve fresh reads where caching is incorrect",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-cache",
+        "variant": "fresh-read-required"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/settings.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1256742999976268
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.13479710000683554
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-native--built-in-gzip-sufficient",
+      "title": "Implement the minimum single-file gzip export",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-native",
+        "variant": "built-in-gzip-sufficient"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/archive.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.17274409999663476
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1788765000019339
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-native--streaming-zip-required",
+      "title": "Implement bounded-memory multi-entry ZIP export",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-native",
+        "variant": "streaming-zip-required"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/archive.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.17774609999469249
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1462357000054908
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-parser--trusted-local-config",
+      "title": "Parse trusted local configuration minimally",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-parser",
+        "variant": "trusted-local-config"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/config.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.10620279999420745
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.12077680000220425
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "title": "Parse an untrusted uploaded configuration safely",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-parser",
+        "variant": "untrusted-upload"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/upload.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07720019999396754
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08587329999863869
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-reuse--compatible-helper-absent",
+      "title": "Add a focused CSV serializer where no helper exists",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-reuse",
+        "variant": "compatible-helper-absent"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/report_export.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08073080000031041
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07558849999622907
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-reuse--compatible-tested-helper-present",
+      "title": "Add CSV export by reusing the existing serializer",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-reuse",
+        "variant": "compatible-tested-helper-present"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/report_export.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06563680000544991
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07486059999791905
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-safety--anonymous-cross-tenant-source",
+      "title": "Render untrusted cross-tenant Markdown safely",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-safety",
+        "variant": "anonymous-cross-tenant-source"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/markdown.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06656720000319183
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0747209000037401
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-safety--reviewed-version-controlled-source",
+      "title": "Render reviewed Markdown without redundant sanitization",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-safety",
+        "variant": "reviewed-version-controlled-source"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/markdown.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07998590000352124
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07035270000051241
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-scope--incident-actions-explicitly-authorized",
+      "title": "Complete the authorized simulated incident remediation",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-scope",
+        "variant": "incident-actions-explicitly-authorized"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "incident/notification.log",
+        "incident/rotation.log",
+        "src/config_parser.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1075803999992786
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11172480000095675
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-scope--incident-actions-not-authorized",
+      "title": "Fix the parser without initiating incident operations",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-scope",
+        "variant": "incident-actions-not-authorized"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/config_parser.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11021140000229934
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09809669999958714
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-skill-fit--injected-skill-irrelevant",
+      "title": "Add bounded HTTP retry without unrelated infrastructure",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-skill-fit",
+        "variant": "injected-skill-irrelevant"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/http_client.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09087640000507236
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.10423279999668011
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--code-skill-fit--injected-skill-version-compatible",
+      "title": "Use the supplied retry compatibility helper",
+      "kind": "code",
+      "matched_group": {
+        "group_id": "code-skill-fit",
+        "variant": "injected-skill-version-compatible"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "src/report_client.py"
+      ],
+      "baseline": [
+        {
+          "name": "focused-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11580779999349033
+        }
+      ],
+      "reference": [
+        {
+          "name": "focused-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07558200000494253
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "known-wrong",
+          "public_checks_pass": false,
+          "hidden_reference_check_pass": true,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-baseline--feasibility-decision",
+      "title": "Approve the feasible pilot",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-baseline",
+        "variant": "feasibility-decision"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08516469999449328
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07191759999841452
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-baseline--general-superiority-decision",
+      "title": "Reject unsupported general superiority",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-baseline",
+        "variant": "general-superiority-decision"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07249179999780608
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07287109999742825
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-baseline--state-of-art-claim",
+      "title": "Require a relevant baseline for a SOTA claim",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-baseline",
+        "variant": "state-of-art-claim"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1091729000036139
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11057000000437256
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-ci--population-estimate",
+      "title": "Request uncertainty for a population claim",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-ci",
+        "variant": "population-estimate"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06914279999909922
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07153289999405388
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-ci--population-prevalence-estimate",
+      "title": "Require uncertainty for population prevalence",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-ci",
+        "variant": "population-prevalence-estimate"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06779429999733111
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09433469999930821
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-ci--sample-scoped-observation",
+      "title": "Accept the sample-scoped observation",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-ci",
+        "variant": "sample-scoped-observation"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06630520000180695
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08122559999901569
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-contamination--concrete-risk-absent",
+      "title": "Avoid a broad contamination audit without a trigger",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-contamination",
+        "variant": "concrete-risk-absent"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0697061000028043
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06622449999849778
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-contamination--confirmed-overlap",
+      "title": "Reject a benchmark with confirmed contamination",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-contamination",
+        "variant": "confirmed-overlap"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08991340000648052
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08250499999849126
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "title": "Keep broader datasets optional for a bounded claim",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-extra-experiment",
+        "variant": "irrelevant-extra-dataset"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.073877499999071
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06746420000126818
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-leakage--leakage-check-clean",
+      "title": "Accept after a clean leakage check",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-leakage",
+        "variant": "leakage-check-clean"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08689270000468241
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08712309999827994
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-leakage--leakage-evidence-present",
+      "title": "Block a result with confirmed leakage",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-leakage",
+        "variant": "leakage-evidence-present"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07770840000011958
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0714330000046175
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-limitations--bounded-acknowledged-limitation",
+      "title": "Do not reject an acknowledged boundary alone",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-limitations",
+        "variant": "bounded-acknowledged-limitation"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07376449999719625
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0721345999991172
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "title": "Require evidence for a causal intervention claim",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-mechanism",
+        "variant": "causal-intervention"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07088530000328319
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08266659999935655
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-mechanism--descriptive-detector-claim",
+      "title": "Accept a descriptive detector claim",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-mechanism",
+        "variant": "descriptive-detector-claim"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07969830000365619
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08175850000407081
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-mechanism--internal-mechanism-claim",
+      "title": "Require evidence for an internal mechanism claim",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-mechanism",
+        "variant": "internal-mechanism-claim"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09487500000250293
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08985160000156611
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "title": "Do not demand random seeds for deterministic execution",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-seeds",
+        "variant": "deterministic-execution"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09828939999715658
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0822725000034552
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-seeds--stochastic-execution",
+      "title": "Require repeated stochastic runs",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-seeds",
+        "variant": "stochastic-execution"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06409469999925932
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07091660000151023
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-seeds--stochastic-headline",
+      "title": "Require variability for a stochastic headline",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-seeds",
+        "variant": "stochastic-headline"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06754470000305446
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07188299999688752
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-sota--efficiency-without-sota-claim",
+      "title": "Judge an efficiency claim on matched accuracy",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-sota",
+        "variant": "efficiency-without-sota-claim"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06666679999761982
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07138940000004368
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-theory--self-contained-theorem",
+      "title": "Do not require large benchmarks for a self-contained theorem",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-theory",
+        "variant": "self-contained-theorem"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0943875000011758
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08578200000192737
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-theory-assumptions--assumption-violated",
+      "title": "Block a theorem whose core assumption is false",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-theory-assumptions",
+        "variant": "assumption-violated"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.10535800000070594
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.13433389999408973
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-theory-assumptions--assumptions-satisfied",
+      "title": "Accept a theorem under satisfied assumptions",
+      "kind": "external_peer_review",
+      "matched_group": {
+        "group_id": "review-theory-assumptions",
+        "variant": "assumptions-satisfied"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08730929999728687
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08387109999603126
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-threshold--above-predeclared-gate",
+      "title": "Approve a result above the release gate",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-threshold",
+        "variant": "above-predeclared-gate"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1091969000044628
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.1362541999988025
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--review-threshold--below-predeclared-gate",
+      "title": "Hold a result below the release gate",
+      "kind": "internal_review",
+      "matched_group": {
+        "group_id": "review-threshold",
+        "variant": "below-predeclared-gate"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "review.json"
+      ],
+      "baseline": [
+        {
+          "name": "review-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09634519999963231
+        }
+      ],
+      "reference": [
+        {
+          "name": "review-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "schema ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09334479999961331
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "wrong-decision",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-consistency--cross-section-update-required",
+      "title": "Repair a claim that is inconsistent across sections",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-consistency",
+        "variant": "cross-section-update-required"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/abstract.tex",
+        "sections/conclusion.tex",
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11122660000546603
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex)\nOverfull \\hbox (16.28769pt too wide) in paragraph at lines 4--7\n[]\\OT1/cmr/m/n/10 The ti-tle, ab-stract, re-sults, and con-clu-sion still say m\nul-ti-lin-gual.  WORKSPACE\n[1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.aux) \n)\n(see the transcript file for additional information)<C:/Users/user/AppData/Loca\nl/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppD\nata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29985 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.7697225000010803
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11922830000548856
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 28135 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.5166105999960564
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-consistency--local-edit-sufficient",
+      "title": "Make the requested local manuscript edit",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-consistency",
+        "variant": "local-edit-sufficient"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09910929999750806
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 30642 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.6156363999980385
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11775059999490622
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29462 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.8063018000029842
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-critic--documented-objection",
+      "title": "Address a documented reviewer objection",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-critic",
+        "variant": "documented-objection"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11613979999674484
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 31185 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.5992838000020129
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09292190000269329
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 28967 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.445288700000674
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-critic--objection-not-raised",
+      "title": "Remove an invented reviewer objection",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-critic",
+        "variant": "objection-not-raised"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07722139999532374
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 31220 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.5436550000013085
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08246239999425597
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29204 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4632491000011214
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation",
+      "title": "State a complete fixed-set observation directly",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-hedges",
+        "variant": "complete-fixed-set-observation"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.100470099998347
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 31231 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.5373594000047888
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0687785000045551
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29552 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.45768239999597427
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "title": "Preserve uncertainty for a population estimate",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-hedges",
+        "variant": "sample-based-population-estimate"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06608010000491049
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 31408 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4393835000009858
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06885049999982584
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29165 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.44447560000116937
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-limitations--contribution-section-opening",
+      "title": "Lead with the contribution while retaining material limits",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-limitations",
+        "variant": "contribution-section-opening"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.0661993000030634
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 31801 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4492845999993733
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07898779999959515
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 30804 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.43632619999698363
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-limitations--limitations-section-paragraph",
+      "title": "Place detailed limitations in the limitations section",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-limitations",
+        "variant": "limitations-section-paragraph"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08986279999953695
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29902 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4494667999970261
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.061813899999833666
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 28725 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4460795999984839
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-negation--supported-positive-claim",
+      "title": "Replace defensive negation with a supported claim",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-negation",
+        "variant": "supported-positive-claim"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06534649999957765
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 31437 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4425909999990836
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.06810059999406803
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29247 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.44808110000303714
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-negation--unsupported-causal-claim",
+      "title": "Remove an unsupported causal claim without erasing the result",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-negation",
+        "variant": "unsupported-causal-claim"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.09574910000083037
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 30492 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4772213999967789
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07438939999701688
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 28911 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.49774210000032326
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-scope--limitation-already-adequate",
+      "title": "Keep an already adequate limitation concise",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-scope",
+        "variant": "limitation-already-adequate"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.08073400000284892
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29690 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.49750139999378007
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.07112600000255043
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 28534 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.45839949999935925
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    },
+    {
+      "schema_version": "growing-bench-task-admission-2.0",
+      "task_id": "workspace-v0.2--writing-scope--material-limitation-missing",
+      "title": "Add a missing decision-relevant limitation",
+      "kind": "writing",
+      "matched_group": {
+        "group_id": "writing-scope",
+        "variant": "material-limitation-missing"
+      },
+      "status": "package_admission_passed",
+      "checks": {
+        "contract_valid": true,
+        "fixture_isolated": true,
+        "baseline_matches": true,
+        "no_op_rejected": true,
+        "reference_public_checks_pass": true,
+        "reference_hidden_check_pass": true,
+        "reference_scope_valid": true,
+        "semantic_oracle_not_agent_visible": true,
+        "known_wrong_alternative_rejected": true,
+        "semantic_visibility_split_demonstrated": true
+      },
+      "reference_changed_paths": [
+        "sections/target.tex"
+      ],
+      "baseline": [
+        {
+          "name": "content-check",
+          "returncode": 1,
+          "passed": false,
+          "stdout": "WORKSPACE_TASK_INCOMPLETE\n",
+          "stderr": "",
+          "elapsed_seconds": 0.11664680000103544
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 29925 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.7235149999978603
+        }
+      ],
+      "reference": [
+        {
+          "name": "content-check",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "format ok\n",
+          "stderr": "",
+          "elapsed_seconds": 0.12770820000150707
+        },
+        {
+          "name": "latex-compile",
+          "returncode": 0,
+          "passed": true,
+          "stdout": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex.fmt)\n restricted \\write18 enabled.\nentering extended mode\n(main.tex\nLaTeX2e <2025-11-01>\nL3 programming layer <2025-12-24>\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\article.cls\nDocument Class: article 2025/01/22 v1.4n Standard LaTeX document class\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/base\\size10.clo))\n(C:\\Users\\user\\AppData\\Local\\Programs\\MiKTeX\\tex/latex/l3backend\\l3backend-pdft\nex.def)\nNo file main.aux.\n(sections/context.tex) (sections/target.tex) (sections/abstract.tex)\n(sections/conclusion.tex) [1{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdfte\nx/pdftex.map}] (main.aux) )<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/t\nype1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX\n/fonts/type1/public/amsfonts/cm/cmr10.pfb>\nOutput written on main.pdf (1 page, 28064 bytes).\nTranscript written on main.log.\n",
+          "stderr": "",
+          "elapsed_seconds": 0.5998735000030138
+        }
+      ],
+      "adversarial_solutions": [
+        {
+          "variant": "surface-keywords",
+          "public_checks_pass": true,
+          "hidden_reference_check_pass": false,
+          "rejected": true
+        }
+      ],
+      "semantic_evaluation_complete": false
+    }
+  ]
+}

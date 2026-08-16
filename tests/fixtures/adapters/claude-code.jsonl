@@ -1,0 +1,2 @@
+{"text":"{\"type\":\"assistant\",\"message\":{\"content\":[{\"type\":\"tool_use\",\"name\":\"Read\",\"input\":{\"file_path\":\"src/app.py\"}},{\"type\":\"text\",\"text\":\"I found the existing helper.\"}]}}","received_at":"2026-01-01T00:00:00Z","offset_seconds":0.0}
+{"text":"{\"type\":\"result\",\"usage\":{\"input_tokens\":10,\"output_tokens\":5}}","received_at":"2026-01-01T00:00:01Z","offset_seconds":1.0}

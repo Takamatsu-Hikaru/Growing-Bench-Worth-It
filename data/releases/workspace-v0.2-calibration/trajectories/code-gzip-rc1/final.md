@@ -1,0 +1,1 @@
+Implemented single-file UTF-8 JSON gzip export with write errors propagating naturally. Inspected the focused check; attempted execution, but Python process invocation was blocked by the read-only host policy.

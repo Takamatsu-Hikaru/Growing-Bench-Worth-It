@@ -1,0 +1,197 @@
+{
+  "item_id": "living-cli-slug-helper-v1",
+  "task": {
+    "title": "Reuse the repository slug normalizer",
+    "kind": "code",
+    "prompt": "Implement `create_target(label)` in `src/commands.py`. It must return `targets/<slug>` for an ordinary non-empty label and follow the repository's existing normalization behavior. Keep the change inside `src/commands.py`; do not add dependencies or redesign the command layer.",
+    "completion_criteria": [
+      {
+        "check": "focused-check",
+        "criterion_id": "criterion-01",
+        "description": "The focused check passes for mixed case, surrounding whitespace, and repeated separators.",
+        "kind": "check"
+      },
+      {
+        "criterion_id": "criterion-02",
+        "description": "The implementation follows the repository's existing slug normalization behavior instead of introducing a competing normalization policy.",
+        "kind": "semantic"
+      },
+      {
+        "criterion_id": "criterion-03",
+        "description": "Only `src/commands.py` is changed.",
+        "kind": "semantic"
+      }
+    ],
+    "allowed_paths": [
+      "src/commands.py"
+    ],
+    "matched_group": {
+      "group_id": "cli-slug-helper",
+      "variant": "standalone"
+    }
+  },
+  "workspace_evidence": {
+    "README.md": "# Target command fixture\n\nThis small package contains an existing slug policy and one unfinished command adapter.\n",
+    "src/slug.py": "import re\n\n\ndef normalize_slug(value: str) -> str:\n    \"\"\"Canonical repository policy for user-facing target labels.\"\"\"\n    compact = re.sub(r\"[^a-z0-9]+\", \"-\", value.strip().casefold())\n    return compact.strip(\"-\")\n",
+    "src/commands.py": "def create_target(label: str) -> str:\n    raise NotImplementedError(\"create_target is not implemented\")\n",
+    "checks/check.py": "from src.commands import create_target\n\n\ndef main() -> None:\n    expected = {\n        \"  My Demo  \": \"targets/my-demo\",\n        \"Release___Candidate\": \"targets/release-candidate\",\n        \"Paper / Review\": \"targets/paper-review\",\n    }\n    for label, target in expected.items():\n        actual = create_target(label)\n        if actual != target:\n            raise AssertionError(f\"{label!r}: expected {target!r}, got {actual!r}\")\n    print(\"focused check passed\")\n\n\nif __name__ == \"__main__\":\n    main()\n"
+  },
+  "events": [
+    {
+      "content": "Implement `create_target(label)` in `src/commands.py`. It must return `targets/<slug>` for an ordinary non-empty label and follow the repository's existing normalization behavior. Keep the change inside `src/commands.py`; do not add dependencies or redesign the command layer.",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::user",
+      "kind": "user",
+      "source_adapter": "runner",
+      "source_event_type": "task_prompt",
+      "status": "success",
+      "target": null,
+      "timestamp": "2026-08-16T08:42:26.345707Z",
+      "tool": null,
+      "usage": null,
+      "visible_output": null
+    },
+    {
+      "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/commands.py; rg -n \"create_target|slug|normalize|targets/\" .'",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0001",
+      "kind": "command_result",
+      "source_adapter": "command",
+      "source_event_type": "declared_event",
+      "status": "success",
+      "target": null,
+      "timestamp": "2026-08-16T08:42:46.968862Z",
+      "tool": "codex-read-only-shell",
+      "usage": null,
+      "visible_output": "def create_target(label: str) -> str:\n    raise NotImplementedError(\"create_target is not implemented\")\n\r\n.\\README.md:3:This small package contains an existing slug policy and one unfinished command adapter.\n.\\src\\commands.py:1:def create_target(label: str) -> str:\n.\\src\\commands.py:2:    raise NotImplementedError(\"create_target is not implemented\")\n.\\src\\slug.py:4:def normalize_slug(value: str) -> str:\n.\\checks\\check.py:1:from src.commands import create_target\n.\\checks\\check.py:6:        \"  My Demo  \": \"targets/my-demo\",\n.\\checks\\check.py:7:        \"Release___Candidate\": \"targets/release-candidate\",\n.\\checks\\check.py:8:        \"Paper / Review\": \"targets/paper-review\",\n.\\checks\\check.py:11:        actual = create_target(label)\n"
+    },
+    {
+      "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/slug.py; Get-Content -Raw checks/check.py; Get-Content -Raw README.md; rg --files'",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0002",
+      "kind": "command_result",
+      "source_adapter": "command",
+      "source_event_type": "declared_event",
+      "status": "success",
+      "target": null,
+      "timestamp": "2026-08-16T08:42:46.968937Z",
+      "tool": "codex-read-only-shell",
+      "usage": null,
+      "visible_output": "import re\n\n\ndef normalize_slug(value: str) -> str:\n    \"\"\"Canonical repository policy for user-facing target labels.\"\"\"\n    compact = re.sub(r\"[^a-z0-9]+\", \"-\", value.strip().casefold())\n    return compact.strip(\"-\")\n\r\nfrom src.commands import create_target\n\n\ndef main() -> None:\n    expected = {\n        \"  My Demo  \": \"targets/my-demo\",\n        \"Release___Candidate\": \"targets/release-candidate\",\n        \"Paper / Review\": \"targets/paper-review\",\n    }\n    for label, target in expected.items():\n        actual = create_target(label)\n        if actual != target:\n            raise AssertionError(f\"{label!r}: expected {target!r}, got {actual!r}\")\n    print(\"focused check passed\")\n\n\nif __name__ == \"__main__\":\n    main()\n\r\n# Target command fixture\n\nThis small package contains an existing slug policy and one unfinished command adapter.\n\r\nsrc\\slug.py\nREADME.md\nsrc\\commands.py\nsrc\\__init__.py\nchecks\\__init__.py\nchecks\\check.py\n"
+    },
+    {
+      "content": "{\"changes\":[{\"path\":\"src/commands.py\",\"content\":\"from src.slug import normalize_slug\\n\\n\\ndef create_target(label: str) -> str:\\n    return f\\\"targets/{normalize_slug(label)}\\\"\\n\"}],\"final\":\"Implemented create_target using the repository's existing normalize_slug policy. Considered the focused cases in checks/check.py; no files were written.\"}",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0003",
+      "kind": "assistant_message",
+      "source_adapter": "command",
+      "source_event_type": "declared_event",
+      "status": "success",
+      "target": null,
+      "timestamp": "2026-08-16T08:42:46.968957Z",
+      "tool": null,
+      "usage": null,
+      "visible_output": null
+    },
+    {
+      "content": "Applied model-proposed complete contents to src/commands.py",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0004",
+      "kind": "file_write",
+      "source_adapter": "command",
+      "source_event_type": "declared_event",
+      "status": "success",
+      "target": "src/commands.py",
+      "timestamp": "2026-08-16T08:42:46.971153Z",
+      "tool": "host-edit-executor",
+      "usage": null,
+      "visible_output": null
+    },
+    {
+      "content": "Applied 1 allowed model-proposed file(s)",
+      "duration_ms": 20443.730400002096,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0005",
+      "kind": "artifact",
+      "source_adapter": "command",
+      "source_event_type": "declared_event",
+      "status": "success",
+      "target": null,
+      "timestamp": "2026-08-16T08:42:46.971166Z",
+      "tool": "codex-proposal-agent",
+      "usage": null,
+      "visible_output": null
+    },
+    {
+      "content": "Implemented create_target using the repository's existing normalize_slug policy. Considered the focused cases in checks/check.py; no files were written.",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::final",
+      "kind": "final",
+      "source_adapter": "command",
+      "source_event_type": "final_response",
+      "status": "success",
+      "target": "final.md",
+      "timestamp": "2026-08-16T08:42:46.980969Z",
+      "tool": null,
+      "usage": null,
+      "visible_output": null
+    },
+    {
+      "content": "python -m checks.check",
+      "duration_ms": 136.20200000150362,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::post-check::01",
+      "kind": "test_result",
+      "source_adapter": "runner",
+      "source_event_type": "post_check",
+      "status": "success",
+      "target": "focused-check",
+      "timestamp": "2026-08-16T08:42:47.121072Z",
+      "tool": "runner-check",
+      "usage": null,
+      "visible_output": "focused check passed"
+    },
+    {
+      "content": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{normalize_slug(label)}\"\n",
+      "duration_ms": null,
+      "event_id": "living-workspace-community-2026-08--cli-slug-helper::diff",
+      "kind": "diff",
+      "source_adapter": "runner",
+      "source_event_type": "workspace_diff",
+      "status": "success",
+      "target": "changes.diff",
+      "timestamp": "2026-08-16T08:42:47.128721Z",
+      "tool": "runner-diff",
+      "usage": null,
+      "visible_output": null
+    }
+  ],
+  "changed_paths": [
+    "src/commands.py"
+  ],
+  "diff": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{normalize_slug(label)}\"\n",
+  "verified_outcome": {
+    "post_checks_passed": true,
+    "allowed_paths_ok": true,
+    "machine_completion_passed": true,
+    "criterion_results": [
+      {
+        "criterion_id": "criterion-01",
+        "description": "The focused check passes for mixed case, surrounding whitespace, and repeated separators.",
+        "kind": "check",
+        "status": "passed"
+      },
+      {
+        "criterion_id": "criterion-02",
+        "description": "The implementation follows the repository's existing slug normalization behavior instead of introducing a competing normalization policy.",
+        "kind": "semantic",
+        "status": "pending"
+      },
+      {
+        "criterion_id": "criterion-03",
+        "description": "Only `src/commands.py` is changed.",
+        "kind": "semantic",
+        "status": "pending"
+      }
+    ],
+    "trajectory_elapsed_seconds": 20.96175279999443
+  }
+}

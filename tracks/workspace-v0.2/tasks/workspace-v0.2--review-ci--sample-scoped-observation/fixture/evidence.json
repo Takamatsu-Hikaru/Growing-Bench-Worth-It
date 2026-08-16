@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "complete_sample",
+      "statement": "The analysis reports all 300 items in the declared exploratory sample rather than extrapolating to production."
+    },
+    {
+      "evidence_id": "scoped_claim",
+      "statement": "The proposed release note says only that 72 of the 300 inspected dialogs contain the pattern."
+    }
+  ],
+  "review_context": "internal_review"
+}

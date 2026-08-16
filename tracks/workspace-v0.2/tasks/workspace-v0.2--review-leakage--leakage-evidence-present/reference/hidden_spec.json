@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "reject",
+  "required_evidence_ids": [
+    "shared_items",
+    "inflated_metric"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "Confirmed train-test overlap invalidates the reported metric.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

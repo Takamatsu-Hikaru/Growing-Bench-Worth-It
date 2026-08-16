@@ -1,0 +1,53 @@
+{
+  "schema_version": "growing-bench-source-run-map-1.0",
+  "items": [
+    {
+      "item_id": "workspace-calibration-01",
+      "run_name": "code-gzip-rc1",
+      "task_id": "workspace-v0.2--code-native--built-in-gzip-sufficient",
+      "trajectory": "trajectories/code-gzip-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-02",
+      "run_name": "code-untrusted-parser-rc1",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "trajectory": "trajectories/code-untrusted-parser-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-03",
+      "run_name": "external-bounded-extra-data-rc1",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "trajectory": "trajectories/external-bounded-extra-data-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-04",
+      "run_name": "external-causal-claim-rc1",
+      "task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+      "trajectory": "trajectories/external-causal-claim-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-05",
+      "run_name": "internal-deterministic-rc1",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "trajectory": "trajectories/internal-deterministic-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-06",
+      "run_name": "internal-stochastic-rc1",
+      "task_id": "workspace-v0.2--review-seeds--stochastic-execution",
+      "trajectory": "trajectories/internal-stochastic-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-07",
+      "run_name": "writing-fixed-observation-rc1",
+      "task_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation",
+      "trajectory": "trajectories/writing-fixed-observation-rc1/trajectory.jsonl"
+    },
+    {
+      "item_id": "workspace-calibration-08",
+      "run_name": "writing-population-estimate-rc1",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "trajectory": "trajectories/writing-population-estimate-rc1/trajectory.jsonl"
+    }
+  ]
+}

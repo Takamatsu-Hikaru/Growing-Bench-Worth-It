@@ -1,0 +1,17 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "We release RouteBench, a benchmark of 1,200 English customer-support tickets, with a baseline that answers 857 items correctly (71.4%). Because one annotator supplied all labels and non-English settings were not evaluated, label reliability and cross-language generality remain open limitations.",
+  "required_concepts": [
+    "1,200",
+    "857",
+    "71.4%",
+    "one annotator"
+  ],
+  "forbidden_claims": [
+    "state of the art"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

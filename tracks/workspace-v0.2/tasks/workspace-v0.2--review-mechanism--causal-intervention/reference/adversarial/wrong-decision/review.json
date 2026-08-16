@@ -1,0 +1,10 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "causal_title",
+    "observational_only"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

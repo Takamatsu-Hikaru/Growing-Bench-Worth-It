@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "sample_400",
+      "statement": "The prevalence result comes from a random sample of 400 records from a much larger population."
+    },
+    {
+      "evidence_id": "population_headline",
+      "statement": "The title presents the sample proportion as the prevalence in the full population without uncertainty."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

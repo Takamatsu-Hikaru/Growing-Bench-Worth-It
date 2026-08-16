@@ -1,0 +1,9 @@
+{
+  "facts": [
+    "The intervention reduced median latency from 180 ms to 121 ms over the full fixed workload.",
+    "No causal mechanism is claimed."
+  ],
+  "authorized_targets": [
+    "sections/target.tex"
+  ]
+}

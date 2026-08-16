@@ -1,0 +1,9 @@
+--- before/src/commands.py
++++ after/src/commands.py
+@@ -1,2 +1,5 @@
++from src.slug import normalize_slug
++
++
+ def create_target(label: str) -> str:
+-    raise NotImplementedError("create_target is not implemented")
++    return f"targets/{normalize_slug(label)}"

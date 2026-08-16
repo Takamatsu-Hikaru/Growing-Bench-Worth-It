@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "reject",
+  "required_evidence_ids": [
+    "gate_2_points",
+    "gain_1_2"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The gain is below the predeclared release threshold.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

@@ -1,0 +1,9 @@
+{
+  "facts": [
+    "The contribution has already been introduced.",
+    "All labels came from one annotator and no non-English data were tested."
+  ],
+  "authorized_targets": [
+    "sections/target.tex"
+  ]
+}

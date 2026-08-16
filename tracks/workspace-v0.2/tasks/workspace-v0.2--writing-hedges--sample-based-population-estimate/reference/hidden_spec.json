@@ -1,0 +1,17 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "In a random sample of 300 production dialogs, 72 contained the pattern, giving an estimated prevalence of 24%; sampling uncertainty limits claims about the full population.",
+  "required_concepts": [
+    "300",
+    "72",
+    "24%",
+    "sampling uncertainty"
+  ],
+  "forbidden_claims": [
+    "all production dialogs"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

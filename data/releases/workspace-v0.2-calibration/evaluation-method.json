@@ -1,0 +1,36 @@
+{
+  "schema_version": "growing-bench-evaluation-method-1.1",
+  "packet_set_id": "workspace-v0.2-calibration-rc1-source-map-fix",
+  "task_count": 8,
+  "executor": "codex-read-only-proposal-plus-allowed-host-executor",
+  "agent_isolation": "temporary Codex home; all discovered user/plugin SKILL.md entries disabled; plugin features disabled",
+  "blind_evaluators": [
+    {
+      "role": "evaluator-a",
+      "model": "gpt-5.6-sol",
+      "artifact": "evaluator-a.json"
+    },
+    {
+      "role": "evaluator-b",
+      "model": "gpt-5.6-terra",
+      "artifact": "evaluator-b.json"
+    },
+    {
+      "role": "adjudicator-c",
+      "model": "gpt-5.6-sol",
+      "artifact": "consensus.json"
+    }
+  ],
+  "judge_isolation": "same temporary-home and disabled-skill contract as the Agent runs",
+  "reference_status": "ai_consensus_silver",
+  "scoring_status": "deterministic_silver_diagnostic_with_imputed_priors",
+  "scoring_assumptions": {
+    "problem_probability": "imputed from required_level (1.0 for levels 3-4; otherwise 0.5)",
+    "estimated_machine_minutes": "0.1-minute diagnostic prior; measured linked durations are recorded separately",
+    "action_origin": "reference when required_level is 3-4; otherwise agent",
+    "missing_avoidable_substitute": "generic 0.5-cost comparable substitute used only when the silver label omitted one",
+    "claim": "deterministic silver diagnostic, not observed human cost or human gold"
+  },
+  "full_model_matrix": false,
+  "raw_logs_published": false
+}

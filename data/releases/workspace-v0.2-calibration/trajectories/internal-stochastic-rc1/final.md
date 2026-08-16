@@ -1,0 +1,1 @@
+Reviewed the complete paper and evidence package. The packaged records match exactly and satisfy the verifier assertions by inspection; direct execution of verify_evidence.py was attempted with bytecode disabled but was blocked by the read-only host policy.

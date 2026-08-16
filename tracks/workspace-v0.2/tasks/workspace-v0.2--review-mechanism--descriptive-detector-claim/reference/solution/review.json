@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "detector_precision",
+    "descriptive_scope"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "mandatory_causal_mechanism"
+  ],
+  "rationale": "The evidence supports detection without a mechanism claim."
+}

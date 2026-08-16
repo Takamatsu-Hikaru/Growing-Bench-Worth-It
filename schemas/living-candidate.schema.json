@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://growing-bench.dev/schemas/living-candidate.schema.json",
+  "title": "Growing Bench portable living candidate",
+  "type": "object",
+  "required": ["schema_version", "case_id", "track_id", "kind", "metadata", "completion_criteria", "checks", "status"],
+  "properties": {
+    "schema_version": {"const": "growing-bench-workspace-candidate-2.0"},
+    "case_id": {"type": "string"},
+    "track_id": {"type": "string"},
+    "kind": {"enum": ["code", "writing", "internal_review", "external_peer_review"]},
+    "metadata": {"type": "object"},
+    "completion_criteria": {"type": "array", "items": {"type": "string"}},
+    "checks": {"type": "object"},
+    "missing": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["ready_for_ai_curation", "needs_curation"]}
+  }
+}

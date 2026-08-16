@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://growing-bench.local/schemas/trajectory.schema.json",
+  "title": "Growing Bench visible trajectory event",
+  "type": "object",
+  "required": ["event_id", "kind", "timestamp", "source_adapter"],
+  "properties": {
+    "event_id": {"type": "string"},
+    "kind": {
+      "enum": [
+        "user", "assistant_message", "file_read", "search", "tool_call",
+        "command_start", "command_result", "test_result", "compile_result",
+        "file_write", "patch", "artifact", "user_interaction", "final", "diff"
+      ]
+    },
+    "timestamp": {"type": "string", "format": "date-time"},
+    "duration_ms": {"type": ["number", "null"], "minimum": 0},
+    "tool": {"type": ["string", "null"]},
+    "target": {"type": ["string", "null"]},
+    "status": {"enum": ["started", "success", "failure", "timeout", "unknown", null]},
+    "content": {"type": ["string", "null"]},
+    "visible_output": {"type": ["string", "null"]},
+    "usage": {"type": ["object", "null"]},
+    "source_adapter": {"enum": ["codex", "claude-code", "openclaw", "command", "runner"]},
+    "source_event_type": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

@@ -1,19 +1,19 @@
 # Current state
 
-Growing Bench v0.1 is independently runnable and ready for early users.
-
-| Surface | Status |
+| Surface | Current evidence |
 |---|---:|
-| Released curated tasks | 34 |
-| Scenario families | 17: 9 pairs, 4 triads, 4 singletons |
-| Public model responses | 544 |
-| Frozen AI-consensus reference plans | 34/34 |
-| Offline scored smoke trajectories | 4 |
-| Agent adapters | Codex, Claude Code, OpenClaw, custom command |
-| New Markdown cases validated through the living pipeline | 1 |
-| External community cases fully admitted and scored | 0 |
-| Shipped product tests | 14/14 passing |
-| Full 544 action-level scoring | Not completed |
-| Simulated online sessions | Not yet included |
+| Release | v0.2.0-rc1 preview |
+| Workspace packages | 50 |
+| Package admission | 50/50 passed; 0 failed |
+| Blind AI silver semantic evaluation | 8/50 tasks |
+| Scenario families | 25 |
+| Task contexts | 14 code / 12 writing / 12 internal review / 12 external peer review |
+| Full model matrix | not run |
+| Static auxiliary responses | 544 (separate `static-response-v0.1`) |
+| Post-bootstrap living cases admitted and scored | 1 |
+| Public CI suite | 25/25 passing |
+| Local extended regression suite | 232/232 passing |
 
-The v0.1 claim is deliberately narrow: the repository provides a standalone living regression suite, real workspace execution, a canonical action-value scorer, an offline reproducibility path, a public response slice, and a versioned case-ingestion path. It does not yet publish a 544-trajectory leaderboard or claim real-user satisfaction.
+All 50 packages pass environment, baseline, reference, scope, oracle-leakage, and known-wrong-solution admission checks. This does **not** mean all 50 have complete semantic model evaluation: the public scored calibration is 8/50. Those trajectories use a Codex read-only proposal plus allowed-path host executor. AI references are silver, and the ROI includes explicitly documented diagnostic imputations rather than observed human labor.
+
+Git versions, track manifests, packet-set IDs, and run cards are authoritative. No redundant per-file SHA-256 inventory is maintained.

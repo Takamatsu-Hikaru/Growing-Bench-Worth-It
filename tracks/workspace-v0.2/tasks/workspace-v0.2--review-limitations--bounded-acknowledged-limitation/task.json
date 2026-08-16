@@ -1,0 +1,81 @@
+{
+  "schema_version": "growing-bench-task-2.0",
+  "task_id": "workspace-v0.2--review-limitations--bounded-acknowledged-limitation",
+  "track_id": "workspace-v0.2",
+  "title": "Do not reject an acknowledged boundary alone",
+  "kind": "external_peer_review",
+  "fixture": "fixture",
+  "prompt": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+  "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+  "checks": [
+    {
+      "name": "review-check",
+      "command": [
+        "python",
+        "checks/check_review.py"
+      ],
+      "timeout_seconds": 30
+    }
+  ],
+  "baseline_expectation": "failing",
+  "expected_failure": {
+    "check": "review-check",
+    "returncode": 1,
+    "contains": "WORKSPACE_TASK_INCOMPLETE"
+  },
+  "allowed_paths": [
+    "review.json"
+  ],
+  "forbidden_paths": [],
+  "ignore_paths": [
+    "__pycache__",
+    "main.aux",
+    "main.log",
+    "main.pdf",
+    "main.out"
+  ],
+  "required_artifacts": [
+    "review.json"
+  ],
+  "completion_criteria": [
+    {
+      "criterion_id": "C1",
+      "description": "The Agent-visible review schema check passes without revealing the target decision.",
+      "kind": "check",
+      "check": "review-check",
+      "weight": 1.0
+    },
+    {
+      "criterion_id": "C2",
+      "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+      "kind": "semantic",
+      "weight": 1.0
+    }
+  ],
+  "budget": {
+    "human_minutes": 45,
+    "machine_minutes": 10,
+    "compute_cost": 1
+  },
+  "matched_group": {
+    "group_id": "review-limitations",
+    "variant": "bounded-acknowledged-limitation"
+  },
+  "provenance": {
+    "source": "project-authored workspace materialization",
+    "publication_permission": true,
+    "static_lineage": null
+  },
+  "user_experience_applicable": false,
+  "evaluation_visibility": {
+    "agent_visible": [
+      "json_schema",
+      "artifact_exists"
+    ],
+    "hidden": [
+      "decision",
+      "evidence_selection",
+      "required_optional_actions"
+    ]
+  }
+}

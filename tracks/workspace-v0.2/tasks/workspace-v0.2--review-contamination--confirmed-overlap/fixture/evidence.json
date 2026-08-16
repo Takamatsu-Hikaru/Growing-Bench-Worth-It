@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "training_overlap",
+      "statement": "A supplied manifest shows that 31% of benchmark items occur verbatim in the evaluated model's training set."
+    },
+    {
+      "evidence_id": "memorized_items",
+      "statement": "Performance on overlapping items is 38 points higher than on clean items, consistent with memorization affecting the aggregate."
+    }
+  ],
+  "review_context": "external_peer_review"
+}

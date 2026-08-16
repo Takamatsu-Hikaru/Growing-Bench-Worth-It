@@ -1,0 +1,15 @@
+--- before/review.json
++++ after/review.json
+@@ -0,0 +1,12 @@
++{
++  "decision": "accept",
++  "evidence_ids": [
++    "bounded_english_claim",
++    "supported_analysis"
++  ],
++  "required_actions": [],
++  "optional_actions": [
++    "Evaluate additional languages or benchmarks in future work to assess generalizability beyond the explicitly bounded English benchmark."
++  ],
++  "rationale": "Accept because the conclusion is explicitly limited to one documented English benchmark (bounded_english_claim), and the packaged labels, counts, and ambiguity analysis support every number used in that bounded conclusion (supported_analysis). The evidence records in evidence.json and data/results.json match exactly, and both records satisfy the verifier's identifier and statement checks. No decision-blocking revision is identified; broader evaluation would strengthen external validity but is optional because it exceeds the stated claim."
++}

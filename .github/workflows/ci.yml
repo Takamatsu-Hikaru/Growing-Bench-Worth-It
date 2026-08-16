@@ -19,27 +19,24 @@ jobs:
       - run: python -m pip install -e .
       - run: python -m growing_bench --json doctor
       - run: python -m growing_bench smoke --output runs/ci-smoke
-      - run: python -m growing_bench export-hf --output dist/ci-hf
-      - run: python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_public_release tests.test_product_experience -v
+      - run: python -m growing_bench report data/releases/workspace-v0.2-calibration --output runs/calibration.html
+      - run: python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_adapter_golden_events tests.test_public_release tests.test_product_experience tests.test_workspace_runner_v2 tests.test_public_pipeline tests.test_workspace_validity_v2 tests.test_release_consistency -v
 
-  windows-ingest-validate:
+  windows-portable-ingest:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
       - run: python -m pip install -e .
-      - name: Validate a real failing-baseline fixture under a legacy console encoding
+      - name: Preflight portable workspace under a legacy console encoding
         shell: pwsh
         run: |
           $env:PYTHONIOENCODING = "cp936"
-          python -m growing_bench ingest living/examples/archive_case.md --tracks-root "$env:RUNNER_TEMP/tracks" --materialize --validate
+          python -m growing_bench ingest living/contributions/cli-slug-helper/case.md --check --tracks-root "$env:RUNNER_TEMP/tracks"
 
-  wheel-install:
+  wheel-install-and-smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,6 +47,5 @@ jobs:
       - run: python -m pip install wheelhouse/*.whl
       - run: python -m growing_bench --version
         working-directory: /tmp
-      - run: python -m growing_bench --json doctor
+      - run: python -m growing_bench smoke --output /tmp/growing-bench-installed-smoke
         working-directory: /tmp
-

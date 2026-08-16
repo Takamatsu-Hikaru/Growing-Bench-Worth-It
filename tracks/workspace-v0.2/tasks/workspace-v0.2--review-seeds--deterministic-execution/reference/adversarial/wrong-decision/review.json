@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "deterministic_ops",
+    "byte_identical"
+  ],
+  "required_actions": [
+    "extra_random_seeds"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

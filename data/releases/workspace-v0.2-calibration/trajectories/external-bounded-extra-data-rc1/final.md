@@ -1,0 +1,1 @@
+Reviewed the complete manuscript and evidence package. The supplied verifier was invoked with both python and py, but host policy blocked execution; its assertions were therefore checked directly against the matching evidence records. The proposed review also satisfies the declared schema.

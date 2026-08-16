@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "sample_size",
+    "sample_count"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "A sample estimate needs uncertainty before a population headline."
+}

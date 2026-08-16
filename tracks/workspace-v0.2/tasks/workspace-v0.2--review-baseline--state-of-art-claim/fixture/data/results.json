@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "sota_claim",
+      "statement": "The abstract calls the method state of the art on the benchmark."
+    },
+    {
+      "evidence_id": "missing_current_baseline",
+      "statement": "The strongest directly comparable public baseline predates the submission and is not included in the table."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

@@ -4,9 +4,12 @@ import json
 import os
 import shutil
 import subprocess
+import threading
 import time
 from pathlib import Path
 from typing import Any
+
+from .trajectory import normalize_agent_events, utc_now
 
 
 BUILTIN_AGENTS = ("codex", "claude-code", "openclaw", "command")
@@ -131,6 +134,62 @@ def _build_command(
     return [replacements.get(part, part) for part in raw], None
 
 
+def _run_captured(
+    command: list[str], stdin_text: str | None, workspace: Path, timeout: float
+) -> tuple[int | None, str, str, str, float, str, str, list[dict[str, Any]]]:
+    started_at = utc_now()
+    started = time.perf_counter()
+    process = subprocess.Popen(
+        command, cwd=workspace, env=os.environ.copy(),
+        stdin=subprocess.PIPE if stdin_text is not None else subprocess.DEVNULL,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+        encoding="utf-8", errors="replace", bufsize=1,
+    )
+    stdout_parts: list[str] = []
+    stderr_parts: list[str] = []
+    stdout_records: list[dict[str, Any]] = []
+
+    def read_stdout() -> None:
+        assert process.stdout is not None
+        for line in iter(process.stdout.readline, ""):
+            stdout_parts.append(line)
+            stdout_records.append({
+                "text": line.rstrip("\r\n"), "received_at": utc_now(),
+                "offset_seconds": time.perf_counter() - started,
+            })
+        process.stdout.close()
+
+    def read_stderr() -> None:
+        assert process.stderr is not None
+        for line in iter(process.stderr.readline, ""):
+            stderr_parts.append(line)
+        process.stderr.close()
+
+    stdout_thread = threading.Thread(target=read_stdout, daemon=True)
+    stderr_thread = threading.Thread(target=read_stderr, daemon=True)
+    stdout_thread.start()
+    stderr_thread.start()
+    if stdin_text is not None:
+        assert process.stdin is not None
+        process.stdin.write(stdin_text)
+        process.stdin.close()
+    try:
+        returncode = process.wait(timeout=timeout)
+        status = "completed" if returncode == 0 else "failed"
+    except subprocess.TimeoutExpired:
+        status = "timeout"
+        process.kill()
+        returncode = None
+        process.wait()
+    stdout_thread.join(timeout=5)
+    stderr_thread.join(timeout=5)
+    elapsed = time.perf_counter() - started
+    return (
+        returncode, "".join(stdout_parts), "".join(stderr_parts), status,
+        elapsed, started_at, utc_now(), stdout_records,
+    )
+
+
 def run_agent(
     agent: str,
     prompt: str,
@@ -153,18 +212,13 @@ def run_agent(
     command, stdin = _build_command(
         agent, workspace, prompt_file, final_file, model, reasoning, timeout, command_template
     )
-    started = time.perf_counter()
     try:
-        completed = subprocess.run(
-            command, input=stdin, cwd=workspace, env=os.environ.copy(), text=True,
-            encoding="utf-8", errors="replace", capture_output=True,
-            timeout=timeout, check=False,
+        returncode, stdout, stderr, status, elapsed, started_at, finished_at, records = _run_captured(
+            command, stdin, workspace, timeout
         )
-        returncode, stdout, stderr = completed.returncode, completed.stdout, completed.stderr
-        status = "completed" if returncode == 0 else "failed"
-    except subprocess.TimeoutExpired as exc:
-        returncode, stdout, stderr, status = None, exc.stdout or "", exc.stderr or "", "timeout"
-    elapsed = time.perf_counter() - started
+    except OSError as exc:
+        returncode, stdout, stderr, status = None, "", str(exc), "failed"
+        elapsed, started_at, finished_at, records = 0.0, utc_now(), utc_now(), []
     (artifacts / "stdout.log").write_text(stdout, encoding="utf-8", newline="\n")
     (artifacts / "stderr.log").write_text(stderr, encoding="utf-8", newline="\n")
     if final_file.is_file():
@@ -176,12 +230,22 @@ def run_agent(
     else:
         final, usage = _command_final(stdout)
     final_file.write_text(final, encoding="utf-8", newline="\n")
+    visible_events = normalize_agent_events(agent, records)
+    with (artifacts / "events.jsonl").open("w", encoding="utf-8", newline="\n") as handle:
+        for event in visible_events:
+            handle.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
     result = {
-        "schema_version": "growing-bench-agent-run-1.0",
+        "schema_version": "growing-bench-agent-run-2.0",
         "agent": agent, "agent_version": probe_agent(agent).get("version"),
         "model": model, "reasoning": reasoning, "status": status,
-        "returncode": returncode, "elapsed_seconds": elapsed, "usage": usage,
-        "artifacts": {"prompt": "prompt.md", "final": "final.md", "stdout": "stdout.log", "stderr": "stderr.log"},
+        "returncode": returncode, "elapsed_seconds": elapsed,
+        "started_at": started_at, "finished_at": finished_at,
+        "usage": usage, "visible_event_count": len(visible_events),
+        "visible_events": visible_events,
+        "artifacts": {
+            "prompt": "prompt.md", "final": "final.md", "stdout": "stdout.log",
+            "stderr": "stderr.log", "events": "events.jsonl",
+        },
     }
     (artifacts / "agent.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

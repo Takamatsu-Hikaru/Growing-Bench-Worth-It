@@ -1,0 +1,71 @@
+{
+  "agent": "command",
+  "agent_result": {
+    "agent": "command",
+    "agent_version": "user-supplied",
+    "artifacts": {
+      "final": "final.md"
+    },
+    "elapsed_seconds": 35.20322980000492,
+    "finished_at": "2026-08-16T10:13:57.774794Z",
+    "model": "gpt-5.6-sol",
+    "reasoning": "high",
+    "returncode": 0,
+    "schema_version": "growing-bench-agent-run-2.0",
+    "started_at": "2026-08-16T10:13:22.571550Z",
+    "status": "completed",
+    "usage": null,
+    "visible_event_count": 8,
+    "executor_contract": "codex-read-only-proposal-plus-allowed-host-executor",
+    "skill_isolation": "temporary Codex home; discovered user/plugin SKILL.md entries disabled"
+  },
+  "allowed_paths_ok": true,
+  "artifacts": {
+    "after_checks": "checks.after.json",
+    "before_checks": "checks.before.json",
+    "diff": "changes.diff",
+    "final": "agent/final.md",
+    "trajectory": "trajectory.jsonl",
+    "workspace": "workspace"
+  },
+  "baseline_expectation_met": true,
+  "changes": {
+    "added": [],
+    "changed_paths": [
+      "src/archive.py"
+    ],
+    "modified": [
+      "src/archive.py"
+    ],
+    "removed": []
+  },
+  "criterion_results": [
+    {
+      "criterion_id": "C1",
+      "description": "The focused executable check passes.",
+      "kind": "check",
+      "status": "passed"
+    },
+    {
+      "criterion_id": "C2",
+      "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+      "kind": "semantic",
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 35.543116199994984,
+  "intervention": null,
+  "kind": "code",
+  "machine_completion_passed": true,
+  "model": "gpt-5.6-sol",
+  "post_checks_passed": true,
+  "schema_version": "growing-bench-run-2.0",
+  "semantic_completion_pending": false,
+  "status": "completed_silver_judged",
+  "task_id": "workspace-v0.2--code-native--built-in-gzip-sufficient",
+  "title": "Implement the minimum single-file gzip export",
+  "unexpected_changed_paths": [],
+  "execution_status": "completed_pending_judgment",
+  "evaluation_status": "ai_consensus_silver",
+  "judgment_artifact": "consensus.json#workspace-calibration-01"
+}

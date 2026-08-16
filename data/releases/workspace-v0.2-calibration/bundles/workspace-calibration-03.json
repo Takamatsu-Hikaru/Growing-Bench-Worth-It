@@ -1,0 +1,384 @@
+{
+  "task": {
+    "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+    "domain": "review",
+    "review_context": "external_peer",
+    "mode": "artifact",
+    "objective": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+    "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+    "stage": "workspace execution",
+    "budget": {
+      "compute_cost": 1,
+      "human_minutes": 45,
+      "machine_minutes": 10
+    },
+    "stakes": {
+      "level": "medium",
+      "concrete_harm": "bounded local benchmark fixture"
+    },
+    "completion_criteria": [
+      {
+        "criterion_id": "C1",
+        "description": "The Agent-visible review schema check passes without revealing the target decision.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "C2",
+        "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+        "weight": 1.0
+      }
+    ],
+    "user_experience_applicable": false,
+    "scoring": {
+      "human_time_weight": 0.8,
+      "machine_time_weight": 0.2,
+      "compute_cost_weight": 0.2,
+      "opportunity_cost_weight": 1.0,
+      "user_burden_weight": 1.0,
+      "missed_value_weight": 1.0,
+      "failed_or_reverted_weight": 0.5,
+      "unjustified_defense_penalty": 0.5,
+      "high_value_threshold": 1.0
+    },
+    "matched_group": {
+      "group_id": "review-extra-experiment",
+      "variant": "irrelevant-extra-dataset"
+    },
+    "provenance": {
+      "publication_permission": true,
+      "source": "project-authored workspace materialization",
+      "static_lineage": null
+    },
+    "artifacts": [
+      "review.json"
+    ]
+  },
+  "trajectory": {
+    "trajectory_id": "workspace-calibration::workspace-calibration-03",
+    "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+    "events": [
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::user",
+        "kind": "artifact",
+        "content": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0001",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Force; rg --files -g 'AGENTS.md' -g '\"'!**/.git/**'\"'; rg --files\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0002",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw main.tex; Get-Content -Raw sections\\\\evidence.tex; Get-Content -Raw evidence.json; Get-Content -Raw data\\\\results.json; Get-Content -Raw verify_evidence.py; Get-Content -Raw checks\\\\check_review.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0003",
+        "kind": "assistant",
+        "content": "The manuscript��s claim is explicitly narrow, and the packaged records exactly mirror the two decision-relevant statements. I��m now running the supplied verifier and checking the required review schema; any broader benchmarking will be treated as optional unless verification exposes a blocker.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0004",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0005",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -3 verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0006",
+        "kind": "assistant",
+        "content": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"accept\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"bounded_english_claim\\\",\\n    \\\"supported_analysis\\\"\\n  ],\\n  \\\"required_actions\\\": [],\\n  \\\"optional_actions\\\": [\\n    \\\"Evaluate additional languages or benchmarks in future work to assess generalizability beyond the explicitly bounded English benchmark.\\\"\\n  ],\\n  \\\"rationale\\\": \\\"Accept because the conclusion is explicitly limited to one documented English benchmark (bounded_english_claim), and the packaged labels, counts, and ambiguity analysis support every number used in that bounded conclusion (supported_analysis). The evidence records in evidence.json and data/results.json match exactly, and both records satisfy the verifier's identifier and statement checks. No decision-blocking revision is identified; broader evaluation would strengthen external validity but is optional because it exceeds the stated claim.\\\"\\n}\\n\"}],\"final\":\"Reviewed the complete manuscript and evidence package. The supplied verifier was invoked with both python and py, but host policy blocked execution; its assertions were therefore checked directly against the matching evidence records. The proposed review also satisfies the declared schema.\"}",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0007",
+        "kind": "artifact",
+        "content": "Applied model-proposed complete contents to review.json",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0008",
+        "kind": "artifact",
+        "content": "Applied 1 allowed model-proposed file(s); temporary Codex home with 95 discovered user/plugin skills explicitly disabled",
+        "duration_ms": 50971.87929999927
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::final",
+        "kind": "assistant",
+        "content": "Reviewed the complete manuscript and evidence package. The supplied verifier was invoked with both python and py, but host policy blocked execution; its assertions were therefore checked directly against the matching evidence records. The proposed review also satisfies the declared schema.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::post-check::01",
+        "kind": "tool_result",
+        "content": "python checks/check_review.py",
+        "duration_ms": 85.08710000023711
+      },
+      {
+        "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::diff",
+        "kind": "artifact",
+        "content": "--- before/review.json\n+++ after/review.json\n@@ -0,0 +1,12 @@\n+{\n+  \"decision\": \"accept\",\n+  \"evidence_ids\": [\n+    \"bounded_english_claim\",\n+    \"supported_analysis\"\n+  ],\n+  \"required_actions\": [],\n+  \"optional_actions\": [\n+    \"Evaluate additional languages or benchmarks in future work to assess generalizability beyond the explicitly bounded English benchmark.\"\n+  ],\n+  \"rationale\": \"Accept because the conclusion is explicitly limited to one documented English benchmark (bounded_english_claim), and the packaged labels, counts, and ambiguity analysis support every number used in that bounded conclusion (supported_analysis). The evidence records in evidence.json and data/results.json match exactly, and both records satisfy the verifier's identifier and statement checks. No decision-blocking revision is identified; broader evaluation would strengthen external validity but is optional because it exceeds the stated claim.\"\n+}\n",
+        "duration_ms": null
+      }
+    ],
+    "task_outcome": {
+      "success": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "C1",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        },
+        {
+          "criterion_id": "C2",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        }
+      ]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "workspace-calibration::workspace-calibration-03::A1",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "trajectory_id": "workspace-calibration::workspace-calibration-03",
+      "description": "Review the manuscript, evidence records, verifier, and review schema",
+      "action_type": "analysis",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0001",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Force; rg --files -g 'AGENTS.md' -g '\"'!**/.git/**'\"'; rg --files\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw main.tex; Get-Content -Raw sections\\\\evidence.tex; Get-Content -Raw evidence.json; Get-Content -Raw data"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-03::A2",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "trajectory_id": "workspace-calibration::workspace-calibration-03",
+      "description": "Retry the verifier with a second launcher after host-policy rejection",
+      "action_type": "verification",
+      "status": "failed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0004",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -3 verify_evidence.py'"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-03::A3",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "trajectory_id": "workspace-calibration::workspace-calibration-03",
+      "description": "Create an evidence-cited accept review that keeps broader benchmarks optional",
+      "action_type": "decision",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0006",
+          "quote": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"accept\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"bounded_english_claim\\\",\\n    \\\"supported_analysis\\\"\\n  ],\\n  \\\"required_actions\\\": [],\\n  \\\"optional_actions\\\": [\\n    \\\"Evaluate add"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0007",
+          "quote": "Applied model-proposed complete contents to review.json"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-03::A4",
+      "task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+      "trajectory_id": "workspace-calibration::workspace-calibration-03",
+      "description": "Validate the resulting review schema",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::post-check::01",
+          "quote": "python checks/check_review.py"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-03::A1",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-03::A1",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": null,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0001",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Force; rg --files -g 'AGENTS.md' -g '\"'!**/.git/**'\"'; rg --files\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw main.tex; Get-Content -Raw sections\\\\evidence.tex; Get-Content -Raw evidence.json; Get-Content -Raw data"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-03::A2",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-03::A2",
+      "problem_probability": 0.5,
+      "success_probability": 0.2,
+      "required_for_task": 0.0,
+      "outcome_impact": 0.0,
+      "decision_impact": 0.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": null,
+      "cheaper_substitute": {
+        "description": "After the first rejection, inspect the visible verifier assertions against the records.",
+        "cost_fraction": 0.5,
+        "comparable_benefit": true
+      },
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "no_effect",
+        "realized_impact": 0.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0004",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -3 verify_evidence.py'"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-03::A3",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-03::A3",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": null,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0006",
+          "quote": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"accept\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"bounded_english_claim\\\",\\n    \\\"supported_analysis\\\"\\n  ],\\n  \\\"required_actions\\\": [],\\n  \\\"optional_actions\\\": [\\n    \\\"Evaluate add"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0007",
+          "quote": "Applied model-proposed complete contents to review.json"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-03::A4",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-03::A4",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 2.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.0014181183333372852,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": null,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::post-check::01",
+          "quote": "python checks/check_review.py"
+        }
+      ]
+    }
+  ],
+  "human_feedback": null
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://growing-bench.local/schemas/run.schema.json",
+  "title": "Growing Bench workspace run summary",
+  "type": "object",
+  "required": [
+    "schema_version", "task_id", "status", "agent", "baseline_expectation_met",
+    "post_checks_passed", "allowed_paths_ok", "machine_completion_passed",
+    "semantic_completion_pending", "elapsed_seconds", "artifacts"
+  ],
+  "properties": {
+    "schema_version": {"const": "growing-bench-run-2.0"},
+    "task_id": {"type": "string"},
+    "status": {"enum": ["baseline_invalid", "completed", "completed_pending_judgment", "partial", "failed", "timeout", "refused"]},
+    "agent": {"type": "string"},
+    "baseline_expectation_met": {"type": "boolean"},
+    "post_checks_passed": {"type": "boolean"},
+    "allowed_paths_ok": {"type": "boolean"},
+    "machine_completion_passed": {"type": "boolean"},
+    "semantic_completion_pending": {"type": "boolean"},
+    "elapsed_seconds": {"type": "number", "minimum": 0},
+    "criterion_results": {"type": "array"},
+    "artifacts": {"type": "object"}
+  },
+  "additionalProperties": true
+}

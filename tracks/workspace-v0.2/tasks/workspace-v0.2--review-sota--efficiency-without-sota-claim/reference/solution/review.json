@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "memory_minus_45",
+    "matched_accuracy"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "beat_closed_model"
+  ],
+  "rationale": "The paper supports its efficiency claim without asserting SOTA accuracy."
+}

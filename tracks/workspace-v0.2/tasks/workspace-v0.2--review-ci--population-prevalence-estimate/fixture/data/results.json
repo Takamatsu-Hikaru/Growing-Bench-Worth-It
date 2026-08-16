@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "sample_size",
+      "statement": "A simple random sample of 300 production dialogs was labeled."
+    },
+    {
+      "evidence_id": "sample_count",
+      "statement": "Seventy-two of the 300 sampled dialogs contained the reported pattern."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

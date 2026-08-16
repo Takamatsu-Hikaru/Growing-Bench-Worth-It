@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "new_private_test",
+      "statement": "The benchmark was collected privately after the evaluated models' training cutoffs."
+    },
+    {
+      "evidence_id": "collection_after_training",
+      "statement": "Collection timestamps and access logs confirm that evaluated model developers could not access the items during training."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

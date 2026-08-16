@@ -1,0 +1,6 @@
+{
+  "status": "completed",
+  "required_changed_paths": [
+    "src/report_client.py"
+  ]
+}

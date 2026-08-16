@@ -1,0 +1,1 @@
+Read the complete LaTeX workspace and evidence.json. Edit only the authorized manuscript section(s) so the claim is accurate, direct, and proportionate to the evidence. Preserve decision-relevant limitations, avoid unsupported caveats or claims, and run the format and LaTeX checks.

@@ -1,0 +1,6 @@
+--- before/sections/target.tex
++++ after/sections/target.tex
+@@ -1 +1,2 @@
+-WORKSPACE TASK INCOMPLETE
++\section{Estimated prevalence}
++In a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated prevalence of 24\%; it is a sample-based estimate, not an exact population value.

@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "split_before_labeling",
+    "duplicate_scan_clean"
+  ],
+  "required_actions": [
+    "broad_forensic_audit"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

@@ -1,0 +1,10 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "sota_claim",
+    "missing_current_baseline"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

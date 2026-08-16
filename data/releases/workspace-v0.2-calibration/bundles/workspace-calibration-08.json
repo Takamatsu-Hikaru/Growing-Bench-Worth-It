@@ -1,0 +1,504 @@
+{
+  "task": {
+    "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+    "domain": "writing",
+    "review_context": "not_applicable",
+    "mode": "artifact",
+    "objective": "Read the complete LaTeX workspace and evidence.json. Edit only the authorized manuscript section(s) so the claim is accurate, direct, and proportionate to the evidence. Preserve decision-relevant limitations, avoid unsupported caveats or claims, and run the format and LaTeX checks.",
+    "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+    "stage": "workspace execution",
+    "budget": {
+      "compute_cost": 1,
+      "human_minutes": 45,
+      "machine_minutes": 10
+    },
+    "stakes": {
+      "level": "medium",
+      "concrete_harm": "bounded local benchmark fixture"
+    },
+    "completion_criteria": [
+      {
+        "criterion_id": "C1",
+        "description": "The Agent-visible format check passes without revealing the target claim.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "C2",
+        "description": "The LaTeX project compiles.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "C3",
+        "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+        "weight": 1.0
+      }
+    ],
+    "user_experience_applicable": true,
+    "scoring": {
+      "human_time_weight": 0.8,
+      "machine_time_weight": 0.2,
+      "compute_cost_weight": 0.2,
+      "opportunity_cost_weight": 1.0,
+      "user_burden_weight": 1.0,
+      "missed_value_weight": 1.0,
+      "failed_or_reverted_weight": 0.5,
+      "unjustified_defense_penalty": 0.5,
+      "high_value_threshold": 1.0
+    },
+    "matched_group": {
+      "group_id": "writing-hedges",
+      "variant": "sample-based-population-estimate"
+    },
+    "provenance": {
+      "publication_permission": true,
+      "source": "project-authored workspace materialization",
+      "static_lineage": null
+    },
+    "artifacts": [
+      "sections/target.tex"
+    ]
+  },
+  "trajectory": {
+    "trajectory_id": "workspace-calibration::workspace-calibration-08",
+    "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+    "events": [
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::user",
+        "kind": "artifact",
+        "content": "Read the complete LaTeX workspace and evidence.json. Edit only the authorized manuscript section(s) so the claim is accurate, direct, and proportionate to the evidence. Preserve decision-relevant limitations, avoid unsupported caveats or claims, and run the format and LaTeX checks.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0001",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'rg --files -a; Get-ChildItem -Force'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0002",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$files = @('\"'main.tex','evidence.json','sections\\\\abstract.tex','sections\\\\context.tex','sections\\\\target.tex','sections\\\\conclusion.tex','checks\\\\compile.py','checks\\\\check_content.py'); foreach (\"'$f in $files) { Write-Output \"===== $f =====\"; Get-Content -Raw -LiteralPath $f }'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0003",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw -LiteralPath main.tex'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0004",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath sections\\\\abstract.tex\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0005",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw -LiteralPath evidence.json'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0006",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath sections\\\\target.tex\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0007",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath sections\\\\context.tex\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0008",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath sections\\\\conclusion.tex\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0009",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath checks\\\\compile.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0010",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath checks\\\\check_content.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0011",
+        "kind": "assistant",
+        "content": "The only authorized file is `sections/target.tex`. The evidence supports a sample estimate��72 of 300 (24%)��but no population-wide certainty or precision interval, so I��ll state the observed sample result and frame 24% explicitly as the prevalence estimate.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0012",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"python checks\\\\check_content.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0013",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$cmd = Get-Command pdflatex -ErrorAction SilentlyContinue; if ($null -eq $cmd) { Write-Output '\"'pdflatex unavailable'; exit 2 } else { Write-Output \"'$cmd.Source }'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0014",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Command pdflatex -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0015",
+        "kind": "assistant",
+        "content": "{\"changes\":[{\"path\":\"sections/target.tex\",\"content\":\"\\\\section{Estimated prevalence}\\nIn a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated prevalence of 24\\\\%; it is a sample-based estimate, not an exact population value.\\n\"}],\"final\":\"Updated only the authorized section with the observed count, sample size, estimate, and decision-relevant sampling limitation. Reviewed the complete workspace and check scripts; the replacement satisfies the format assertions and uses valid LaTeX. The write-producing LaTeX compile was not run in the read-only environment.\"}",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0016",
+        "kind": "artifact",
+        "content": "Applied model-proposed complete contents to sections/target.tex",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0017",
+        "kind": "artifact",
+        "content": "Applied 1 allowed model-proposed file(s); temporary Codex home with 95 discovered user/plugin skills explicitly disabled",
+        "duration_ms": 47846.43060000235
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::final",
+        "kind": "assistant",
+        "content": "Updated only the authorized section with the observed count, sample size, estimate, and decision-relevant sampling limitation. Reviewed the complete workspace and check scripts; the replacement satisfies the format assertions and uses valid LaTeX. The write-producing LaTeX compile was not run in the read-only environment.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::01",
+        "kind": "tool_result",
+        "content": "python checks/check_content.py",
+        "duration_ms": 121.33409999660216
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::02",
+        "kind": "tool_result",
+        "content": "python checks/compile.py",
+        "duration_ms": 714.4098000062513
+      },
+      {
+        "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::diff",
+        "kind": "artifact",
+        "content": "--- before/sections/target.tex\n+++ after/sections/target.tex\n@@ -1 +1,2 @@\n-WORKSPACE TASK INCOMPLETE\n+\\section{Estimated prevalence}\n+In a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated prevalence of 24\\%; it is a sample-based estimate, not an exact population value.\n",
+        "duration_ms": null
+      }
+    ],
+    "task_outcome": {
+      "success": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "C1",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        },
+        {
+          "criterion_id": "C2",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        },
+        {
+          "criterion_id": "C3",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        }
+      ]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "workspace-calibration::workspace-calibration-08::A1",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "trajectory_id": "workspace-calibration::workspace-calibration-08",
+      "description": "Read the workspace, sample evidence, authorized target, and checks",
+      "action_type": "analysis",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw -LiteralPath main.tex'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw -LiteralPath evidence.json'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0006",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath sections\\\\target.tex\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0010",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath checks\\\\check_content.py\""
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-08::A2",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "trajectory_id": "workspace-calibration::workspace-calibration-08",
+      "description": "Edit the authorized section to state the sample count and population estimate with its sampling limitation",
+      "action_type": "edit",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0015",
+          "quote": "{\"changes\":[{\"path\":\"sections/target.tex\",\"content\":\"\\\\section{Estimated prevalence}\\nIn a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated prevalence of 24\\\\%; it is a sample-based estimat"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0016",
+          "quote": "Applied model-proposed complete contents to sections/target.tex"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::diff",
+          "quote": "--- before/sections/target.tex\n+++ after/sections/target.tex\n@@ -1 +1,2 @@\n-WORKSPACE TASK INCOMPLETE\n+\\section{Estimated prevalence}\n+In a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated "
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-08::A3",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "trajectory_id": "workspace-calibration::workspace-calibration-08",
+      "description": "Retry blocked execution and LaTeX-tool discovery after the initial policy rejection",
+      "action_type": "verification",
+      "status": "failed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0012",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"python checks\\\\check_content.py\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0013",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$cmd = Get-Command pdflatex -ErrorAction SilentlyContinue; if ($null -eq $cmd) { Write-Output '\"'pdflatex unavailable'; e"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0014",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Command pdflatex -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source'"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-08::A4",
+      "task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+      "trajectory_id": "workspace-calibration::workspace-calibration-08",
+      "description": "Obtain format and LaTeX compilation confirmation after the edit",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::01",
+          "quote": "python checks/check_content.py"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::02",
+          "quote": "python checks/compile.py"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-08::A1",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-08::A1",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw -LiteralPath main.tex'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw -LiteralPath evidence.json'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0006",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath sections\\\\target.tex\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0010",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath checks\\\\check_content.py\""
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-08::A2",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-08::A2",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0015",
+          "quote": "{\"changes\":[{\"path\":\"sections/target.tex\",\"content\":\"\\\\section{Estimated prevalence}\\nIn a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated prevalence of 24\\\\%; it is a sample-based estimat"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0016",
+          "quote": "Applied model-proposed complete contents to sections/target.tex"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::diff",
+          "quote": "--- before/sections/target.tex\n+++ after/sections/target.tex\n@@ -1 +1,2 @@\n-WORKSPACE TASK INCOMPLETE\n+\\section{Estimated prevalence}\n+In a random sample of 300 production dialogs, 72 contained the pattern. This corresponds to an estimated "
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-08::A3",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-08::A3",
+      "problem_probability": 0.5,
+      "success_probability": 0.2,
+      "required_for_task": 0.0,
+      "outcome_impact": 0.0,
+      "decision_impact": 0.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 2.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": {
+        "description": "Use the already-inspected check scripts after the first explicit policy rejection.",
+        "cost_fraction": 0.33,
+        "comparable_benefit": true
+      },
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "no_effect",
+        "realized_impact": 0.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0012",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"python checks\\\\check_content.py\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0013",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$cmd = Get-Command pdflatex -ErrorAction SilentlyContinue; if ($null -eq $cmd) { Write-Output '\"'pdflatex unavailable'; e"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0014",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Command pdflatex -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source'"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-08::A4",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-08::A4",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.013929065000047558,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::01",
+          "quote": "python checks/check_content.py"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::post-check::02",
+          "quote": "python checks/compile.py"
+        }
+      ]
+    }
+  ],
+  "human_feedback": null
+}

@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "single_baseline",
+      "statement": "The candidate was compared with one historical baseline; no broader baseline set was evaluated."
+    },
+    {
+      "evidence_id": "bounded_result",
+      "statement": "The measured 1.7-point gain is explicitly scoped to the named baseline and fixed test set."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

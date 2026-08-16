@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "assumption_check",
+      "statement": "The supplied verifier confirms every declared theorem assumption on the constructed domain."
+    },
+    {
+      "evidence_id": "proof_complete",
+      "statement": "The proof includes all cases and the checker accepts the complete derivation."
+    }
+  ],
+  "review_context": "external_peer_review"
+}

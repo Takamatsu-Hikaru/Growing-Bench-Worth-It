@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "causal_title",
+    "observational_only"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "The manuscript makes a causal claim from observational evidence."
+}

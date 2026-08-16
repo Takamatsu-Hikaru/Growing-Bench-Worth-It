@@ -1,0 +1,15 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "On the fixed RouteBench test set, the corrected model accuracy is 69.3%.",
+  "required_concepts": [
+    "69.3%",
+    "fixed RouteBench"
+  ],
+  "forbidden_claims": [
+    "68.1"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

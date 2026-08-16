@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "random_init",
+    "single_run"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "A single stochastic training run does not support the headline delta.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

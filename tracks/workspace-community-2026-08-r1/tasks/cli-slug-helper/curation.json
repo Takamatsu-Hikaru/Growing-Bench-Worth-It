@@ -1,0 +1,18 @@
+{
+  "case_id": "cli-slug-helper",
+  "curator_model": "gpt-5.6-terra",
+  "curator_type": "independent_ai",
+  "decision": "admit",
+  "decisions": {
+    "criteria_observable": true,
+    "duplicate_risk": false,
+    "executable": true,
+    "information_sufficient": true,
+    "pairing_possible": true,
+    "provenance_acceptable": true,
+    "publication_allowed": true
+  },
+  "rationale": "Task scope, fixture/reference package, baseline failure signature, focused command, allowed path, and observable completion constraints are declared; the existing-helper versus duplicate-pipeline contrast supports positive/negative pairing.",
+  "schema_version": "growing-bench-ai-curation-1.0",
+  "unresolved": []
+}

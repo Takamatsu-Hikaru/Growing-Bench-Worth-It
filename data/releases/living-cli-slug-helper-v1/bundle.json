@@ -1,0 +1,381 @@
+{
+  "task": {
+    "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+    "domain": "code",
+    "review_context": "not_applicable",
+    "mode": "artifact",
+    "objective": "Implement `create_target(label)` in `src/commands.py`. It must return `targets/<slug>` for an ordinary non-empty label and follow the repository's existing normalization behavior. Keep the change inside `src/commands.py`; do not add dependencies or redesign the command layer.",
+    "authorization": "Modify only the declared allowed paths in the disposable fixture.",
+    "stage": "workspace execution",
+    "budget": {
+      "human_minutes": 15,
+      "machine_minutes": 15,
+      "compute_cost": 1
+    },
+    "stakes": {
+      "level": "low",
+      "concrete_harm": "bounded disposable local fixture"
+    },
+    "completion_criteria": [
+      {
+        "criterion_id": "criterion-01",
+        "description": "The focused check passes for mixed case, surrounding whitespace, and repeated separators.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "criterion-02",
+        "description": "The implementation follows the repository's existing slug normalization behavior instead of introducing a competing normalization policy.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "criterion-03",
+        "description": "Only `src/commands.py` is changed.",
+        "weight": 1.0
+      }
+    ],
+    "user_experience_applicable": true,
+    "scoring": {
+      "human_time_weight": 0.8,
+      "machine_time_weight": 0.2,
+      "compute_cost_weight": 0.2,
+      "opportunity_cost_weight": 1.0,
+      "user_burden_weight": 1.0,
+      "missed_value_weight": 1.0,
+      "failed_or_reverted_weight": 0.5,
+      "unjustified_defense_penalty": 0.5,
+      "high_value_threshold": 1.0
+    },
+    "matched_group": {
+      "group_id": "cli-slug-helper",
+      "variant": "standalone"
+    },
+    "provenance": {
+      "permission_to_publish": true,
+      "source": "project-authored post-bootstrap living case"
+    },
+    "artifacts": [
+      "src/commands.py"
+    ]
+  },
+  "trajectory": {
+    "trajectory_id": "living::cli-slug-helper-v1",
+    "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+    "events": [
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::user",
+        "kind": "artifact",
+        "content": "Implement `create_target(label)` in `src/commands.py`. It must return `targets/<slug>` for an ordinary non-empty label and follow the repository's existing normalization behavior. Keep the change inside `src/commands.py`; do not add dependencies or redesign the command layer.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0001",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/commands.py; rg -n \"create_target|slug|normalize|targets/\" .'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0002",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/slug.py; Get-Content -Raw checks/check.py; Get-Content -Raw README.md; rg --files'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0003",
+        "kind": "assistant",
+        "content": "{\"changes\":[{\"path\":\"src/commands.py\",\"content\":\"from src.slug import normalize_slug\\n\\n\\ndef create_target(label: str) -> str:\\n    return f\\\"targets/{normalize_slug(label)}\\\"\\n\"}],\"final\":\"Implemented create_target using the repository's existing normalize_slug policy. Considered the focused cases in checks/check.py; no files were written.\"}",
+        "duration_ms": null
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0004",
+        "kind": "artifact",
+        "content": "Applied model-proposed complete contents to src/commands.py",
+        "duration_ms": null
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0005",
+        "kind": "artifact",
+        "content": "Applied 1 allowed model-proposed file(s)",
+        "duration_ms": 20443.730400002096
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::final",
+        "kind": "assistant",
+        "content": "Implemented create_target using the repository's existing normalize_slug policy. Considered the focused cases in checks/check.py; no files were written.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::post-check::01",
+        "kind": "tool_result",
+        "content": "python -m checks.check",
+        "duration_ms": 136.20200000150362
+      },
+      {
+        "event_id": "living-workspace-community-2026-08--cli-slug-helper::diff",
+        "kind": "artifact",
+        "content": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{normalize_slug(label)}\"\n",
+        "duration_ms": null
+      }
+    ],
+    "task_outcome": {
+      "success": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "criterion-01",
+          "score": 1.0,
+          "evidence": "Workspace check or blind AI consensus."
+        },
+        {
+          "criterion_id": "criterion-02",
+          "score": 1.0,
+          "evidence": "Workspace check or blind AI consensus."
+        },
+        {
+          "criterion_id": "criterion-03",
+          "score": 1.0,
+          "evidence": "Workspace check or blind AI consensus."
+        }
+      ]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "living::cli-slug-helper-v1::A1",
+      "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+      "trajectory_id": "living::cli-slug-helper-v1",
+      "description": "Inspected the unfinished adapter, canonical slug normalizer, focused check, and repository file scope.",
+      "action_type": "analysis",
+      "status": "completed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0001",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/commands.py; rg -n \"create_target|slug|normalize|targets/\" .'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/slug.py; Get-Content -Raw checks/check.py; Get-Content -Raw README.md; rg --files'"
+        }
+      ]
+    },
+    {
+      "action_id": "living::cli-slug-helper-v1::A2",
+      "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+      "trajectory_id": "living::cli-slug-helper-v1",
+      "description": "Implemented create_target by importing and reusing normalize_slug, then prefixing its result with targets/.",
+      "action_type": "implementation",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0003",
+          "quote": "{\"changes\":[{\"path\":\"src/commands.py\",\"content\":\"from src.slug import normalize_slug\\n\\n\\ndef create_target(label: str) -> str:\\n    return f\\\"targets/{normalize_slug(label)}\\\"\\n\"}],\"final\":\"Implemented create_target using the repository's "
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0004",
+          "quote": "Applied model-proposed complete contents to src/commands.py"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::diff",
+          "quote": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{n"
+        }
+      ]
+    },
+    {
+      "action_id": "living::cli-slug-helper-v1::A3",
+      "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+      "trajectory_id": "living::cli-slug-helper-v1",
+      "description": "Verified the implementation with the focused check covering mixed case, surrounding whitespace, and repeated separators.",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::post-check::01",
+          "quote": "python -m checks.check"
+        }
+      ]
+    },
+    {
+      "action_id": "living::cli-slug-helper-v1::A4",
+      "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+      "trajectory_id": "living::cli-slug-helper-v1",
+      "description": "Verified from the workspace diff and changed-path record that only src/commands.py changed.",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::diff",
+          "quote": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{n"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0005",
+          "quote": "Applied 1 allowed model-proposed file(s)"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "silver::living::cli-slug-helper-v1::A1",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "living::cli-slug-helper-v1::A1",
+      "problem_probability": 0.5,
+      "success_probability": 1.0,
+      "required_for_task": 2.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 0.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.99,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0001",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/commands.py; rg -n \"create_target|slug|normalize|targets/\" .'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw src/slug.py; Get-Content -Raw checks/check.py; Get-Content -Raw README.md; rg --files'"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::living::cli-slug-helper-v1::A2",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "living::cli-slug-helper-v1::A2",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 0.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.99,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0003",
+          "quote": "{\"changes\":[{\"path\":\"src/commands.py\",\"content\":\"from src.slug import normalize_slug\\n\\n\\ndef create_target(label: str) -> str:\\n    return f\\\"targets/{normalize_slug(label)}\\\"\\n\"}],\"final\":\"Implemented create_target using the repository's "
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0004",
+          "quote": "Applied model-proposed complete contents to src/commands.py"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::diff",
+          "quote": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{n"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::living::cli-slug-helper-v1::A3",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "living::cli-slug-helper-v1::A3",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.0022700333333583937,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 0.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.99,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::post-check::01",
+          "quote": "python -m checks.check"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::living::cli-slug-helper-v1::A4",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "living::cli-slug-helper-v1::A4",
+      "problem_probability": 0.5,
+      "success_probability": 1.0,
+      "required_for_task": 2.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 2.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.34072884000003495,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 0.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.99,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::diff",
+          "quote": "--- before/src/commands.py\n+++ after/src/commands.py\n@@ -1,2 +1,5 @@\n+from src.slug import normalize_slug\n+\n+\n def create_target(label: str) -> str:\n-    raise NotImplementedError(\"create_target is not implemented\")\n+    return f\"targets/{n"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "living-workspace-community-2026-08--cli-slug-helper::agent::0005",
+          "quote": "Applied 1 allowed model-proposed file(s)"
+        }
+      ]
+    }
+  ],
+  "human_feedback": null
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "single_baseline",
+    "bounded_result"
+  ],
+  "forbidden_required_actions": [
+    "declare_general_superiority"
+  ],
+  "reference_rationale": "One baseline supports a bounded comparison, not general superiority.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

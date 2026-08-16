@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "reject",
+  "required_evidence_ids": [
+    "training_overlap",
+    "memorized_items"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "Confirmed overlap invalidates the benchmark result.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

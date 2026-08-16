@@ -1,0 +1,1 @@
+Implemented strict UTF-8 JSON upload parsing with the 4096-byte limit, exact top-level fields, duplicate-key rejection, string-name validation, and integer workers constrained to 1..32. Inspected README, source, and focused check; baseline execution was blocked by the read-only host policy.

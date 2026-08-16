@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "shared_items",
+      "statement": "The audit identifies 83 identical items in both the training and test partitions."
+    },
+    {
+      "evidence_id": "inflated_metric",
+      "statement": "Removing the overlapping items reduces the reported gain from 4.4 points to 0.3 points."
+    }
+  ],
+  "review_context": "internal_review"
+}

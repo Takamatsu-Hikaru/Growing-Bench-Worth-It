@@ -1,0 +1,3 @@
+{"text":"{\"type\":\"item.started\",\"item\":{\"id\":\"c1\",\"type\":\"command_execution\",\"command\":\"python -m unittest\",\"cwd\":\"workspace\"}}","received_at":"2026-01-01T00:00:00Z","offset_seconds":0.0}
+{"text":"{\"type\":\"item.completed\",\"item\":{\"id\":\"c1\",\"type\":\"command_execution\",\"command\":\"python -m unittest\",\"cwd\":\"workspace\",\"exit_code\":0,\"aggregated_output\":\"OK\"}}","received_at":"2026-01-01T00:00:01Z","offset_seconds":1.0}
+{"text":"{\"type\":\"item.completed\",\"item\":{\"id\":\"m1\",\"type\":\"agent_message\",\"text\":\"Done.\"}}","received_at":"2026-01-01T00:00:02Z","offset_seconds":2.0}

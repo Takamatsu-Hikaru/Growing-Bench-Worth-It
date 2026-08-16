@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "causal_title",
+      "statement": "The title says that the intervention causes the observed performance change."
+    },
+    {
+      "evidence_id": "observational_only",
+      "statement": "The rollout is observational and contains no randomized assignment or valid causal identification strategy."
+    }
+  ],
+  "review_context": "external_peer_review"
+}

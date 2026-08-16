@@ -1,0 +1,1 @@
+Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.

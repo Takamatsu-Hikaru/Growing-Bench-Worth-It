@@ -1,0 +1,18 @@
+--- before/review.json
++++ after/review.json
+@@ -0,0 +1,15 @@
++{
++  "decision": "revise",
++  "evidence_ids": [
++    "random_init",
++    "single_run"
++  ],
++  "required_actions": [
++    "Repeat both systems across multiple matched random seeds and report aggregate performance and variability; this is required because randomized initialization and minibatch shuffling introduce run-to-run variation [random_init], while the claimed 0.8-point gain currently relies on only one run per system [single_run].",
++    "Reassess the headline improvement using the repeated-run results and provide an uncertainty estimate or suitable statistical comparison showing whether the claimed gain is robust [random_init, single_run]."
++  ],
++  "optional_actions": [
++    "Optionally evaluate additional datasets or training configurations as broader robustness evidence; this is useful future work but is not required to resolve the present single-run blocker."
++  ],
++  "rationale": "Revision is required because the decision-relevant records show stochastic training from randomized initialization and shuffled minibatches [random_init], but the headline 0.8-point gain is based on one run for each system [single_run]. The current evidence therefore cannot establish that the reported difference is robust to ordinary run-to-run variation. Multi-seed evaluation with variability and uncertainty reporting is a blocker; broader robustness experiments are optional."
++}

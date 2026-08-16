@@ -1,0 +1,19 @@
+{
+  "schema_version": "growing-bench-living-registry-1.0",
+  "tracks": [
+    {
+      "case_ids": [
+        "cli-slug-helper"
+      ],
+      "score_file": "data/releases/living-cli-slug-helper-v1/score.json",
+      "supersedes": null,
+      "task_ids": [
+        "living-workspace-community-2026-08--cli-slug-helper"
+      ],
+      "track_id": "workspace-community-2026-08-r1",
+      "source_track_id": "workspace-community-2026-08",
+      "manifest": "tracks/workspace-community-2026-08-r1/track.json",
+      "status": "frozen_release_candidate"
+    }
+  ]
+}

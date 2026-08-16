@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "required_changed_paths": [
+    "sections/target.tex",
+    "sections/abstract.tex",
+    "sections/conclusion.tex"
+  ]
+}

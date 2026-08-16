@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "mechanism_claim",
+    "no_intervention"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "The paper claims an internal mechanism without decision-relevant evidence."
+}

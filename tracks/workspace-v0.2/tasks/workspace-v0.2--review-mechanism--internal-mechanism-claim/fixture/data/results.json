@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "mechanism_claim",
+      "statement": "The title and conclusion state that a specific internal circuit causes the behavioral pattern."
+    },
+    {
+      "evidence_id": "no_intervention",
+      "statement": "The evidence contains correlations and probes but no intervention, ablation, or counterfactual test of the claimed circuit."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

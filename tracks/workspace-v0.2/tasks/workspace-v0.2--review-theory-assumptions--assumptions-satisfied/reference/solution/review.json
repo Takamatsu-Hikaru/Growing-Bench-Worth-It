@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "assumption_check",
+    "proof_complete"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "mandatory_empirical_suite"
+  ],
+  "rationale": "The proof and declared assumptions are satisfied."
+}

@@ -1,0 +1,9 @@
+{
+  "facts": [
+    "The abstract claims broad customer-service generality.",
+    "Only English support dialogs were evaluated."
+  ],
+  "authorized_targets": [
+    "sections/target.tex"
+  ]
+}

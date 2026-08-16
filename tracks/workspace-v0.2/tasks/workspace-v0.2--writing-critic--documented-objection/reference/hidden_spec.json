@@ -1,0 +1,16 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "The deduplicated evaluation retains a 2.8-point gain, directly addressing Reviewer 2's documented concern that duplicates might explain the original 3.1-point improvement.",
+  "required_concepts": [
+    "2.8",
+    "Reviewer 2"
+  ],
+  "forbidden_claims": [
+    "might have raised",
+    "no evidence"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

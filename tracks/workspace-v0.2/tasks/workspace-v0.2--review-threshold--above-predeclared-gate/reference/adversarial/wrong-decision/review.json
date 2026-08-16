@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "gate_2_points",
+    "gain_2_8"
+  ],
+  "required_actions": [
+    "invent_higher_gate"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

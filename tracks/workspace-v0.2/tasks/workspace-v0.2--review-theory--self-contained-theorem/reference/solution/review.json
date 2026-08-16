@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "theorem_correct",
+    "standard_assumptions"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "mandatory_large_benchmark"
+  ],
+  "rationale": "The declared theoretical contribution is self-contained and correct."
+}

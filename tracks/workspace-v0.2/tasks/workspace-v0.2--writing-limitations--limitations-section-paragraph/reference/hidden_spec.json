@@ -1,0 +1,15 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "RouteBench's labels were supplied by one annotator without an agreement study, and its English-only evaluation does not establish performance in other languages; both constraints should guide interpretation of downstream results.",
+  "required_concepts": [
+    "one annotator",
+    "English-only"
+  ],
+  "forbidden_claims": [
+    "invalidates the benchmark"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

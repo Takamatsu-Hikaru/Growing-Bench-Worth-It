@@ -1,0 +1,9 @@
+{
+  "facts": [
+    "The title, abstract, and conclusion already use the bounded claim.",
+    "Only the results paragraph contains an outdated number: 68.1 instead of 69.3."
+  ],
+  "authorized_targets": [
+    "sections/target.tex"
+  ]
+}

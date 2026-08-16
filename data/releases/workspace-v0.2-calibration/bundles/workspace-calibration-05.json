@@ -1,0 +1,577 @@
+{
+  "task": {
+    "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+    "domain": "review",
+    "review_context": "internal",
+    "mode": "artifact",
+    "objective": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+    "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+    "stage": "workspace execution",
+    "budget": {
+      "compute_cost": 1,
+      "human_minutes": 45,
+      "machine_minutes": 10
+    },
+    "stakes": {
+      "level": "medium",
+      "concrete_harm": "bounded local benchmark fixture"
+    },
+    "completion_criteria": [
+      {
+        "criterion_id": "C1",
+        "description": "The Agent-visible review schema check passes without revealing the target decision.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "C2",
+        "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+        "weight": 1.0
+      }
+    ],
+    "user_experience_applicable": true,
+    "scoring": {
+      "human_time_weight": 0.8,
+      "machine_time_weight": 0.2,
+      "compute_cost_weight": 0.2,
+      "opportunity_cost_weight": 1.0,
+      "user_burden_weight": 1.0,
+      "missed_value_weight": 1.0,
+      "failed_or_reverted_weight": 0.5,
+      "unjustified_defense_penalty": 0.5,
+      "high_value_threshold": 1.0
+    },
+    "matched_group": {
+      "group_id": "review-seeds",
+      "variant": "deterministic-execution"
+    },
+    "provenance": {
+      "publication_permission": true,
+      "source": "project-authored workspace materialization",
+      "static_lineage": null
+    },
+    "artifacts": [
+      "review.json"
+    ]
+  },
+  "trajectory": {
+    "trajectory_id": "workspace-calibration::workspace-calibration-05",
+    "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+    "events": [
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::user",
+        "kind": "artifact",
+        "content": "Read the complete paper and evidence package, then run verify_evidence.py. Create review.json with decision (accept, revise, or reject), evidence_ids, required_actions, optional_actions, and rationale. Base the decision on verified evidence, distinguish blockers from optional work, cite evidence IDs, and do not edit author files.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0001",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Force; rg --files -g \"AGENTS.md\" -g \"*paper*\" -g \"*evidence*\" -g \"verify_evidence.py\" -g \"*.md\" -g \"*.json\"'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0002",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File | Select-Object FullName,Length; Get-Content -Raw main.tex; Get-ChildItem sections -File | Sort-Object Name | ForEach-Object { \"`n=== $($_.FullName) ===`n\"; Get-Content -Raw -LiteralPath $_.FullName }; \"`n=== evidence.json ===`n\"; Get-Content -Raw evidence.json; \"`n=== data/results.json ===`n\"; Get-Content -Raw data'\"\\\\results.json; \\\"\"'`n=== verify_evidence.py ===`n\"; Get-Content -Raw verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0003",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File | Select-Object FullName,Length | Format-Table -AutoSize'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0004",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw sections\\\\evidence.tex\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0005",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw evidence.json'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0006",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw data\\\\results.json\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0007",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw main.tex'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0008",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0009",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0010",
+        "kind": "assistant",
+        "content": "The paper��s two claims match the packaged result records. I��m now running the required verifier and reading the review validator so the proposed JSON meets the exact decision and citation constraints.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0011",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0012",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -B verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0013",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -B verify_evidence.py'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0014",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw checks\\\\check_review.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0015",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$env:PYTHONDONTWRITEBYTECODE='\"'1'; & (Get-Command python).Source .\\\\verify_evidence.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0016",
+        "kind": "assistant",
+        "content": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"accept\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"deterministic_ops\\\",\\n    \\\"byte_identical\\\"\\n  ],\\n  \\\"required_actions\\\": [],\\n  \\\"optional_actions\\\": [\\n    \\\"Optionally archive prediction-file hashes alongside the supplied commands to simplify future reproducibility audits.\\\"\\n  ],\\n  \\\"rationale\\\": \\\"The decision-relevant package consistently reports fixed inputs, exhaustive evaluation, deterministic operators, and no randomized initialization [deterministic_ops], together with byte-identical predictions across reruns for all 500 items [byte_identical]. The packaged records match data/results.json and satisfy the verifier's evidence checks, so no blocking revision is supported by the verified evidence. Archiving hashes would improve audit convenience but is not required for acceptance.\\\"\\n}\\n\"}],\"final\":\"Proposed review.json only; author files remain unchanged. Considered the complete manuscript and evidence package, confirmed record parity manually against verify_evidence.py, and inspected the review schema validator. Direct Python execution was blocked by the read-only host policy.\"}",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0017",
+        "kind": "artifact",
+        "content": "Applied model-proposed complete contents to review.json",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0018",
+        "kind": "artifact",
+        "content": "Applied 1 allowed model-proposed file(s); temporary Codex home with 95 discovered user/plugin skills explicitly disabled",
+        "duration_ms": 85361.01620000409
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::final",
+        "kind": "assistant",
+        "content": "Proposed review.json only; author files remain unchanged. Considered the complete manuscript and evidence package, confirmed record parity manually against verify_evidence.py, and inspected the review schema validator. Direct Python execution was blocked by the read-only host policy.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::post-check::01",
+        "kind": "tool_result",
+        "content": "python checks/check_review.py",
+        "duration_ms": 136.69870000012452
+      },
+      {
+        "event_id": "workspace-v0.2--review-seeds--deterministic-execution::diff",
+        "kind": "artifact",
+        "content": "--- before/review.json\n+++ after/review.json\n@@ -0,0 +1,12 @@\n+{\n+  \"decision\": \"accept\",\n+  \"evidence_ids\": [\n+    \"deterministic_ops\",\n+    \"byte_identical\"\n+  ],\n+  \"required_actions\": [],\n+  \"optional_actions\": [\n+    \"Optionally archive prediction-file hashes alongside the supplied commands to simplify future reproducibility audits.\"\n+  ],\n+  \"rationale\": \"The decision-relevant package consistently reports fixed inputs, exhaustive evaluation, deterministic operators, and no randomized initialization [deterministic_ops], together with byte-identical predictions across reruns for all 500 items [byte_identical]. The packaged records match data/results.json and satisfy the verifier's evidence checks, so no blocking revision is supported by the verified evidence. Archiving hashes would improve audit convenience but is not required for acceptance.\"\n+}\n",
+        "duration_ms": null
+      }
+    ],
+    "task_outcome": {
+      "success": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "C1",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        },
+        {
+          "criterion_id": "C2",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        }
+      ]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "workspace-calibration::workspace-calibration-05::A1",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "trajectory_id": "workspace-calibration::workspace-calibration-05",
+      "description": "Review the deterministic-execution evidence, matching results, manuscript, verifier, and validator",
+      "action_type": "analysis",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0004",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw sections\\\\evidence.tex\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw evidence.json'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0006",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw data\\\\results.json\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0007",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw main.tex'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0009",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0014",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw checks\\\\check_review.py\""
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-05::A2",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "trajectory_id": "workspace-calibration::workspace-calibration-05",
+      "description": "Perform redundant recursive workspace-enumeration attempts after relevant files were identifiable",
+      "action_type": "analysis",
+      "status": "failed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File | Select-Object FullName,Length; Get-Content -Raw main.tex; Get-ChildItem sections -File | S"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File | Select-Object FullName,Length | Format-Table -AutoSize'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0008",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File'"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-05::A3",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "trajectory_id": "workspace-calibration::workspace-calibration-05",
+      "description": "Make repeated blocked verifier attempts after the first policy rejection",
+      "action_type": "verification",
+      "status": "failed",
+      "origin": "agent",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0011",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0012",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -B verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0013",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -B verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0015",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$env:PYTHONDONTWRITEBYTECODE='\"'1'; & (Get-Command python).Source .\\\\verify_evidence.py\""
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-05::A4",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "trajectory_id": "workspace-calibration::workspace-calibration-05",
+      "description": "Create an accept review that does not require random-seed experiments for demonstrated deterministic execution",
+      "action_type": "decision",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0016",
+          "quote": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"accept\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"deterministic_ops\\\",\\n    \\\"byte_identical\\\"\\n  ],\\n  \\\"required_actions\\\": [],\\n  \\\"optional_actions\\\": [\\n    \\\"Optionally archive p"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0017",
+          "quote": "Applied model-proposed complete contents to review.json"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-05::A5",
+      "task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+      "trajectory_id": "workspace-calibration::workspace-calibration-05",
+      "description": "Validate the review schema",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::post-check::01",
+          "quote": "python checks/check_review.py"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-05::A1",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-05::A1",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 2.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.97,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0004",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw sections\\\\evidence.tex\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw evidence.json'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0006",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw data\\\\results.json\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0007",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw main.tex'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0009",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -Raw verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0014",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw checks\\\\check_review.py\""
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-05::A2",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-05::A2",
+      "problem_probability": 0.5,
+      "success_probability": 0.2,
+      "required_for_task": 0.0,
+      "outcome_impact": 0.0,
+      "decision_impact": 0.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": {
+        "description": "Read the listed manuscript, evidence, verifier, and schema files directly.",
+        "cost_fraction": 0.4,
+        "comparable_benefit": true
+      },
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "no_effect",
+        "realized_impact": 0.0
+      },
+      "annotator_confidence": 0.97,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0002",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File | Select-Object FullName,Length; Get-Content -Raw main.tex; Get-ChildItem sections -File | S"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File | Select-Object FullName,Length | Format-Table -AutoSize'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0008",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Recurse -File'"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-05::A3",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-05::A3",
+      "problem_probability": 0.5,
+      "success_probability": 0.2,
+      "required_for_task": 0.0,
+      "outcome_impact": 0.0,
+      "decision_impact": 0.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 2.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": {
+        "description": "Stop after the first rejection and assess the explicit verifier assertions from inspected files.",
+        "cost_fraction": 0.25,
+        "comparable_benefit": true
+      },
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "no_effect",
+        "realized_impact": 0.0
+      },
+      "annotator_confidence": 0.97,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0011",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0012",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -B verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0013",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'py -B verify_evidence.py'"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0015",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$env:PYTHONDONTWRITEBYTECODE='\"'1'; & (Get-Command python).Source .\\\\verify_evidence.py\""
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-05::A4",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-05::A4",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 4.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.97,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0016",
+          "quote": "{\"changes\":[{\"path\":\"review.json\",\"content\":\"{\\n  \\\"decision\\\": \\\"accept\\\",\\n  \\\"evidence_ids\\\": [\\n    \\\"deterministic_ops\\\",\\n    \\\"byte_identical\\\"\\n  ],\\n  \\\"required_actions\\\": [],\\n  \\\"optional_actions\\\": [\\n    \\\"Optionally archive p"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0017",
+          "quote": "Applied model-proposed complete contents to review.json"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-05::A5",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-05::A5",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 2.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.002278311666668742,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.97,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--review-seeds--deterministic-execution::post-check::01",
+          "quote": "python checks/check_review.py"
+        }
+      ]
+    }
+  ],
+  "human_feedback": null
+}

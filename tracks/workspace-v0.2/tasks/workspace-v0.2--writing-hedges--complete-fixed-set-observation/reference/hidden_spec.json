@@ -1,0 +1,17 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "Across all 1,200 items in the declared benchmark, the detector flags 214 items; this is a complete fixed-set observation rather than a population estimate.",
+  "required_concepts": [
+    "1,200",
+    "214",
+    "complete fixed-set"
+  ],
+  "forbidden_claims": [
+    "confidence interval",
+    "may perhaps"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

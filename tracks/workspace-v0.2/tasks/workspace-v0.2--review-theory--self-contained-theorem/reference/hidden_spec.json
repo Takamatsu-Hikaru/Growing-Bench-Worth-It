@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "theorem_correct",
+    "standard_assumptions"
+  ],
+  "forbidden_required_actions": [
+    "mandatory_large_benchmark"
+  ],
+  "reference_rationale": "The declared theoretical contribution is self-contained and correct.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

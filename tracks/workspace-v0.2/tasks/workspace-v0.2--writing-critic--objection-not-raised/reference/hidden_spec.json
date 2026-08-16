@@ -1,0 +1,16 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "On the fixed evaluation, the method improves accuracy by 3.1 points; the reviews contain no duplicate-removal objection that needs to be anticipated here.",
+  "required_concepts": [
+    "3.1",
+    "no duplicate-removal objection"
+  ],
+  "forbidden_claims": [
+    "Reviewer 2",
+    "might object"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

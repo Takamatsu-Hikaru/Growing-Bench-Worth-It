@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "sota_claim",
+    "missing_current_baseline"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "The state-of-the-art claim lacks its decision-relevant comparison."
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "On English customer-support dialogs, the method improves intent accuracy by 4.2 points; evaluation in other languages remains future work.",
+  "required_concepts": [
+    "English",
+    "4.2",
+    "future work"
+  ],
+  "forbidden_claims": [
+    "fundamentally unknowable",
+    "cannot establish anything"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "gate_2_points",
+    "gain_2_8"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "invent_higher_gate"
+  ],
+  "rationale": "The result clears the declared gate under comparable evaluation."
+}

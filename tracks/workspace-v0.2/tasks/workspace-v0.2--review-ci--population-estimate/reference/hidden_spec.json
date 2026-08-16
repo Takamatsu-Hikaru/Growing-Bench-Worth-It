@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "sample_400",
+    "population_headline"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The population headline relies on a finite sample without uncertainty.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

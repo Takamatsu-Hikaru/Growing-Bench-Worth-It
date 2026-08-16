@@ -1,0 +1,95 @@
+{
+  "schema_version": "growing-bench-task-2.0",
+  "task_id": "workspace-v0.2--writing-critic--objection-not-raised",
+  "track_id": "workspace-v0.2",
+  "title": "Remove an invented reviewer objection",
+  "kind": "writing",
+  "fixture": "fixture",
+  "prompt": "Read the complete LaTeX workspace and evidence.json. Edit only the authorized manuscript section(s) so the claim is accurate, direct, and proportionate to the evidence. Preserve decision-relevant limitations, avoid unsupported caveats or claims, and run the format and LaTeX checks.",
+  "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+  "checks": [
+    {
+      "name": "content-check",
+      "command": [
+        "python",
+        "checks/check_content.py"
+      ],
+      "timeout_seconds": 30
+    },
+    {
+      "name": "latex-compile",
+      "command": [
+        "python",
+        "checks/compile.py"
+      ],
+      "timeout_seconds": 60
+    }
+  ],
+  "baseline_expectation": "failing",
+  "expected_failure": {
+    "check": "content-check",
+    "returncode": 1,
+    "contains": "WORKSPACE_TASK_INCOMPLETE"
+  },
+  "allowed_paths": [
+    "sections/target.tex"
+  ],
+  "forbidden_paths": [],
+  "ignore_paths": [
+    "__pycache__",
+    "main.aux",
+    "main.log",
+    "main.pdf",
+    "main.out"
+  ],
+  "required_artifacts": [
+    "sections/target.tex"
+  ],
+  "completion_criteria": [
+    {
+      "criterion_id": "C1",
+      "description": "The Agent-visible format check passes without revealing the target claim.",
+      "kind": "check",
+      "check": "content-check",
+      "weight": 1.0
+    },
+    {
+      "criterion_id": "C2",
+      "description": "The LaTeX project compiles.",
+      "kind": "check",
+      "check": "latex-compile",
+      "weight": 1.0
+    },
+    {
+      "criterion_id": "C3",
+      "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+      "kind": "semantic",
+      "weight": 1.0
+    }
+  ],
+  "budget": {
+    "human_minutes": 45,
+    "machine_minutes": 10,
+    "compute_cost": 1
+  },
+  "matched_group": {
+    "group_id": "writing-critic",
+    "variant": "objection-not-raised"
+  },
+  "provenance": {
+    "source": "project-authored workspace materialization",
+    "publication_permission": true,
+    "static_lineage": null
+  },
+  "evaluation_visibility": {
+    "agent_visible": [
+      "format",
+      "latex_compile"
+    ],
+    "hidden": [
+      "claim_strength",
+      "evidence_use",
+      "required_optional_actions"
+    ]
+  }
+}

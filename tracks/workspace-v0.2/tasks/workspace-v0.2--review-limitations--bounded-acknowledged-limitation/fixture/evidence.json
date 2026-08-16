@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "in_domain_evidence",
+      "statement": "All declared in-domain evaluations and supplied reproduction checks pass."
+    },
+    {
+      "evidence_id": "explicit_limitation",
+      "statement": "The abstract, conclusion, and limitations explicitly say that other languages and domains remain untested."
+    }
+  ],
+  "review_context": "external_peer_review"
+}

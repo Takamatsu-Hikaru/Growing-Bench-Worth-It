@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "split_before_labeling",
+      "statement": "The private test split was created and sealed before labeling and model development."
+    },
+    {
+      "evidence_id": "duplicate_scan_clean",
+      "statement": "The supplied exact and normalized duplicate scan reports no train-test matches."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

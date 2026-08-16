@@ -1,0 +1,17 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex",
+    "sections/abstract.tex",
+    "sections/conclusion.tex"
+  ],
+  "reference_text": "The revised manuscript consistently describes the contribution as an English-only evaluation; multilingual performance is not established by the available evidence.",
+  "required_concepts": [
+    "English-only",
+    "multilingual performance is not established"
+  ],
+  "forbidden_claims": [
+    "supports multilingual performance"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

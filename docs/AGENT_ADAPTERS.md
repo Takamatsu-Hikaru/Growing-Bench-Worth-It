@@ -1,21 +1,17 @@
 # Agent adapters
 
-Growing Bench owns the benchmark semantics: fixture isolation, baseline validation, completion checks, allowed-file scope, diffing, and trajectory storage. An adapter only has to give an agent the prompt and workspace.
+Growing Bench owns benchmark semantics: fixture isolation, exact baseline validation, completion checks, allowed-file scope, diffing, and trajectory storage. An adapter only gives an Agent the prompt and disposable workspace, then translates visible events.
 
-Built-in adapters:
-
-| Adapter | Expected CLI | Invocation style |
+| Adapter | Expected CLI | Invocation |
 |---|---|---|
-| `codex` | `codex` | `codex exec` with JSON events and an ephemeral session |
-| `claude-code` | `claude` | print mode with stream JSON and no session persistence |
-| `openclaw` | `openclaw` | headless `agent exec` with a message file and JSON output |
+| `codex` | `codex` | ephemeral `codex exec` JSON stream |
+| `claude-code` | `claude` | non-persistent stream JSON mode |
+| `openclaw` | `openclaw` | headless agent execution with declared JSON events |
 | `command` | any executable | user-supplied JSON command array |
 
-Run `python -m growing_bench doctor` to see what is installed.
+Run `growing-bench doctor` to inspect local availability.
 
-## Stable run artifacts
-
-Every adapter produces the same public shape:
+## Stable public artifacts
 
 ```text
 run/
@@ -34,26 +30,28 @@ run/
     final.md
     stdout.log
     stderr.log
+    events.jsonl
 ```
 
-This is the portability boundary. Evaluators consume the normalized trajectory and verified workspace results, not Codex-specific event formats.
+Evaluator packets consume normalized visible events and verified workspace results. They do not depend on Codex-specific internals and do not require private chain-of-thought.
+
+Normalized event kinds include assistant messages, file reads/writes, search, tool calls, command start/results, test/compile results, patches, artifacts, the final response, post-checks, and the workspace diff. Events can carry receipt time, duration, status, target, visible output, and usage.
+
+Recorded offline examples for all three built-in event formats live under `tests/fixtures/adapters/`; `tests/test_adapter_golden_events.py` proves their mapping without paid model calls.
 
 ## Custom command adapter
 
-The command template is a JSON array. Exact array elements may use `{workspace}`, `{prompt_file}`, `{final_file}`, `{model}`, and `{reasoning}` placeholders. The command runs with the workspace as its current directory. It should return zero on successful execution and may print `{"final": "..."}`.
-
-Bash example:
+The command template is a JSON array. Exact elements may use `{workspace}`, `{prompt_file}`, `{final_file}`, `{model}`, and `{reasoning}`. The process runs with the disposable workspace as its current directory.
 
 ```bash
-python -m growing_bench run examples/tasks/adapter-smoke.json \
+growing-bench run examples/tasks/adapter-smoke.json \
   --agent command \
   --command-template '["python","-m","growing_bench.demo_agent","{workspace}"]' \
   --output runs/custom-agent
 ```
 
-For a production integration, keep credentials and private chain-of-thought out of stdout. The benchmark needs visible messages, tool activity, file changes, checks, timing, and usage—not hidden reasoning.
+A custom adapter may return `{"final":"...","events":[...]}`. Only canonical public event kinds are accepted.
 
 ## Adding another adapter
 
-Add command construction and final-message parsing in `growing_bench/agents.py`; do not duplicate workspace or scoring logic. Add a no-network contract test using `examples/tasks/adapter-smoke.json`. A missing third-party CLI must be reported by `doctor` rather than breaking offline smoke.
-
+Add command construction and final parsing in `growing_bench/agents.py`; add event normalization in `growing_bench/trajectory.py`. Do not duplicate runner or scorer logic. A missing vendor CLI must be reported by `doctor` rather than breaking the offline smoke.

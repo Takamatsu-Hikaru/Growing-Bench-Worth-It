@@ -1,0 +1,13 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "bounded_english_claim",
+    "supported_analysis"
+  ],
+  "required_actions": [
+    "three_extra_datasets",
+    "two_extra_languages"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

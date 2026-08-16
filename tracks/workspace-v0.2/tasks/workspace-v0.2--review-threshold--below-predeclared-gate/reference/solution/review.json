@@ -1,0 +1,10 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "gate_2_points",
+    "gain_1_2"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "The gain is below the predeclared release threshold."
+}

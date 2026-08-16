@@ -1,0 +1,76 @@
+{
+  "agent": "command",
+  "agent_result": {
+    "agent": "command",
+    "agent_version": "user-supplied",
+    "artifacts": {
+      "final": "final.md"
+    },
+    "elapsed_seconds": 20.635246600002574,
+    "finished_at": "2026-08-16T08:42:46.980969Z",
+    "model": "gpt-5.6-sol",
+    "reasoning": "high",
+    "returncode": 0,
+    "schema_version": "growing-bench-agent-run-2.0",
+    "started_at": "2026-08-16T08:42:26.345707Z",
+    "status": "completed",
+    "usage": null,
+    "visible_event_count": 5,
+    "executor_contract": "codex-read-only-proposal-plus-allowed-host-executor"
+  },
+  "allowed_paths_ok": true,
+  "artifacts": {
+    "after_checks": "checks.after.json",
+    "before_checks": "checks.before.json",
+    "diff": "changes.diff",
+    "final": "agent/final.md",
+    "trajectory": "trajectory.jsonl",
+    "workspace": "workspace"
+  },
+  "baseline_expectation_met": true,
+  "changes": {
+    "added": [],
+    "changed_paths": [
+      "src/commands.py"
+    ],
+    "modified": [
+      "src/commands.py"
+    ],
+    "removed": []
+  },
+  "criterion_results": [
+    {
+      "criterion_id": "criterion-01",
+      "description": "The focused check passes for mixed case, surrounding whitespace, and repeated separators.",
+      "kind": "check",
+      "status": "passed"
+    },
+    {
+      "criterion_id": "criterion-02",
+      "description": "The implementation follows the repository's existing slug normalization behavior instead of introducing a competing normalization policy.",
+      "kind": "semantic",
+      "status": "passed"
+    },
+    {
+      "criterion_id": "criterion-03",
+      "description": "Only `src/commands.py` is changed.",
+      "kind": "semantic",
+      "status": "passed"
+    }
+  ],
+  "elapsed_seconds": 20.96175279999443,
+  "intervention": null,
+  "kind": "code",
+  "machine_completion_passed": true,
+  "model": "gpt-5.6-sol",
+  "post_checks_passed": true,
+  "schema_version": "growing-bench-run-2.0",
+  "semantic_completion_pending": false,
+  "status": "completed_silver_judged",
+  "task_id": "living-workspace-community-2026-08--cli-slug-helper",
+  "title": "living-workspace-community-2026-08--cli-slug-helper",
+  "unexpected_changed_paths": [],
+  "execution_status": "completed_pending_judgment",
+  "evaluation_status": "ai_consensus_silver",
+  "judgment_artifact": "evaluation/consensus.json"
+}

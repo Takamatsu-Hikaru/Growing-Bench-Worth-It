@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "stochastic_training",
+      "statement": "The main system uses random initialization, shuffled data, and nondeterministic accelerator kernels."
+    },
+    {
+      "evidence_id": "single_seed_headline",
+      "statement": "The headline improvement is reported from one seed without any variability estimate."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

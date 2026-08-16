@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "split_before_labeling",
+    "duplicate_scan_clean"
+  ],
+  "forbidden_required_actions": [
+    "broad_forensic_audit"
+  ],
+  "reference_rationale": "The concrete leakage checks are clean.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

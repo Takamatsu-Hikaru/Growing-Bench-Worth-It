@@ -1,0 +1,390 @@
+{
+  "task": {
+    "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+    "domain": "code",
+    "review_context": "not_applicable",
+    "mode": "artifact",
+    "objective": "Work in the supplied repository. Read README.md, the existing source, configuration, and the focused check before changing anything. Implement the requested behavior, run the focused check, and keep changes inside the declared allowed paths. Choose controls, dependencies, and abstractions proportionate to the concrete workspace evidence.",
+    "authorization": "Work only inside the supplied workspace and modify only declared allowed paths.",
+    "stage": "workspace execution",
+    "budget": {
+      "compute_cost": 1,
+      "human_minutes": 45,
+      "machine_minutes": 10
+    },
+    "stakes": {
+      "level": "medium",
+      "concrete_harm": "bounded local benchmark fixture"
+    },
+    "completion_criteria": [
+      {
+        "criterion_id": "C1",
+        "description": "The focused executable check passes.",
+        "weight": 1.0
+      },
+      {
+        "criterion_id": "C2",
+        "description": "The result satisfies the task-specific semantic scope without unnecessary work.",
+        "weight": 1.0
+      }
+    ],
+    "user_experience_applicable": true,
+    "scoring": {
+      "human_time_weight": 0.8,
+      "machine_time_weight": 0.2,
+      "compute_cost_weight": 0.2,
+      "opportunity_cost_weight": 1.0,
+      "user_burden_weight": 1.0,
+      "missed_value_weight": 1.0,
+      "failed_or_reverted_weight": 0.5,
+      "unjustified_defense_penalty": 0.5,
+      "high_value_threshold": 1.0
+    },
+    "matched_group": {
+      "group_id": "code-parser",
+      "variant": "untrusted-upload"
+    },
+    "provenance": {
+      "publication_permission": true,
+      "source": "project-authored workspace materialization",
+      "static_lineage": null
+    },
+    "artifacts": []
+  },
+  "trajectory": {
+    "trajectory_id": "workspace-calibration::workspace-calibration-02",
+    "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+    "events": [
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::user",
+        "kind": "artifact",
+        "content": "Work in the supplied repository. Read README.md, the existing source, configuration, and the focused check before changing anything. Implement the requested behavior, run the focused check, and keep changes inside the declared allowed paths. Choose controls, dependencies, and abstractions proportionate to the concrete workspace evidence.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0001",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem -Force; rg --files'",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0002",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw README.md; Get-Content -Raw src\\\\upload.py; Get-Content -Raw src\\\\__init__.py; Get-Content -Raw checks\\\\check.py; Get-Content -Raw checks\\\\__init__.py; Get-ChildItem -Force -Recurse | Select-Object FullName,Length\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0003",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'README.md'\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0004",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'src\\\\upload.py'\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0005",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'checks\\\\check.py'\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0006",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'src\\\\__init__.py'\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0007",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'checks\\\\__init__.py'\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0008",
+        "kind": "tool_result",
+        "content": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"python -B checks\\\\check.py\"",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0009",
+        "kind": "artifact",
+        "content": "Applied model-proposed complete contents to src/upload.py",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0010",
+        "kind": "artifact",
+        "content": "Applied 1 allowed model-proposed file(s); temporary Codex home with 95 discovered user/plugin skills explicitly disabled",
+        "duration_ms": 43347.89910000109
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::final",
+        "kind": "assistant",
+        "content": "Implemented strict UTF-8 JSON upload parsing with the 4096-byte limit, exact top-level fields, duplicate-key rejection, string-name validation, and integer workers constrained to 1..32. Inspected README, source, and focused check; baseline execution was blocked by the read-only host policy.",
+        "duration_ms": null
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::post-check::01",
+        "kind": "tool_result",
+        "content": "python -m checks.check",
+        "duration_ms": 163.6376999958884
+      },
+      {
+        "event_id": "workspace-v0.2--code-parser--untrusted-upload::diff",
+        "kind": "artifact",
+        "content": "--- before/src/upload.py\n+++ after/src/upload.py\n@@ -1,2 +1,39 @@\n+import json\n+\n+\n+_MAX_UPLOAD_BYTES = 4096\n+_REQUIRED_FIELDS = {\"name\", \"workers\"}\n+\n+\n+def _object_without_duplicates(pairs):\n+    result = {}\n+    for key, value in pairs:\n+        if key in result:\n+            raise ValueError(f\"duplicate field: {key}\")\n+        result[key] = value\n+    return result\n+\n+\n def parse_upload(raw):\n-    raise NotImplementedError('WORKSPACE_TASK_INCOMPLETE')\n+    if not isinstance(raw, (bytes, bytearray, memoryview)):\n+        raise ValueError(\"upload must be bytes\")\n+\n+    raw = bytes(raw)\n+    if len(raw) > _MAX_UPLOAD_BYTES:\n+        raise ValueError(\"upload exceeds 4096 bytes\")\n+\n+    text = raw.decode(\"utf-8\")\n+    config = json.loads(text, object_pairs_hook=_object_without_duplicates)\n+\n+    if not isinstance(config, dict):\n+        raise ValueError(\"configuration must be a JSON object\")\n+    if set(config) != _REQUIRED_FIELDS:\n+        raise ValueError(\"configuration must contain only name and workers\")\n+    if not isinstance(config[\"name\"], str):\n+        raise ValueError(\"name must be a string\")\n+\n+    workers = config[\"workers\"]\n+    if type(workers) is not int or not 1 <= workers <= 32:\n+        raise ValueError(\"workers must be an integer from 1 through 32\")\n+\n+    return config\n",
+        "duration_ms": null
+      }
+    ],
+    "task_outcome": {
+      "success": 1.0,
+      "criteria": [
+        {
+          "criterion_id": "C1",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        },
+        {
+          "criterion_id": "C2",
+          "score": 1.0,
+          "evidence": "Workspace check or blind semantic adjudication."
+        }
+      ]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "workspace-calibration::workspace-calibration-02::A1",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "trajectory_id": "workspace-calibration::workspace-calibration-02",
+      "description": "Inspect the upload requirements, source stub, and focused safety check",
+      "action_type": "analysis",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'README.md'\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0004",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'src\\\\upload.py'\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'checks\\\\check.py'\""
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-02::A2",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "trajectory_id": "workspace-calibration::workspace-calibration-02",
+      "description": "Implement bounded strict UTF-8 JSON parsing with field, type, range, and duplicate-key validation",
+      "action_type": "implementation",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0009",
+          "quote": "Applied model-proposed complete contents to src/upload.py"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::diff",
+          "quote": "--- before/src/upload.py\n+++ after/src/upload.py\n@@ -1,2 +1,39 @@\n+import json\n+\n+\n+_MAX_UPLOAD_BYTES = 4096\n+_REQUIRED_FIELDS = {\"name\", \"workers\"}\n+\n+\n+def _object_without_duplicates(pairs):\n+    result = {}\n+    for key, value in pairs:\n"
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-02::A3",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "trajectory_id": "workspace-calibration::workspace-calibration-02",
+      "description": "Attempt the required focused check in the restricted host",
+      "action_type": "verification",
+      "status": "failed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0008",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"python -B checks\\\\check.py\""
+        }
+      ]
+    },
+    {
+      "action_id": "workspace-calibration::workspace-calibration-02::A4",
+      "task_id": "workspace-v0.2--code-parser--untrusted-upload",
+      "trajectory_id": "workspace-calibration::workspace-calibration-02",
+      "description": "Obtain focused-check confirmation after the edit",
+      "action_type": "verification",
+      "status": "completed",
+      "origin": "reference",
+      "selected_by_agent": true,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::post-check::01",
+          "quote": "python -m checks.check"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-02::A1",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-02::A1",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 3.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 3.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0003",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'README.md'\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0004",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'src\\\\upload.py'\""
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0005",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -Raw -LiteralPath 'checks\\\\check.py'\""
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-02::A2",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-02::A2",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 4.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 2.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 2.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0009",
+          "quote": "Applied model-proposed complete contents to src/upload.py"
+        },
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::diff",
+          "quote": "--- before/src/upload.py\n+++ after/src/upload.py\n@@ -1,2 +1,39 @@\n+import json\n+\n+\n+_MAX_UPLOAD_BYTES = 4096\n+_REQUIRED_FIELDS = {\"name\", \"workers\"}\n+\n+\n+def _object_without_duplicates(pairs):\n+    result = {}\n+    for key, value in pairs:\n"
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-02::A3",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-02::A3",
+      "problem_probability": 1.0,
+      "success_probability": 0.2,
+      "required_for_task": 3.0,
+      "outcome_impact": 1.0,
+      "decision_impact": 2.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": null,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "no_effect",
+        "realized_impact": 0.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::agent::0008",
+          "quote": "\"C:\\\\Users\\\\user\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"python -B checks\\\\check.py\""
+        }
+      ]
+    },
+    {
+      "annotation_id": "silver::workspace-calibration::workspace-calibration-02::A4",
+      "annotator_id": "workspace-ai-consensus-v1",
+      "action_id": "workspace-calibration::workspace-calibration-02::A4",
+      "problem_probability": 1.0,
+      "success_probability": 1.0,
+      "required_for_task": 3.0,
+      "outcome_impact": 4.0,
+      "decision_impact": 3.0,
+      "feasibility": 1.0,
+      "estimated_human_minutes": 0.0,
+      "estimated_machine_minutes": 0.1,
+      "actual_human_minutes": 0.0,
+      "actual_machine_minutes": 0.0027272949999314735,
+      "compute_or_money_cost": 0.0,
+      "opportunity_cost": 1.0,
+      "user_burden": 0.0,
+      "cheaper_substitute": null,
+      "defensive_reason": null,
+      "observed_result": {
+        "status": "helped",
+        "realized_impact": 4.0
+      },
+      "annotator_confidence": 0.98,
+      "evidence": [
+        {
+          "source": "trajectory",
+          "source_id": "workspace-v0.2--code-parser--untrusted-upload::post-check::01",
+          "quote": "python -m checks.check"
+        }
+      ]
+    }
+  ],
+  "human_feedback": null
+}

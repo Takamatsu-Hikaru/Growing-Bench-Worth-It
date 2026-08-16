@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "theorem_correct",
+      "statement": "The proof checker and independent derivation confirm the main theorem under the stated assumptions."
+    },
+    {
+      "evidence_id": "standard_assumptions",
+      "statement": "The assumptions are standard for the declared theoretical setting and are stated before the theorem."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

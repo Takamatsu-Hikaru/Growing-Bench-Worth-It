@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "decision": "revise",
+  "required_changed_paths": [
+    "review.json"
+  ]
+}

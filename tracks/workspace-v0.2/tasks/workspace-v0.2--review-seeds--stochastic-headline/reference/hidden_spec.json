@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "stochastic_training",
+    "single_seed_headline"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The headline needs variability across stochastic runs.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

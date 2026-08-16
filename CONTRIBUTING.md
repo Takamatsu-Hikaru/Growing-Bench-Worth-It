@@ -1,32 +1,54 @@
 # Contributing
 
-The most valuable contribution is a concrete interaction where an Agent wasted effort, expanded scope, missed a high-value action, or handled a necessary concern badly.
+The most valuable contribution is a concrete Agent trajectory where work was avoidable, scope expanded, a high-value action was missed, or a necessary concern was handled badly.
 
-## Start a case
-
-```bash
-python -m growing_bench init-case my-case
-python -m growing_bench ingest my-case.md --check
-```
-
-The check is read-only. Before opening a pull request, make the goal and completion criteria observable, add a runnable repository or LaTeX fixture when the task changes artifacts, state provenance and public-release permission, and describe a plausible opposite variant.
-
-Then validate the real baseline:
+## Contribute a portable case
 
 ```bash
-python -m growing_bench ingest my-case.md --materialize --validate
-python -m growing_bench smoke --output runs/contributor-smoke
-python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_public_release tests.test_product_experience
+growing-bench init-case my-case
 ```
 
-New cases enter a new track as `silver_pending`. Existing tracks and scores remain unchanged. Semantic duplicates should declare a `supersedes` relationship.
+This creates:
 
-## Submit an Agent adapter
+```text
+my-case/
+  case.md       # task, criteria, provenance, permission, observed failure
+  fixture/      # initial disposable repository or LaTeX package
+  reference/    # smallest solution that proves the task is executable
+```
 
-Adapters must preserve the common artifacts in `docs/AGENT_ADAPTERS.md`. They may translate vendor events, but fixture isolation, expected-baseline validation, allowed-path enforcement, and scoring stay in the shared harness.
+Use fake credentials and stub services. Do not submit production secrets, private conversations without permission, or a fixture that depends on an account you control.
 
-Add offline tests for success, timeout, missing CLI, and out-of-scope modification behavior.
+Run the read-only preflight:
 
-## Naming evidence accurately
+```bash
+growing-bench ingest my-case/case.md --check
+```
 
-Machine consensus is `silver_reference`, `consensus_reference`, or `ai_adjudicated_reference`, never human gold. Disagreements remain unresolved. Simulated interaction burden is not real user satisfaction.
+It reports information gaps, observable criteria, publication permission, duplicate risk, pairability, and fixture/reference readiness. A prompt and response without an executable workspace may remain auxiliary QA data, but it cannot enter the workspace benchmark.
+
+Portable materialization requires a separate AI-curator decision covering all seven admission questions:
+
+```bash
+growing-bench ingest my-case/case.md \
+  --materialize --validate --curation my-case/curation.ai.json
+```
+
+The repository's complete example is `living/contributions/cli-slug-helper/`. New cases enter a new immutable track. They do not rewrite historical cases or scores; semantic replacements declare `supersedes`.
+
+Before a pull request, run:
+
+```bash
+growing-bench smoke --output runs/contributor-smoke
+python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_adapter_golden_events tests.test_workspace_runner_v2
+```
+
+## Contribute an Agent adapter
+
+Adapters translate a vendor's command and visible events. Growing Bench retains fixture isolation, baseline validation, completion checks, path scope, diffing, and scoring.
+
+Add a recorded no-network golden stream and tests for parsing, success, timeout, missing CLI, and out-of-scope changes. Credentials and private chain-of-thought must never enter public events.
+
+## Name evidence accurately
+
+Machine consensus is `silver_reference`, `consensus_reference`, or `ai_adjudicated_reference`, never human gold. Unresolved disagreements remain visible. Simulated interaction burden is not real-user satisfaction. An eight-task calibration is not a 50-task leaderboard.

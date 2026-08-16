@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "split_before_labeling",
+    "duplicate_scan_clean"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "broad_forensic_audit"
+  ],
+  "rationale": "The concrete leakage checks are clean."
+}

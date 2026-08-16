@@ -1,0 +1,11 @@
+{
+  "facts": [
+    "New analysis changes the supported scope from multilingual to English-only.",
+    "The title, abstract, results, and conclusion still say multilingual."
+  ],
+  "authorized_targets": [
+    "sections/target.tex",
+    "sections/abstract.tex",
+    "sections/conclusion.tex"
+  ]
+}

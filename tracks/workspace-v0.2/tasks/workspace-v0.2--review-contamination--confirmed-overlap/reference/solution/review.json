@@ -1,0 +1,10 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "training_overlap",
+    "memorized_items"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "Confirmed overlap invalidates the benchmark result."
+}

@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "pilot_cost",
+    "pilot_success"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The pilot meets its predeclared feasibility gate within budget.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

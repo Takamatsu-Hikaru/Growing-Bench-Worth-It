@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "bounded_english_claim",
+      "statement": "The paper limits its conclusion to error patterns in one documented English benchmark."
+    },
+    {
+      "evidence_id": "supported_analysis",
+      "statement": "The packaged labels, counts, and ambiguity analysis reproduce every number used in the bounded conclusion."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

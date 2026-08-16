@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "in_domain_evidence",
+    "explicit_limitation"
+  ],
+  "forbidden_required_actions": [
+    "reject_for_boundary_alone"
+  ],
+  "reference_rationale": "The acknowledged boundary does not invalidate the in-domain result.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

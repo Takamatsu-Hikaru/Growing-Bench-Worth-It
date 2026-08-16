@@ -1,0 +1,7 @@
+{
+  "schema_version": "growing-bench-evaluation-method-1.0",
+  "packet_set_id": "living-cli-slug-helper-v1",
+  "executor": "codex-read-only-proposal-plus-allowed-host-executor",
+  "reference_status": "ai_consensus_silver",
+  "full_model_matrix": false
+}

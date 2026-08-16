@@ -1,0 +1,17 @@
+--- before/review.json
++++ after/review.json
+@@ -0,0 +1,14 @@
++{
++  "decision": "revise",
++  "evidence_ids": [
++    "causal_title",
++    "observational_only"
++  ],
++  "required_actions": [
++    "Revise the title and all causal language to describe an observed association rather than an intervention-caused performance change, because the causal claim in causal_title is unsupported by the observational design documented in observational_only."
++  ],
++  "optional_actions": [
++    "In future work, use randomized assignment or a valid causal identification strategy if a causal conclusion is desired."
++  ],
++  "rationale": "Revision is required because causal_title makes a causal claim while observational_only establishes that the evidence is observational and supplies neither randomized assignment nor a valid causal identification strategy. This is a decision-blocking overclaim but is potentially correctable by aligning the title and manuscript conclusions with the supported associational evidence; collecting new causal evidence is optional rather than required for a revised associational paper."
++}

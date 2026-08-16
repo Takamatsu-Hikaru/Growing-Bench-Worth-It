@@ -1,0 +1,16 @@
+{
+  "kind": "writing",
+  "targets": [
+    "sections/target.tex"
+  ],
+  "reference_text": "After the observational rollout, median latency fell from 180 ms to 121 ms; the design does not identify the rollout as the causal mechanism.",
+  "required_concepts": [
+    "180 ms",
+    "121 ms",
+    "does not identify"
+  ],
+  "forbidden_claims": [
+    "caused the reduction"
+  ],
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

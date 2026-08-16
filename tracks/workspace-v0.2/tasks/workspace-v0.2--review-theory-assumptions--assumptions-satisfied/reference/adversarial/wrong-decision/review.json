@@ -1,0 +1,12 @@
+{
+  "decision": "reject",
+  "evidence_ids": [
+    "assumption_check",
+    "proof_complete"
+  ],
+  "required_actions": [
+    "mandatory_empirical_suite"
+  ],
+  "optional_actions": [],
+  "rationale": "This deliberately reaches the wrong decision while satisfying the public JSON schema."
+}

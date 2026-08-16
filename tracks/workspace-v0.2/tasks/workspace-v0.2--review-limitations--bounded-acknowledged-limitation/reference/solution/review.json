@@ -1,0 +1,12 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "in_domain_evidence",
+    "explicit_limitation"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "reject_for_boundary_alone"
+  ],
+  "rationale": "The acknowledged boundary does not invalidate the in-domain result."
+}
