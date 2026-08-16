@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -20,6 +21,7 @@ class PublicPipelineTests(unittest.TestCase):
         self.assertTrue(value["checks"]["environment_executable"])
         self.assertTrue(value["checks"]["pair_metadata_present"])
 
+    @unittest.skipUnless(shutil.which("pdflatex"), "requires pdflatex; exercised by workspace-admission CI")
     def test_ingest_materialize_validate_real_latex_fixture(self) -> None:
         with tempfile.TemporaryDirectory(prefix="growing-pipeline-") as name:
             value = ingest(CASE, Path(name) / "tracks", materialize=True, validate=True)

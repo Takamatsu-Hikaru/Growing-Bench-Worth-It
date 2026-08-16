@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import unittest
 from pathlib import Path
 
@@ -12,6 +13,7 @@ TRACK = ROOT / "tracks" / "workspace-v0.2"
 
 
 class WorkspaceValidityV2Tests(unittest.TestCase):
+    @unittest.skipUnless(shutil.which("pdflatex"), "requires pdflatex; exercised by workspace-admission CI")
     def test_all_packages_separate_visible_checks_and_reject_known_wrong_alternatives(self) -> None:
         result = validate_corpus(TRACK)
         self.assertEqual(result["status"], "package_admission_passed")
