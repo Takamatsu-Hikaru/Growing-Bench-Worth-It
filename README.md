@@ -1,4 +1,4 @@
-![Growing Bench: Worth It](docs/assets/growing-bench-hero.png)
+![Growing Bench: Worth It](https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/releases/download/v0.2.0-rc1/growing-bench-hero.png)
 
 # Growing Bench: Worth It
 
@@ -12,7 +12,7 @@ Growing Bench turns those experiences into repeatable tests for Agents, skills, 
 
 ## How it works
 
-![Growing Bench architecture](docs/assets/growing-bench-architecture.jpg)
+![Growing Bench architecture](https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/releases/download/v0.2.0-rc1/growing-bench-architecture.jpg)
 
 ## Test your Agent or skill
 
@@ -150,7 +150,7 @@ Preflight reports the exact file and issue, whether local use still works, and t
 
 ## How the benchmark grows
 
-![How Growing Bench grows](docs/assets/how-growing-bench-grows.jpg)
+![How Growing Bench grows](https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/releases/download/v0.2.0-rc1/how-growing-bench-grows.jpg)
 
 
 ## Main commands
