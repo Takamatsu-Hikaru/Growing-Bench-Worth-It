@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from .agents import run_agent
+from .quality import isolation_profile, validate_isolation
 from .task_contract import evaluate_completion, load_task, resolve_fixture
 from .trajectory import utc_now
 
@@ -167,7 +168,9 @@ def run_task(
     agent: str = "codex",
     intervention: Path | None = None,
     command_template: str | None = None,
+    isolation: str = "copy",
 ) -> dict[str, Any]:
+    validate_isolation(agent, isolation)
     total_started = time.perf_counter()
     task_path, output = task_path.resolve(), output.resolve()
     if output.exists():
@@ -240,6 +243,7 @@ def run_task(
         "criterion_results": criterion_results,
         "elapsed_seconds": time.perf_counter() - total_started,
         "changes": changes, "agent_result": agent_summary,
+        "isolation": isolation_profile(agent, isolation),
         "artifacts": {
             "trajectory": "trajectory.jsonl", "agent_events": "agent/events.jsonl",
             "final": "agent/final.md", "raw_stdout": "agent/stdout.log",

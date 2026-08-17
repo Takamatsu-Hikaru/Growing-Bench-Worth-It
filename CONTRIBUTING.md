@@ -45,7 +45,7 @@ python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_ad
 
 ## Contribute an Agent adapter
 
-Adapters translate a vendor's command and visible events. Growing Bench retains fixture isolation, baseline validation, completion checks, path scope, diffing, and scoring.
+Adapters translate a vendor's command and visible events. Growing Bench creates a fresh fixture copy, starts the process in that workspace, validates the baseline and completion checks, enforces changed-path scope, records the diff, and scores the visible trajectory.
 
 Add a recorded no-network golden stream and tests for parsing, success, timeout, missing CLI, and out-of-scope changes. Credentials and private chain-of-thought must never enter public events.
 

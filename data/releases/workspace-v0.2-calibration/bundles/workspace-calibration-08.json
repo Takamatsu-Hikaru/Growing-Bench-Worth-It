@@ -131,7 +131,7 @@
       {
         "event_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate::agent::0011",
         "kind": "assistant",
-        "content": "The only authorized file is `sections/target.tex`. The evidence supports a sample estimate��72 of 300 (24%)��but no population-wide certainty or precision interval, so I��ll state the observed sample result and frame 24% explicitly as the prevalence estimate.",
+        "content": "The only authorized file is `sections/target.tex`. The evidence supports a sample estimate, 72 of 300 (24%), but no population-wide certainty or precision interval, so I'll state the observed sample result and frame 24% explicitly as the prevalence estimate.",
         "duration_ms": null
       },
       {

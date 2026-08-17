@@ -21,7 +21,7 @@ def _page(title: str, body: str) -> str:
 
 
 def _pct(value: Any) -> str:
-    return "—" if value is None else f"{100 * float(value):.0f}%"
+    return "n/a" if value is None else f"{100 * float(value):.0f}%"
 
 
 def _card(value: str, label: str, cls: str = "") -> str:
@@ -38,51 +38,77 @@ def _bundle_map(run_dir: Path) -> dict[str, dict[str, Any]]:
 
 def _action_html(action: dict[str, Any], bundle: dict[str, Any]) -> str:
     action_id = action.get("action_id")
-    bundled = next((x for x in bundle.get("actions", []) if x.get("action_id") == action_id), {})
-    annotation = next((x for x in bundle.get("annotations", []) if x.get("action_id") == action_id), {})
-    selected, status, net = action.get("selected_by_agent"), action.get("status"), float(action.get("net_action_value", 0))
-    if status == "missed": label, cls = "MISSED", "missed"
-    elif selected and net < 0: label, cls = "LOW VALUE", "bad"
-    elif selected: label, cls = "VALUE", "good"
-    else: label, cls = "NOT SELECTED", "warn"
+    bundled = next((row for row in bundle.get("actions", []) if row.get("action_id") == action_id), {})
+    annotation = next((row for row in bundle.get("annotations", []) if row.get("action_id") == action_id), {})
+    selected = bool(action.get("selected_by_agent"))
+    status = action.get("status")
+    net = float(action.get("net_action_value", 0))
+    required = bundled.get("origin") == "reference" and float(annotation.get("required_for_task", 0)) >= 3
+    if status == "missed":
+        label, cls = "MISSED", "missed"
+    elif required and selected:
+        label, cls = ("NECESSARY · HIGH COST", "warn") if net < 0 else ("NECESSARY", "good")
+    elif not selected:
+        label, cls = "PROPOSED / NOT EXECUTED", "warn"
+    elif status in {"failed", "reverted"}:
+        label, cls = "FAILED / REVERTED", "bad"
+    elif net < 0:
+        label, cls = "AVOIDABLE", "bad"
+    else:
+        label, cls = "OPTIONAL / VALUE ADDING", "good"
     evidence = bundled.get("evidence", [])
-    evidence_html = "".join(f'<li>“{html.escape(str(e.get("quote", ""))) }”</li>' for e in evidence)
+    evidence_html = "".join(f'<li>“{html.escape(str(item.get("quote", ""))) }”</li>' for item in evidence)
     substitute = annotation.get("cheaper_substitute")
     substitute_html = "" if not substitute else f'<p><strong>Cheaper substitute:</strong> {html.escape(str(substitute.get("description", "")))}</p>'
-    details = f'<details><summary>Evidence and alternative</summary>{substitute_html}<ul>{evidence_html or "<li>No public evidence excerpt.</li>"}</ul></details>'
-    return f'<div class="action"><div class="action-head"><span class="pill {cls}">{label}</span><div><strong>{html.escape(str(action.get("description", "")))}</strong><div class="metrics">{html.escape(str(bundled.get("action_type", "action")))} · {float(action.get("human_minutes", 0)):.1f} human min · cost {float(action.get("normalized_cost", 0)):.2f} · net value {net:.2f}</div></div></div>{details}</div>'
+    if required:
+        reason = "This action is tied to a required reference action. Cost is shown separately and does not change its necessity."
+    elif net < 0:
+        reason = "The selected action added more normalized cost than realized value in this trajectory."
+    else:
+        reason = "The action contributed value without being required for task completion."
+    details = f'<details><summary>Why, evidence, and alternative</summary><p>{html.escape(reason)}</p>{substitute_html}<ul>{evidence_html or "<li>No public evidence excerpt.</li>"}</ul></details>'
+    machine_source = str(action.get("machine_time_source", "estimated"))
+    source_label = "Observed" if machine_source in {"actual", "observed"} else "Imputed" if machine_source == "imputed" else "Estimated"
+    return f'<div class="action"><div class="action-head"><span class="pill {cls}">{label}</span><div><strong>{html.escape(str(action.get("description", "")))}</strong><div class="metrics">{html.escape(str(bundled.get("action_type", "action")))} · {source_label} machine time {float(action.get("machine_minutes", 0)):.2f} min · normalized cost {float(action.get("normalized_cost", 0)):.2f} · net value {net:.2f}</div></div></div>{details}</div>'
 
 
 def _scored_report(run_dir: Path) -> str:
     results = json.loads((run_dir / "results.json").read_text(encoding="utf-8"))
     scores = _read_rows(run_dir / "scores.jsonl")
     bundles = _bundle_map(run_dir)
-    success = float(results.get("mean_task_success", 0)); recall = float(results.get("mean_necessary_action_recall", 0)); avoidable = float(results.get("total_avoidable_human_minutes", 0)); unnecessary = sum(int(x.get("unnecessary_action_count", 0)) for x in scores); missed = sum(int(x.get("reference_required_action_count", 0)) * float(x.get("missed_required_action_rate") or 0) for x in scores)
-    cards = "".join([_card(_pct(success), "Mean task success", "good" if success >= .8 else "warn"), _card(_pct(recall), "Necessary-action recall", "good" if recall >= .8 else "warn"), _card(f"{avoidable:.0f} min", "Avoidable human time", "bad" if avoidable else "good"), _card(str(unnecessary), "Unnecessary actions", "bad" if unnecessary else "good"), _card(f"{missed:.0f}", "Required actions missed", "warn" if missed else "good")])
+    success = float(results.get("mean_task_success", 0)); recall = float(results.get("mean_necessary_action_recall", 0)); avoidable = float(results.get("total_avoidable_human_minutes", 0)); unnecessary = sum(int(row.get("unnecessary_action_count", 0)) for row in scores); missed = sum(int(row.get("reference_required_action_count", 0)) * float(row.get("missed_required_action_rate") or 0) for row in scores)
+    cards = "".join([_card(_pct(success), "Mean task success", "good" if success >= .8 else "warn"), _card(_pct(recall), "Necessary-action recall", "good" if recall >= .8 else "warn"), _card(f"{avoidable:.0f} min", "Avoidable human time", "bad" if avoidable else "good"), _card(str(unnecessary), "Avoidable actions", "bad" if unnecessary else "good"), _card(f"{missed:.0f}", "Required actions missed", "warn" if missed else "good")])
     task_html = []
     for score in scores:
         bundle = bundles.get(str(score.get("trajectory_id")), {})
         action_html = "".join(_action_html(action, bundle) for action in score.get("actions", []))
         summary = f"Task success {_pct(score.get('task_success'))}; recalled {_pct(score.get('necessary_action_recall'))} of necessary actions; {float(score.get('avoidable_human_minutes', 0)):.0f} avoidable human minutes."
-        task_html.append(f'<section class="panel task"><h2>{html.escape(str(score.get("task_id")))}</h2><p>{html.escape(summary)}</p><div class="bar"><i style="width:{100*float(score.get("task_success",0)):.1f}%"></i></div><p class="secondary">Condition: {html.escape(str(score.get("intervention_id")))} · ROI {float(score.get("trajectory_roi") or 0):.2f} (secondary diagnostic)</p><h3>Action timeline</h3>{action_html}</section>')
-    comparison_rows = "".join(f'<tr><td>{html.escape(str(s.get("task_id")))}</td><td>{html.escape(str(s.get("intervention_id")))}</td><td>{_pct(s.get("task_success"))}</td><td>{_pct(s.get("necessary_action_recall"))}</td><td>{float(s.get("avoidable_human_minutes",0)):.0f} min</td><td>{int(s.get("unnecessary_action_count",0))}</td></tr>' for s in scores)
-    body = f'<h1>Was the work worth it?</h1><p class="lede">Correctness, missed value, and avoidable cost—shown separately.</p><section class="cards">{cards}</section><section class="panel"><h2>Baseline / intervention view</h2><table><thead><tr><th>Task</th><th>Condition</th><th>Success</th><th>Recall</th><th>Avoidable time</th><th>Unnecessary</th></tr></thead><tbody>{comparison_rows}</tbody></table><p class="secondary">ROI is retained as a derived diagnostic: portfolio ROI {float(results.get("portfolio_roi") or 0):.2f}. It is not a leaderboard score.</p></section>{"".join(task_html)}<p class="secondary">AI-consensus silver labels; this report does not claim human gold or real-user satisfaction.</p>'
+        task_html.append(f'<section class="panel task"><h2>{html.escape(str(score.get("task_id")))}</h2><p>{html.escape(summary)}</p><div class="bar"><i style="width:{100*float(score.get("task_success",0)):.1f}%"></i></div><p class="secondary">Condition: {html.escape(str(score.get("intervention_id")))} · trajectory ROI {float(score.get("trajectory_roi") or 0):.2f}</p><h3>Action timeline</h3>{action_html}</section>')
+    comparison_rows = "".join(f'<tr><td>{html.escape(str(row.get("task_id")))}</td><td>{html.escape(str(row.get("intervention_id")))}</td><td>{_pct(row.get("task_success"))}</td><td>{_pct(row.get("necessary_action_recall"))}</td><td>{float(row.get("avoidable_human_minutes",0)):.0f} min</td><td>{int(row.get("unnecessary_action_count",0))}</td></tr>' for row in scores)
+    body = f'<h1>Was the work worth it?</h1><p class="lede">Correctness, missed value, and avoidable cost shown separately.</p><section class="cards">{cards}</section><section class="panel"><h2>Baseline / intervention view</h2><table><thead><tr><th>Task</th><th>Condition</th><th>Success</th><th>Recall</th><th>Avoidable time</th><th>Avoidable actions</th></tr></thead><tbody>{comparison_rows}</tbody></table><p class="secondary">Portfolio trajectory ROI {float(results.get("portfolio_roi") or 0):.2f}. Open the action timeline to see what moved it.</p></section>{"".join(task_html)}'
     return _page("Growing Bench report", body)
 
 
 def _live_report(run_dir: Path) -> str:
     summary = json.loads((run_dir / "summary.json").read_text(encoding="utf-8")); task = json.loads((run_dir / "task.json").read_text(encoding="utf-8")); final = (run_dir / "agent" / "final.md").read_text(encoding="utf-8") if (run_dir / "agent" / "final.md").is_file() else ""; diff = (run_dir / "changes.diff").read_text(encoding="utf-8") if (run_dir / "changes.diff").is_file() else ""; checks = json.loads((run_dir / "checks.after.json").read_text(encoding="utf-8")) if (run_dir / "checks.after.json").is_file() else []
-    elapsed = float(summary.get("agent_result", {}).get("elapsed_seconds", 0)); changed = len(summary.get("changes", {}).get("changed_paths", [])); unexpected = len(summary.get("unexpected_changed_paths", [])); completed = summary.get("status") == "completed"
-    cards = "".join([_card("PASS" if completed else "FAIL", "Task execution", "good" if completed else "bad"), _card(f"{elapsed:.1f}s", "Agent time"), _card(str(changed), "Changed paths"), _card(str(unexpected), "Out-of-scope paths", "bad" if unexpected else "good")])
-    check_rows = "".join(f'<tr><td>{html.escape(str(c.get("name")))}</td><td class="{"good" if c.get("passed") else "bad"}">{"pass" if c.get("passed") else "fail"}</td><td>{float(c.get("elapsed_seconds",0)):.2f}s</td></tr>' for c in checks)
+    elapsed = float(summary.get("agent_result", {}).get("elapsed_seconds", 0)); changed = len(summary.get("changes", {}).get("changed_paths", [])); unexpected = len(summary.get("unexpected_changed_paths", [])); completed = summary.get("status") in {"completed", "completed_pending_judgment"}
+    completeness = summary.get("agent_result", {}).get("trajectory_completeness", {})
+    completeness_text = f"{100 * float(completeness.get('score', 0)):.0f}%" if completeness else "unknown"
+    cards = "".join([_card("PASS" if completed else "FAIL", "Task execution", "good" if completed else "bad"), _card(f"{elapsed:.1f}s", "Observed Agent time"), _card(str(changed), "Changed paths"), _card(str(unexpected), "Out-of-scope paths", "bad" if unexpected else "good"), _card(completeness_text, "Trajectory completeness")])
+    check_rows = "".join(f'<tr><td>{html.escape(str(row.get("name")))}</td><td class="{"good" if row.get("passed") else "bad"}">{"pass" if row.get("passed") else "fail"}</td><td>{float(row.get("elapsed_seconds",0)):.2f}s</td></tr>' for row in checks)
     body = f'<h1>Real workspace run</h1><p class="lede">{html.escape(str(task.get("task_id")))} · {html.escape(str(summary.get("agent")))}</p><section class="cards">{cards}</section><section class="panel"><h2>Completion checks</h2><table><thead><tr><th>Check</th><th>Status</th><th>Time</th></tr></thead><tbody>{check_rows}</tbody></table></section><section class="panel"><h2>Prompt</h2><pre>{html.escape(str(task.get("prompt", "")))}</pre></section><section class="panel"><h2>Final response</h2><pre>{html.escape(final)}</pre></section><section class="panel"><h2>Workspace diff</h2><pre>{html.escape(diff or "(no text diff)")}</pre></section>'
     return _page("Growing Bench live run", body)
 
 
 def render_report(run_dir: Path, output: Path | None = None) -> Path:
     run_dir = run_dir.resolve()
-    if (run_dir / "results.json").is_file() and (run_dir / "scores.jsonl").is_file(): document = _scored_report(run_dir)
-    elif (run_dir / "summary.json").is_file() and (run_dir / "task.json").is_file(): document = _live_report(run_dir)
-    else: raise FileNotFoundError("expected a scored run or a live run directory")
-    target = output.resolve() if output else run_dir / "report.html"; target.parent.mkdir(parents=True, exist_ok=True); target.write_text(document, encoding="utf-8", newline="\n"); return target
-
+    if (run_dir / "results.json").is_file() and (run_dir / "scores.jsonl").is_file():
+        document = _scored_report(run_dir)
+    elif (run_dir / "summary.json").is_file() and (run_dir / "task.json").is_file():
+        document = _live_report(run_dir)
+    else:
+        raise FileNotFoundError("expected a scored run or a live run directory")
+    target = output.resolve() if output else run_dir / "report.html"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(document, encoding="utf-8", newline="\n")
+    return target

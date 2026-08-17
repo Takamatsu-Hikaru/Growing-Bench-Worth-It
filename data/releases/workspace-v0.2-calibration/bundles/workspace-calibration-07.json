@@ -89,7 +89,7 @@
       {
         "event_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0004",
         "kind": "assistant",
-        "content": "The evidence supports a benchmark-bounded flag rate, not a broader accuracy or true-positive claim. I��m using the evaluated denominator explicitly and retaining ��flags�� as the outcome language.",
+        "content": "The evidence supports a benchmark-bounded flag rate, not a broader accuracy or true-positive claim. I'm using the evaluated denominator explicitly and retaining \"flags\" as the outcome language.",
         "duration_ms": null
       },
       {
@@ -192,7 +192,7 @@
         {
           "source": "trajectory",
           "source_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0004",
-          "quote": "The evidence supports a benchmark-bounded flag rate, not a broader accuracy or true-positive claim. I��m using the evaluated denominator explicitly and retaining ��flags�� as the outcome language."
+          "quote": "The evidence supports a benchmark-bounded flag rate, not a broader accuracy or true-positive claim. I'm using the evaluated denominator explicitly and retaining \"flags\" as the outcome language."
         }
       ]
     },
@@ -307,7 +307,7 @@
         {
           "source": "trajectory",
           "source_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation::agent::0004",
-          "quote": "The evidence supports a benchmark-bounded flag rate, not a broader accuracy or true-positive claim. I��m using the evaluated denominator explicitly and retaining ��flags�� as the outcome language."
+          "quote": "The evidence supports a benchmark-bounded flag rate, not a broader accuracy or true-positive claim. I'm using the evaluated denominator explicitly and retaining \"flags\" as the outcome language."
         }
       ]
     },

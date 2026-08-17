@@ -35,12 +35,12 @@
   "simulated_online_session_count": 0,
   "tests": {
     "public_ci": {
-      "run": 25,
-      "passed": 25
+      "run": 47,
+      "passed": 47
     },
     "local_extended": {
-      "run": 232,
-      "passed": 232
+      "run": 254,
+      "passed": 254
     }
   },
   "integrity_note": "Git versions, track manifests, packet_set_id, and run cards are authoritative; no redundant per-file SHA-256 inventory is maintained.",

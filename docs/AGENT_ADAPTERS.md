@@ -1,6 +1,6 @@
 # Agent adapters
 
-Growing Bench owns benchmark semantics: fixture isolation, exact baseline validation, completion checks, allowed-file scope, diffing, and trajectory storage. An adapter only gives an Agent the prompt and disposable workspace, then translates visible events.
+Growing Bench owns benchmark semantics: fresh fixture copies, process working directory, exact baseline validation, completion checks, allowed-file scope, diffing, and trajectory storage. An adapter gives an Agent the prompt and disposable workspace, then translates visible events. Container, virtual-machine, and network isolation are outside the common runner contract; Codex receives its native workspace-write sandbox flag.
 
 | Adapter | Expected CLI | Invocation |
 |---|---|---|
@@ -37,7 +37,7 @@ Evaluator packets consume normalized visible events and verified workspace resul
 
 Normalized event kinds include assistant messages, file reads/writes, search, tool calls, command start/results, test/compile results, patches, artifacts, the final response, post-checks, and the workspace diff. Events can carry receipt time, duration, status, target, visible output, and usage.
 
-Recorded offline examples for all three built-in event formats live under `tests/fixtures/adapters/`; `tests/test_adapter_golden_events.py` proves their mapping without paid model calls.
+Recorded offline examples for Codex, Claude Code, OpenClaw, and the custom command adapter live under `tests/fixtures/adapters/`. The golden and conformance tests cover command/result pairing, file writes, failure status, duration, exit status, and explicit missing-event reporting. The full capability table is in [ADAPTER_EVENT_CONTRACT.md](ADAPTER_EVENT_CONTRACT.md).
 
 ## Custom command adapter
 

@@ -21,7 +21,8 @@ class ProductExperienceTests(unittest.TestCase):
         self.assertIn("Necessary-action recall", report)
         self.assertIn("Avoidable human time", report)
         self.assertIn("Action timeline", report)
-        self.assertIn("ROI is retained as a derived diagnostic", report)
+        self.assertIn("Portfolio trajectory ROI", report)
+        self.assertIn("Open the action timeline", report)
 
     def test_command_adapter_timeout_is_preserved(self) -> None:
         with tempfile.TemporaryDirectory(prefix="growing-timeout-") as name:

@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "evidence_id": "deterministic_ops",
+      "statement": "Both programs use fixed inputs, exhaustive evaluation, deterministic operators, and no randomized initialization."
+    },
+    {
+      "evidence_id": "byte_identical",
+      "statement": "Rerunning either supplied command produces byte-identical prediction files on all 500 items."
+    }
+  ],
+  "note": "These records are the decision-relevant package supplied with the paper."
+}

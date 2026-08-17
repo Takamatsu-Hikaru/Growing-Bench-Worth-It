@@ -1,0 +1,11 @@
+{
+  "kind": "review",
+  "decision": "revise",
+  "required_evidence_ids": [
+    "causal_title",
+    "observational_only"
+  ],
+  "forbidden_required_actions": [],
+  "reference_rationale": "The manuscript makes a causal claim from observational evidence.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

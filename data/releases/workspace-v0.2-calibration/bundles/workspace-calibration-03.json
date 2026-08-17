@@ -78,7 +78,7 @@
       {
         "event_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset::agent::0003",
         "kind": "assistant",
-        "content": "The manuscript��s claim is explicitly narrow, and the packaged records exactly mirror the two decision-relevant statements. I��m now running the supplied verifier and checking the required review schema; any broader benchmarking will be treated as optional unless verification exposes a blocker.",
+        "content": "The manuscript's claim is explicitly narrow, and the packaged records exactly mirror the two decision-relevant statements. I'm now running the supplied verifier and checking the required review schema; any broader benchmarking will be treated as optional unless verification exposes a blocker.",
         "duration_ms": null
       },
       {

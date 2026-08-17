@@ -1,0 +1,14 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "bounded_english_claim",
+    "supported_analysis"
+  ],
+  "forbidden_required_actions": [
+    "three_extra_datasets",
+    "two_extra_languages"
+  ],
+  "reference_rationale": "Broader generalization is not part of the supported bounded claim.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

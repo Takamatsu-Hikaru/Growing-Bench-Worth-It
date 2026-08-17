@@ -1,0 +1,9 @@
+{
+  "facts": [
+    "A random sample of 300 production dialogs was labeled.",
+    "72 contained the pattern, estimating 24% prevalence."
+  ],
+  "authorized_targets": [
+    "sections/target.tex"
+  ]
+}

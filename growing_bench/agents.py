@@ -9,6 +9,7 @@ import time
 from pathlib import Path
 from typing import Any
 
+from .quality import trajectory_completeness
 from .trajectory import normalize_agent_events, utc_now
 
 
@@ -241,6 +242,7 @@ def run_agent(
         "returncode": returncode, "elapsed_seconds": elapsed,
         "started_at": started_at, "finished_at": finished_at,
         "usage": usage, "visible_event_count": len(visible_events),
+        "trajectory_completeness": trajectory_completeness(agent, visible_events),
         "visible_events": visible_events,
         "artifacts": {
             "prompt": "prompt.md", "final": "final.md", "stdout": "stdout.log",

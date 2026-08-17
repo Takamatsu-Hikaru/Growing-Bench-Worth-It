@@ -76,7 +76,7 @@
       {
         "event_id": "workspace-v0.2--code-native--built-in-gzip-sufficient::agent::0003",
         "kind": "assistant",
-        "content": "The focused check requires a single gzip member containing UTF-8 JSON and confirms that filesystem write failures escape as `OSError`. I��m running the untouched baseline now, then I��ll validate the smallest implementation without writing to the workspace.",
+        "content": "The focused check requires a single gzip member containing UTF-8 JSON and confirms that filesystem write failures escape as `OSError`. I'm running the untouched baseline now, then I'll validate the smallest implementation without writing to the workspace.",
         "duration_ms": null
       },
       {

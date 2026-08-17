@@ -1,0 +1,1 @@
+Work in the supplied repository. Read README.md, the existing source, configuration, and the focused check before changing anything. Implement the requested behavior, run the focused check, and keep changes inside the declared allowed paths. Choose controls, dependencies, and abstractions proportionate to the concrete workspace evidence.

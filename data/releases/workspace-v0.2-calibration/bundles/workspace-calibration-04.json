@@ -120,7 +120,7 @@
       {
         "event_id": "workspace-v0.2--review-mechanism--causal-intervention::agent::0010",
         "kind": "assistant",
-        "content": "The paper and package agree on the central issue: a causal title is unsupported by an observational rollout without a valid identification strategy. I��m running the supplied verifier now and will treat correction of that claim as the blocker, with stronger causal evidence as optional future work.",
+        "content": "The paper and package agree on the central issue: a causal title is unsupported by an observational rollout without a valid identification strategy. I'm running the supplied verifier now and will treat correction of that claim as the blocker, with stronger causal evidence as optional future work.",
         "duration_ms": null
       },
       {

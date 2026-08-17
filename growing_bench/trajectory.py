@@ -103,6 +103,7 @@ def _codex_events(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def _claude_events(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     events: list[dict[str, Any]] = []
+    pending: dict[str, tuple[str, float, str | None]] = {}
     for value, record in _json_lines(records):
         event_type = str(value.get("type") or "")
         message = value.get("message") if isinstance(value.get("message"), dict) else {}
@@ -113,21 +114,31 @@ def _claude_events(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
             block_type = block.get("type")
             timestamp = record["received_at"]
             if block_type == "text" and block.get("text"):
-                _event(events, "claude-code", "assistant_message", timestamp,
-                       content=str(block["text"]), status="success", source_type=event_type)
+                _event(events, "claude-code", "assistant_message", timestamp, content=str(block["text"]), status="success", source_type=event_type)
             elif block_type == "tool_use":
                 name = str(block.get("name") or "tool")
                 folded = name.casefold()
-                kind = "file_read" if folded in {"read"} else "search" if folded in {"grep", "glob"} else "command_start" if folded in {"bash", "shell"} else "tool_call"
                 payload = block.get("input")
-                _event(events, "claude-code", kind, timestamp,
-                       content=json.dumps(payload, ensure_ascii=False) if payload is not None else None,
-                       status="started", tool=name, source_type=event_type)
+                target = None
+                if isinstance(payload, dict):
+                    target = str(payload.get("file_path") or payload.get("path") or payload.get("command") or "") or None
+                tool_id = str(block.get("id") or f"tool-{len(pending)+1}")
+                pending[tool_id] = (name, float(record["offset_seconds"]), target)
+                kind = "file_read" if folded == "read" else "file_write" if folded in {"write", "edit", "multiedit", "notebookedit"} else "search" if folded in {"grep", "glob"} else "command_start" if folded in {"bash", "shell"} else "tool_call"
+                _event(events, "claude-code", kind, timestamp, content=json.dumps(payload, ensure_ascii=False) if payload is not None else None, target=target, status="started", tool=name, source_type=event_type)
+            elif block_type == "tool_result":
+                tool_id = str(block.get("tool_use_id") or "")
+                name, started, target = pending.pop(tool_id, ("tool", float(record["offset_seconds"]), None))
+                folded = name.casefold()
+                failed = bool(block.get("is_error"))
+                raw_output = block.get("content")
+                output = raw_output if isinstance(raw_output, str) else json.dumps(raw_output, ensure_ascii=False)
+                duration = max(0.0, (float(record["offset_seconds"]) - started) * 1000.0)
+                kind = "command_result" if folded in {"bash", "shell"} else "file_write" if folded in {"write", "edit", "multiedit", "notebookedit"} else "tool_result"
+                _event(events, "claude-code", kind, timestamp, content=name, target=target, status="failure" if failed else "success", tool=name, visible_output=output, duration_ms=duration, source_type=event_type)
         if event_type == "result" and isinstance(value.get("usage"), dict):
-            _event(events, "claude-code", "artifact", record["received_at"], content="Usage summary",
-                   status="success", usage=value["usage"], source_type=event_type)
+            _event(events, "claude-code", "artifact", record["received_at"], content="Usage summary", status="success", usage=value["usage"], source_type=event_type)
     return events
-
 
 def _declared_events(adapter: str, records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     events: list[dict[str, Any]] = []

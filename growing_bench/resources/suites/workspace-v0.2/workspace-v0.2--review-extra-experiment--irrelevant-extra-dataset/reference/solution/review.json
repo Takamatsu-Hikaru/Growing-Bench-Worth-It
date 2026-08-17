@@ -1,0 +1,13 @@
+{
+  "decision": "accept",
+  "evidence_ids": [
+    "bounded_english_claim",
+    "supported_analysis"
+  ],
+  "required_actions": [],
+  "optional_actions": [
+    "three_extra_datasets",
+    "two_extra_languages"
+  ],
+  "rationale": "Broader generalization is not part of the supported bounded claim."
+}

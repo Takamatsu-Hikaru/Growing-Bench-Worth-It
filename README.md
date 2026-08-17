@@ -2,147 +2,175 @@
 
 **Correct isn't enough. Was the work worth it?**
 
-Growing Bench evaluates whether an Agent completed the real task and whether its work justified the time, scope, and interaction cost.
+Growing Bench runs an Agent on real disposable repositories and LaTeX projects, records what it actually did, and explains whether the work justified its time, scope, and interaction cost.
 
-Ask a coding Agent for a small, bounded change. The tests pass. The same trajectory may also contain a SHA 256 manifest nobody requested, an audit of unrelated files, recovery machinery for a disposable fixture, and forty minutes of work that never changed the outcome.
+A coding Agent may finish a bounded change while also creating an unrequested SHA 256 manifest, auditing unrelated modules, and building recovery machinery for a disposable fixture. A writing Agent may turn one clear paragraph into a long list of claims the project does not prove. That happened when Codex polished this repository's README.
 
-Ask a writing Agent to polish a README. It may replace a clear claim with paragraphs explaining what the project does not prove, cannot establish, and should never be used for. That happened while we were preparing this repository.
+Growing Bench turns those experiences into repeatable tests for Agents, skills, prompts, plugins, and harnesses.
 
-Growing Bench makes those experiences executable. Each task gives an Agent a disposable Git repository or LaTeX project. The Agent reads files, edits the workspace, runs checks, and leaves a visible trajectory. The evaluator then asks two questions:
+![Growing Bench: Worth It](docs/assets/growing-bench-hero.png)
 
-1. Did the Agent accomplish the task?
-2. Which actions created value, wasted effort, or missed something important?
+## How it works
 
-![Growing Bench report preview](docs/assets/report-preview.svg)
+![Growing Bench architecture](docs/assets/growing-bench-architecture.jpg)
 
-## Try it in two minutes
+## Test your Agent or skill
 
 ```bash
 git clone https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It.git
 cd Growing-Bench-Worth-It
 python -m pip install -e .
+
+growing-bench self-test examples/interventions/proportional-work.md \
+  --agent codex \
+  --judge codex \
+  --suite quick \
+  --output runs/proportional-work
+```
+
+This command runs the same four workspace tasks twice:
+
+1. baseline Agent
+2. Agent with the intervention
+3. condition-blind semantic action judgment
+4. deterministic scoring
+5. paired HTML report, opened automatically
+
+The report shows:
+
+* task success
+* necessary-action recall
+* avoidable actions
+* missed necessary actions
+* observed elapsed time and tokens when the adapter exposes them
+* touched files, checks, tool events, and trajectory completeness
+* observed, estimated, and imputed action time as separate values
+* evidence, omission consequence, and cheaper substitute for each action
+
+Use two independent judges and a third adjudication pass for a stricter run:
+
+```bash
+growing-bench self-test examples/interventions/proportional-work.md \
+  --agent codex \
+  --judge codex \
+  --suite balanced \
+  --strict \
+  --output runs/proportional-work-strict
+```
+
+Use `--context code`, `--context writing`, `--context internal_review`, or `--context external_peer_review` when an intervention targets one kind of work. `self-test --help` also documents explicit task files, output, and partial-run behavior.
+
+The complete artifact and exit-code contract is in [docs/SELF_TEST.md](docs/SELF_TEST.md).
+
+## See the product without model calls
+
+```bash
 growing-bench smoke --output runs/first-look
 ```
 
-The smoke command runs offline. It loads scored examples, executes a real disposable workspace task, records the trajectory, and generates static HTML reports.
+The offline tour recomputes scored examples, runs a small disposable workspace with the command adapter, and generates HTML. It finishes by printing the `self-test` command for your own Agent or skill.
 
-To inspect your environment:
+## What the evaluator asks
+
+Every selected action receives one primary label:
+
+* `necessary`: omitting it would fail an explicit requirement or create an evidence-backed material risk
+* `optional`: useful and dispensable
+* `avoidable`: redundant, unrelated, overly broad, or replaceable by a cheaper comparable action
+* `missed`: required work absent from the trajectory
+* `unresolved`: evidence is insufficient or judges disagree
+
+`necessary` requires an explicit requirement ID, a concrete omission consequence, and one atomic unit of work. Cost stays on a separate axis. Expensive required work remains `Necessary · high cost`; it never becomes waste solely because it was expensive.
+
+The frozen judge calibration contains 20 actions across 10 decision boundaries. It covers focused versus repeated verification, bounded versus unrelated exploration, deterministic review, defensive work with and without a real trigger, required expensive work, missed actions, repeated reviews, and evidence-triggered versus speculative refactoring.
+
+Run the current judge prompt on that calibration set:
 
 ```bash
-growing-bench doctor
+growing-bench calibrate-judge \
+  --judge codex \
+  --output runs/judge-calibration
 ```
 
-## What you get
+## Workspace tasks
 
-Growing Bench ships 50 workspace tasks across 25 scenario families:
+The repository ships 50 executable workspace tasks across 25 scenario families:
 
-| Context | Tasks | What the Agent works on |
+| Context | Tasks | Agent workspace |
 |---|---:|---|
-| Code | 14 | Executable repositories |
+| Code | 14 | repositories with focused executable checks |
 | Writing | 12 | LaTeX and document projects |
-| Internal review | 12 | Evidence packages and decision artifacts |
-| External peer review | 12 | Papers, evidence, and review forms |
+| Internal review | 12 | evidence packages and decision artifacts |
+| External peer review | 12 | papers, evidence, and review forms |
 
-Every task has a disposable fixture, observable completion checks, an allowed modification scope, a reference implementation, and known wrong solutions. The tasks include matched situations where extra caution is valuable and nearby situations where the same behavior becomes wasteful.
+Each package contains a disposable fixture, observable completion criteria, an allowed modification scope, a minimal reference change, and known wrong solutions. Matched situations place similar behavior on opposite sides of a decision boundary.
 
-## Read the work, not just the answer
-
-Each run preserves:
-
-* the task and disposable workspace
-* visible Agent messages and tool events
-* file edits and changed paths
-* checks before and after the run
-* timing and interaction events
-* a normalized action timeline
-* evidence for each scored action
-
-The report keeps the useful signals separate:
-
-* task success
-* necessary action recall
-* missed high value actions
-* avoidable actions
-* avoidable time and interaction burden
-* cheaper available substitutes
-* trajectory value and ROI
-
-Actions appear as `necessary / efficient`, `necessary / expensive`, `avoidable`, `optional / conditional`, `proposed, not executed`, `failed / reverted`, `missed`, or `unresolved`. ROI summarizes the tradeoff while the action timeline shows why the number moved.
-
-## Run your Agent or skill
+Run one task directly:
 
 ```bash
-growing-bench run tracks/workspace-v0.2/tasks/<task-id>/task.json \
-  --agent codex --output runs/codex-1
-
 growing-bench run tracks/workspace-v0.2/tasks/<task-id>/task.json \
   --agent claude-code \
-  --intervention path/to/SKILL.md \
-  --output runs/claude-with-skill
-
-growing-bench report data/releases/workspace-v0.2-calibration
+  --output runs/claude-task
 ```
 
-Built in adapters support Codex, Claude Code, OpenClaw, and arbitrary command line Agents. Every run starts from a fresh fixture copy. Growing Bench owns workspace isolation, completion checks, allowed path enforcement, trajectory normalization, judging, and reporting.
+Built-in adapters support Codex, Claude Code, OpenClaw, and arbitrary command-line Agents.
 
-Adapter contracts and recorded event examples are documented in [docs/AGENT_ADAPTERS.md](docs/AGENT_ADAPTERS.md).
+## Trajectory quality across Agents
 
-## Compare an intervention
+All adapters map visible work into a common event contract covering commands, results, reads, writes, tool calls, messages, duration, and exit status. Every run reports which events the adapter exposes and a trajectory completeness score. Missing telemetry stays visible.
 
-The same task can be run with a baseline Agent and with a prompt, skill, plugin, or harness intervention. The report compares outcome quality and trajectory quality together.
+Growing Bench creates a fresh fixture copy and starts the Agent process inside that workspace. Codex also receives its native `workspace-write` sandbox flag. Growing Bench does not claim a container, virtual machine, or enforced network sandbox for every adapter.
 
-Useful interventions should improve the balance:
+`--isolation copy` records the portable workspace-copy boundary. `--isolation agent-native` requires a supported native sandbox and currently works with Codex; unsupported adapters fail before the run starts.
 
-* preserve task success
-* recover necessary actions
-* reduce avoidable work
-* avoid needless escalation
-* spend user attention where it can change the result
+See [the adapter guide](docs/AGENT_ADAPTERS.md) and [the event contract](docs/ADAPTER_EVENT_CONTRACT.md).
 
-This makes Growing Bench useful as a regression suite during Agent development. A new model can close one frustrating behavior and introduce another. Each behavior can become a versioned track with its own tasks and evaluation contract.
+## Append your own bad experience
 
-## Add a real failure case
-
-Start with the experience you actually had:
+After a self-test, turn the most useful failure into a portable draft:
 
 ```bash
-growing-bench init-case my-frustrating-case
+growing-bench append runs/proportional-work \
+  --title "Agent repeated the full test suite" \
+  --redact \
+  --check \
+  --output my-agent-case
 ```
 
-Put the initial repository or LaTeX project in `fixture/`, add the minimal expected change in `reference/`, then check the case:
+`append` carries forward the runnable workspace, task, trajectory, judge output, baseline/intervention context, and minimal successful change. It checks for credentials and damaged text. Publication permission remains an explicit choice.
+
+You can also start a case manually:
 
 ```bash
-growing-bench ingest my-frustrating-case/case.md --check
+growing-bench init-case my-agent-case
+growing-bench ingest my-agent-case/case.md --check
 ```
 
-The preflight checks whether the goal is observable, the fixture can run, publication permission is clear, the case overlaps an existing task, and a useful matched counterpart can be built.
+Preflight reports the exact file and issue, whether local use still works, and the next edit needed for public admission. Accepted cases enter a new versioned track and keep older tracks reproducible.
 
-Materialize the case after curation:
+## How the benchmark grows
 
-```bash
-growing-bench ingest my-frustrating-case/case.md \
-  --materialize \
-  --validate \
-  --curation my-frustrating-case/curation.ai.json
-```
+![How Growing Bench grows](docs/assets/how-growing-bench-grows.jpg)
 
-The included example at `living/contributions/cli-slug-helper/` demonstrates the full path from a Markdown experience to a versioned workspace track, Agent trajectory, AI consensus judgment, score, and report.
 
 ## Main commands
 
 ```text
-growing-bench run       run a workspace task
-growing-bench judge     score an existing trajectory
-growing-bench report    generate a static HTML report
-growing-bench ingest    add a portable case
-growing-bench smoke     run the offline product tour
-growing-bench doctor    inspect the local installation
+growing-bench self-test        compare baseline and intervention
+growing-bench append           turn a run into a living-case draft
+growing-bench run              execute one workspace task
+growing-bench calibrate-judge  test the current judge prompt
+growing-bench ingest           check or materialize a portable case
+growing-bench judge            recompute canonical scores
+growing-bench report           generate HTML
+growing-bench smoke            run the offline product tour
+growing-bench doctor           inspect local Agent CLIs
 ```
 
 ## Contribute
 
-Good cases come from concrete moments when an Agent passed the obvious check yet still made the work worse, or when restraint would have caused a real failure. Bring the smallest reproducible workspace that preserves the decision.
+The strongest case is a small runnable workspace that preserves a frustrating decision. Include the task the Agent saw, the visible trajectory, an observable completion check, the allowed scope, and the smallest change that succeeds.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the case format and adapter contract.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 MIT licensed.

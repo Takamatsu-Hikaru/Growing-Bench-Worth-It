@@ -1,0 +1,10 @@
+{
+  "decision": "revise",
+  "evidence_ids": [
+    "random_init",
+    "single_run"
+  ],
+  "required_actions": [],
+  "optional_actions": [],
+  "rationale": "A single stochastic training run does not support the headline delta."
+}

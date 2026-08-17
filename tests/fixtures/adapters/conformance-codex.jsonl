@@ -1,0 +1,4 @@
+{"text":"{\"type\":\"item.started\",\"item\":{\"id\":\"c1\",\"type\":\"command_execution\",\"command\":\"python check.py\",\"cwd\":\"workspace\"}}","received_at":"2026-01-01T00:00:00Z","offset_seconds":0.0}
+{"text":"{\"type\":\"item.completed\",\"item\":{\"id\":\"c1\",\"type\":\"command_execution\",\"command\":\"python check.py\",\"cwd\":\"workspace\",\"exit_code\":1,\"aggregated_output\":\"failed\"}}","received_at":"2026-01-01T00:00:01Z","offset_seconds":1.0}
+{"text":"{\"type\":\"item.completed\",\"item\":{\"id\":\"f1\",\"type\":\"file_change\",\"changes\":[{\"path\":\"answer.txt\",\"kind\":\"update\"}]}}","received_at":"2026-01-01T00:00:02Z","offset_seconds":2.0}
+{"text":"{\"type\":\"item.completed\",\"item\":{\"id\":\"m1\",\"type\":\"agent_message\",\"text\":\"Done.\"}}","received_at":"2026-01-01T00:00:03Z","offset_seconds":3.0}

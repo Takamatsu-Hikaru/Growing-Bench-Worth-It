@@ -84,7 +84,7 @@
       {
         "event_id": "workspace-v0.2--review-seeds--stochastic-execution::agent::0004",
         "kind": "assistant",
-        "content": "The package records match on inspection. The first verifier invocation was blocked by the read-only execution policy, so I��m retrying with Python bytecode generation disabled; this keeps the check strictly non-writing.",
+        "content": "The package records match on inspection. The first verifier invocation was blocked by the read-only execution policy, so I'm retrying with Python bytecode generation disabled; this keeps the check strictly non-writing.",
         "duration_ms": null
       },
       {

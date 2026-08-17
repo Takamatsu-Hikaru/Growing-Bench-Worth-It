@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "decision": "accept",
+  "required_evidence_ids": [
+    "deterministic_ops",
+    "byte_identical"
+  ],
+  "forbidden_required_actions": [
+    "extra_random_seeds"
+  ],
+  "reference_rationale": "Deterministic reruns are relevant; random-seed repetition is not.",
+  "purpose": "reference/adversarial admission only; real trajectories require blind semantic judging"
+}

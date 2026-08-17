@@ -120,7 +120,7 @@
       {
         "event_id": "workspace-v0.2--review-seeds--deterministic-execution::agent::0010",
         "kind": "assistant",
-        "content": "The paper��s two claims match the packaged result records. I��m now running the required verifier and reading the review validator so the proposed JSON meets the exact decision and citation constraints.",
+        "content": "The paper's two claims match the packaged result records. I'm now running the required verifier and reading the review validator so the proposed JSON meets the exact decision and citation constraints.",
         "duration_ms": null
       },
       {
