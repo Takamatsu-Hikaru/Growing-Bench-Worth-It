@@ -1,3 +1,5 @@
+![Growing Bench: Worth It](docs/assets/growing-bench-hero.png)
+
 # Growing Bench: Worth It
 
 **Correct isn't enough. Was the work worth it?**
@@ -7,8 +9,6 @@ Growing Bench runs an Agent on real disposable repositories and LaTeX projects, 
 A coding Agent may finish a bounded change while also creating an unrequested SHA 256 manifest, auditing unrelated modules, and building recovery machinery for a disposable fixture. A writing Agent may turn one clear paragraph into a long list of claims the project does not prove. That happened when Codex polished this repository's README.
 
 Growing Bench turns those experiences into repeatable tests for Agents, skills, prompts, plugins, and harnesses.
-
-![Growing Bench: Worth It](docs/assets/growing-bench-hero.png)
 
 ## How it works
 
