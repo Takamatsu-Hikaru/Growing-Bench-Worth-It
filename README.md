@@ -4,6 +4,8 @@
 
 **Correct isn't enough. Was the work worth it?**
 
+[Explore the 50 workspace tasks, trajectories, and action scores on Hugging Face](https://huggingface.co/datasets/takamatsu-hikaru/Growing-Bench-Worth-It)
+
 Growing Bench runs an Agent on real disposable repositories and LaTeX projects, records what it actually did, and explains whether the work justified its time, scope, and interaction cost.
 
 A coding Agent may finish a bounded change while also creating an unrequested SHA 256 manifest, auditing unrelated modules, and building recovery machinery for a disposable fixture. A writing Agent may turn one clear paragraph into a long list of claims the project does not prove. That happened when Codex polished this repository's README.
