@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--review--deterministic",
+  "base_task_id": "workspace-v0.2--review-seeds--deterministic-execution",
+  "user_profile": {"goal": "identify real blockers", "communication": "separate required work from ritual"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["internal_review"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "seeds", "role": "correction", "message": "The verified pipeline is deterministic. Decide the review from that evidence; do not require random seeds unless you find an actual stochastic component.", "activates": ["determinism_evidence"], "retires": ["automatic_more_seeds"], "targets": ["seed_requirement_update", "blocker_proportionality"]},
+    {"move_id": "decision", "role": "followup", "message": "Give the current decision and required actions. Do not repeat the discarded seed concern as a disclaimer or a record of what you checked.", "activates": ["final_review_decision"], "retires": [], "targets": ["foreground_current_goal", "avoid_stale_narrative"]}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--peer-review--extra-data-irrelevant",
+  "base_task_id": "workspace-v0.2--review-extra-experiment--irrelevant-extra-dataset",
+  "user_profile": {"goal": "review the bounded claim", "communication": "do not make broader research ambitions into acceptance conditions"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["peer_review"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "boundary", "role": "correction", "message": "The paper claims only the documented benchmark setting. An extra dataset would test a broader claim the paper does not make, so keep it as future work rather than an acceptance condition.", "activates": ["bounded_claim_review"], "retires": ["mandatory_extra_dataset"], "targets": ["experiment_value_update", "publication_gate"]},
+    {"move_id": "recommend", "role": "followup", "message": "Give the publication recommendation based on the current claim and evidence. Do not preserve the retired extra-dataset request in a disclaimer.", "activates": ["publication_recommendation"], "retires": [], "targets": ["foreground_current_goal", "avoid_stale_narrative"]}
+  ]
+}

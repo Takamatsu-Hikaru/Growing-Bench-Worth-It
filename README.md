@@ -176,3 +176,5 @@ The strongest case is a small runnable workspace that preserves a frustrating de
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 MIT licensed.
+
+**New: interactive evaluation.** Growing Bench can now keep the same Agent and real workspace alive across a controlled multi-turn session, record user corrections and per-turn diffs, combine the existing action ROI scorer with condition-blind measures of state updates, stale narrative, unnecessary claims, scenario pressure, and observed Agent burden, compare a prompt, skill, plugin, or Agent against baseline, and append a useful interaction failure into the living-case pipeline; see [Interactive evaluation](docs/INTERACTIVE_EVALUATION.md) and run `growing-bench interact ...` or `growing-bench self-test ... --mode interactive`.

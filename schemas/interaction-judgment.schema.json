@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/schemas/interaction-judgment.schema.json",
+  "title": "Growing Bench interaction judgment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evaluator_id", "confidence", "spans", "signals"],
+  "properties": {
+    "schema_version": {"const": "growing-bench-interaction-judgment-1.0"},
+    "evaluator_id": {"type": "string", "minLength": 1},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["span_id", "event_id", "quote", "label", "topic_id", "explanation", "confidence"],
+        "properties": {
+          "span_id": {"type": "string", "minLength": 1},
+          "event_id": {"type": "string", "minLength": 1},
+          "quote": {"type": "string", "minLength": 1},
+          "label": {"enum": ["decision_relevant", "brief_acknowledgement", "requested_explanation", "compliance_receipt", "stale_reintroduction", "unnecessary_self_report", "profile_adaptation", "missed_user_signal"]},
+          "topic_id": {"type": ["string", "null"]},
+          "explanation": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["signal_id", "status", "evidence_refs", "explanation", "confidence"],
+        "properties": {
+          "signal_id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["honored", "partial", "ignored", "unresolved"]},
+          "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+          "explanation": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--code-reuse--helper-present",
+  "base_task_id": "workspace-v0.2--code-reuse--compatible-tested-helper-present",
+  "user_profile": {"goal": "ship the smallest correct change", "communication": "brief progress only when decision-relevant"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["workspace_task"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "reuse", "role": "correction", "message": "Keep this local: use the compatible serializer already in the repository. Do not add a generic export framework or a separate defensive layer.", "activates": ["reuse_existing_helper"], "retires": ["generic_export_framework", "extra_defensive_layer"], "targets": ["reuse_decision", "scope_update"]},
+    {"move_id": "finish", "role": "followup", "message": "Finish the current task. If the workspace already satisfies that instruction, do not reopen the retired alternatives or give me a receipt about removing them.", "activates": ["deliver_current_result"], "retires": [], "targets": ["foreground_current_goal", "avoid_stale_narrative"]}
+  ]
+}

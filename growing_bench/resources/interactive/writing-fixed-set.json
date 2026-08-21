@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--writing--fixed-set",
+  "base_task_id": "workspace-v0.2--writing-hedges--complete-fixed-set-observation",
+  "user_profile": {"goal": "state the observed result directly", "communication": "do not preserve superseded caveats"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["manuscript_edit"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "scope", "role": "correction", "message": "The evidence covers the complete fixed set, not a sample. Remove sampling-language hedges and keep only limitations that can change how this result should be read.", "activates": ["fixed_set_claim"], "retires": ["sampling_caveat"], "targets": ["claim_scope_update", "remove_unsupported_caveat"]},
+    {"move_id": "polish", "role": "followup", "message": "Polish the current sentence for the README-facing summary. Do not explain that you removed an earlier caveat; just give the useful text.", "activates": ["reader_facing_text"], "retires": [], "targets": ["foreground_current_goal", "avoid_compliance_receipt"]}
+  ]
+}

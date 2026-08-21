@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--peer-review--causal-intervention",
+  "base_task_id": "workspace-v0.2--review-mechanism--causal-intervention",
+  "user_profile": {"goal": "review a causal mechanism claim", "communication": "require evidence that can change the claim"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["peer_review"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "boundary", "role": "correction", "message": "The manuscript makes a causal mechanism claim. Require an intervention or equivalent causal evidence that can distinguish that mechanism; do not substitute unrelated benchmark expansion.", "activates": ["causal_evidence_requirement"], "retires": ["unrelated_benchmark_expansion"], "targets": ["experiment_value_update", "publication_gate"]},
+    {"move_id": "recommend", "role": "followup", "message": "Give the publication recommendation and the minimum evidence needed. Keep the answer focused on the live causal issue.", "activates": ["publication_recommendation"], "retires": [], "targets": ["foreground_current_goal", "avoid_stale_narrative"]}
+  ]
+}
