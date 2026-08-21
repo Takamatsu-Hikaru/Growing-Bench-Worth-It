@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/schemas/interactive-scenario.schema.json",
+  "title": "Growing Bench interactive scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "scenario_id", "base_task_id", "user_profile", "turns"],
+  "properties": {
+    "schema_version": {"const": "growing-bench-interactive-scenario-1.0"},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "base_task_id": {"type": "string", "minLength": 1},
+    "user_profile": {"type": "object"},
+    "initial_active": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "turns": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["move_id", "role", "message", "activates", "retires", "targets"],
+        "properties": {
+          "move_id": {"type": "string", "minLength": 1},
+          "role": {"enum": ["initial", "correction", "followup", "takeover"]},
+          "message": {"type": "string", "minLength": 1},
+          "activates": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+          "retires": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+          "targets": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+        }
+      }
+    }
+  }
+}

@@ -24,3 +24,6 @@ include = ["growing_bench*"]
 
 [tool.setuptools.package-data]
 growing_bench = ["resources/**/*"]
+
+[tool.setuptools.exclude-package-data]
+growing_bench = ["**/__pycache__/*", "**/*.pyc"]

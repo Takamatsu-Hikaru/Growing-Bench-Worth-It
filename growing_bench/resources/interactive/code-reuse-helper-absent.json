@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--code-reuse--helper-absent",
+  "base_task_id": "workspace-v0.2--code-reuse--compatible-helper-absent",
+  "user_profile": {"goal": "ship a local implementation that fits the repository", "communication": "explain only the implementation decision"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["workspace_task"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "local", "role": "correction", "message": "There is no compatible tested helper here. Implement the small serializer needed by this task instead of pretending reuse is available or introducing a package-wide framework.", "activates": ["local_serializer"], "retires": ["forced_reuse", "package_wide_framework"], "targets": ["reuse_decision", "scope_update"]},
+    {"move_id": "finish", "role": "followup", "message": "Deliver the result against the current repository evidence. Do not keep discussing the reuse option after it has been ruled out.", "activates": ["deliver_current_result"], "retires": [], "targets": ["foreground_current_goal", "avoid_stale_narrative"]}
+  ]
+}

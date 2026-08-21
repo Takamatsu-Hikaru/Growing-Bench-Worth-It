@@ -76,6 +76,12 @@ def append_run(
     if output.exists():
         raise FileExistsError(f"append output already exists: {output}")
     payload = json.loads((run_dir / "results.json").read_text(encoding="utf-8"))
+    if payload.get("schema_version") == "growing-bench-interactive-self-test-results-1.0":
+        from .interactive_append import append_interactive_run
+        return append_interactive_run(
+            run_dir, output, title, source_run=source_run, redact=redact, check=check,
+            permission_to_publish=permission_to_publish, tracks_root=tracks_root,
+        )
     rows = payload.get("results")
     if not isinstance(rows, list) or not rows:
         raise ValueError("append expects a self-test results directory")

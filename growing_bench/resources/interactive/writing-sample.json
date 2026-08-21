@@ -1,0 +1,11 @@
+{
+  "schema_version": "growing-bench-interactive-scenario-1.0",
+  "scenario_id": "interactive--writing--sample",
+  "base_task_id": "workspace-v0.2--writing-hedges--sample-based-population-estimate",
+  "user_profile": {"goal": "make a useful claim without overstating the sample", "communication": "retain decision-relevant uncertainty"},
+  "turns": [
+    {"move_id": "initial", "role": "initial", "message": "$TASK_PROMPT", "activates": ["manuscript_edit"], "retires": [], "targets": ["complete_workspace_task"]},
+    {"move_id": "scope", "role": "correction", "message": "This is a sample used to estimate a broader population. Keep the sampling limitation that constrains the claim, but do not add unrelated generic uncertainty language.", "activates": ["sampling_limit"], "retires": ["generic_uncertainty_catalog"], "targets": ["claim_scope_update", "retain_relevant_caveat"]},
+    {"move_id": "polish", "role": "followup", "message": "Now deliver the concise manuscript text. Do not narrate the editing history or list caveats that are no longer relevant.", "activates": ["reader_facing_text"], "retires": [], "targets": ["foreground_current_goal", "avoid_stale_narrative"]}
+  ]
+}

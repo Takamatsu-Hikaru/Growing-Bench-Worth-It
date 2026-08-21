@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Takamatsu-Hikaru/Growing-Bench-Worth-It/schemas/interaction-score.schema.json",
+  "title": "Growing Bench deterministic interaction score",
+  "type": "object",
+  "required": ["schema_version", "scenario_id", "state_update_success", "stale_narrative_events", "scenario_pressure", "observed_agent_burden", "observed_agent_burden_points"],
+  "properties": {
+    "schema_version": {"const": "growing-bench-interaction-score-1.0"},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "state_update_success": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "foreground_precision": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "unnecessary_claim_rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "stale_narrative_events": {"type": "integer", "minimum": 0},
+    "stale_narrative_tokens": {"type": "integer", "minimum": 0},
+    "compliance_receipt_events": {"type": "integer", "minimum": 0},
+    "unnecessary_self_report_events": {"type": "integer", "minimum": 0},
+    "ignored_signal_count": {"type": "integer", "minimum": 0},
+    "partial_signal_count": {"type": "integer", "minimum": 0},
+    "scenario_pressure": {
+      "type": "object",
+      "required": ["turn_count", "correction_turn_count", "repeated_target_count", "takeover_planned", "pressure_points"],
+      "properties": {
+        "turn_count": {"type": "integer", "minimum": 0},
+        "correction_turn_count": {"type": "integer", "minimum": 0},
+        "repeated_target_count": {"type": "integer", "minimum": 0},
+        "takeover_planned": {"type": "boolean"},
+        "pressure_points": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "observed_agent_burden": {
+      "type": "object",
+      "required": ["ignored_signal_count", "partial_signal_count", "stale_narrative_events", "compliance_receipt_events", "unnecessary_self_report_events", "burden_points"],
+      "properties": {
+        "ignored_signal_count": {"type": "integer", "minimum": 0},
+        "partial_signal_count": {"type": "integer", "minimum": 0},
+        "stale_narrative_events": {"type": "integer", "minimum": 0},
+        "compliance_receipt_events": {"type": "integer", "minimum": 0},
+        "unnecessary_self_report_events": {"type": "integer", "minimum": 0},
+        "burden_points": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "observed_agent_burden_points": {"type": "number", "minimum": 0},
+    "span_label_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "span_token_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "signal_status_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+  }
+}

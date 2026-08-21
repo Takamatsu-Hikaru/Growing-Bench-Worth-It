@@ -25,6 +25,8 @@ def build_packet(run_dir: Path) -> dict[str, Any]:
     events = read_jsonl(run_dir / "trajectory.jsonl")
     visible_events = []
     for event in events:
+        if event.get("kind") == "user_message":
+            continue
         content = str(event.get("content") or event.get("visible_output") or event.get("target") or "")
         visible_events.append({
             "event_id": event["event_id"],
@@ -363,7 +365,8 @@ def score_judgment(
     criterion_results = packet["verified_outcome"].get("criterion_results", [])
     machine_scores = {
         row.get("criterion_id"): 1.0 if row.get("status") == "passed" else 0.0
-        for row in criterion_results if isinstance(row, dict)
+        for row in criterion_results
+        if isinstance(row, dict) and row.get("status") in {"passed", "failed"}
     }
     criteria = []
     for row in canonical_task["completion_criteria"]:

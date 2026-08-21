@@ -14,6 +14,8 @@ from .calibration import run_live_calibration
 from .execution import run_task
 from .health import doctor
 from .ingest_experience import enrich_preflight
+from .interactive import run_interactive_scenario
+from .interactive_self_test import render_interactive_report, run_interactive_self_test
 from .paths import DEFAULT_FIXTURE_CATALOG, DEFAULT_SMOKE_SOURCE, DEFAULT_TRACKS_ROOT, REPOSITORY_ROOT, SOURCE_ROOT
 from .pipeline import ingest as ingest_legacy, preflight as preflight_legacy
 from .reporting import render_report
@@ -58,13 +60,27 @@ def _human(command: str, value: dict[str, Any]) -> None:
         print(f"  completion checks: {'pass' if value.get('post_checks_passed') else 'fail'}")
         print(f"  allowed scope: {'pass' if value.get('allowed_paths_ok') else 'fail'}")
         print(f"  trajectory: {value.get('artifacts', {}).get('trajectory', '-')}")
+    elif command == "interact":
+        ok = value.get("status") in {"completed", "completed_pending_judgment"}
+        print(f"{'OK' if ok else 'FAIL'} Interactive run {value.get('status')}: {value.get('scenario_id')}")
+        print(f"  turns: {value.get('turn_count', 0)}/{value.get('planned_turn_count', 0)}")
+        print(f"  persistent session: {value.get('session_persistence') or 'unavailable'}")
+        print(f"  trajectory: {value.get('artifacts', {}).get('trajectory', '-')}")
     elif command == "self-test":
         baseline = value["summary"]["baseline"]
         intervention = value["summary"]["intervention"]
         print(f"{'OK' if value['status'] == 'completed' else 'FAIL'} Self-test {value['status']}")
-        print(f"  task success: {baseline['task_success']:.2f} -> {intervention['task_success']:.2f}")
-        print(f"  avoidable actions: {baseline['avoidable_action_count']} -> {intervention['avoidable_action_count']}")
-        print(f"  missed necessary: {baseline['missed_necessary_count']} -> {intervention['missed_necessary_count']}")
+        left = "n/a" if baseline["task_success"] is None else f"{baseline['task_success']:.2f}"
+        right = "n/a" if intervention["task_success"] is None else f"{intervention['task_success']:.2f}"
+        print(f"  task success: {left} -> {right}")
+        if value.get("schema_version") == "growing-bench-interactive-self-test-results-1.0":
+            print(f"  state update: {baseline['state_update_success']} -> {intervention['state_update_success']}")
+            print(f"  stale narrative events: {baseline['stale_narrative_events']} -> {intervention['stale_narrative_events']}")
+            print(f"  scenario pressure: {baseline['scenario_pressure_points']} -> {intervention['scenario_pressure_points']}")
+            print(f"  observed Agent burden: {baseline['observed_agent_burden_points']} -> {intervention['observed_agent_burden_points']}")
+        else:
+            print(f"  avoidable actions: {baseline['avoidable_action_count']} -> {intervention['avoidable_action_count']}")
+            print(f"  missed necessary: {baseline['missed_necessary_count']} -> {intervention['missed_necessary_count']}")
         print(f"  report: {value['report']}")
         if value["failures"]:
             print(f"  failed stages: {len(value['failures'])}")
@@ -183,7 +199,10 @@ def build_parser() -> argparse.ArgumentParser:
     smoke.add_argument("--output", type=Path, default=Path("runs/smoke")); smoke.add_argument("--source", type=Path, default=DEFAULT_SMOKE_SOURCE)
     run = sub.add_parser("run", help="run one materialized workspace task")
     run.add_argument("task", type=Path); run.add_argument("--output", type=Path, required=True); run.add_argument("--agent", choices=BUILTIN_AGENTS, default="codex"); run.add_argument("--model"); run.add_argument("--reasoning", default="high"); run.add_argument("--timeout-seconds", type=float, default=1200); run.add_argument("--intervention", type=Path); run.add_argument("--command-template"); run.add_argument("--isolation", choices=("copy", "agent-native"), default="copy", help="fresh workspace copy, or require the adapter's native sandbox")
+    interact = sub.add_parser("interact", help="run one persistent multi-turn Agent scenario in a real workspace")
+    interact.add_argument("scenario", type=Path); interact.add_argument("--output", type=Path, required=True); interact.add_argument("--agent", choices=BUILTIN_AGENTS, default="codex"); interact.add_argument("--model"); interact.add_argument("--reasoning", default="high"); interact.add_argument("--timeout-seconds", type=float, default=1200); interact.add_argument("--intervention", type=Path); interact.add_argument("--command-template"); interact.add_argument("--user-mode", choices=("scripted", "simulated"), default="scripted"); interact.add_argument("--user-agent", choices=BUILTIN_AGENTS, default="codex"); interact.add_argument("--user-model"); interact.add_argument("--user-reasoning", default="medium"); interact.add_argument("--user-command-template")
     selftest = sub.add_parser("self-test", help="compare one Agent with and without a skill or intervention")
+    selftest.add_argument("--mode", choices=("workspace", "interactive"), default="workspace", help="single-turn workspace tasks or persistent multi-turn scenarios"); selftest.add_argument("--scenario", type=Path, action="append", dest="scenarios", help="explicit interactive scenario JSON; repeat to replace the built-in suite"); selftest.add_argument("--user-mode", choices=("scripted", "simulated"), default="scripted"); selftest.add_argument("--user-agent", choices=BUILTIN_AGENTS, default="codex"); selftest.add_argument("--user-model"); selftest.add_argument("--user-reasoning", default="medium"); selftest.add_argument("--user-command-template")
     selftest.add_argument("intervention", type=Path, help="skill, prompt, or intervention file to compare against baseline"); selftest.add_argument("--agent", choices=BUILTIN_AGENTS, default="codex", help="Agent that runs both baseline and intervention tasks"); selftest.add_argument("--judge", choices=BUILTIN_AGENTS, default="codex", help="condition-blind LLM action evaluator"); selftest.add_argument("--suite", choices=sorted(SUITES), default="quick", help="quick runs 4 contexts; balanced runs 4 matched boundaries"); selftest.add_argument("--context", choices=("code", "writing", "internal_review", "external_peer_review"), action="append", dest="contexts", help="run only this task context; repeat to combine contexts"); selftest.add_argument("--task", type=Path, action="append", dest="tasks", help="explicit task.json; repeat to replace the built-in suite"); selftest.add_argument("--output", type=Path, required=True, help="new directory for runs, judgments, results, and paired HTML"); selftest.add_argument("--model"); selftest.add_argument("--judge-model"); selftest.add_argument("--reasoning", default="high"); selftest.add_argument("--judge-reasoning", default="high"); selftest.add_argument("--timeout-seconds", type=float, default=1200); selftest.add_argument("--command-template"); selftest.add_argument("--judge-command-template"); selftest.add_argument("--strict", action="store_true", help="use two blind judges and a third adjudicator on disagreement"); selftest.add_argument("--allow-partial", action="store_true", help="keep partial results and return success when at least one score exists"); selftest.add_argument("--no-open", action="store_true", help="do not open the paired HTML report"); selftest.add_argument("--isolation", choices=("copy", "agent-native"), default="copy", help="fresh workspace copy, or require the adapter's native sandbox")
     calibrate = sub.add_parser("calibrate-judge", help="run the current LLM judge on frozen decision boundaries")
     calibrate.add_argument("--judge", choices=BUILTIN_AGENTS, default="codex", help="Agent CLI used as the semantic judge")
@@ -212,15 +231,36 @@ def main() -> int:
             value = _product_smoke(args.output, args.source)
         elif args.command == "run":
             value = run_task(args.task, args.output, args.model, args.reasoning, args.timeout_seconds, args.agent, args.intervention, args.command_template, args.isolation)
-        elif args.command == "self-test":
-            value = run_self_test(
-                args.intervention, args.output, suite=args.suite, task_paths=args.tasks, contexts=args.contexts,
-                agent=args.agent, judge=args.judge, model=args.model, judge_model=args.judge_model,
-                reasoning=args.reasoning, judge_reasoning=args.judge_reasoning,
-                timeout=args.timeout_seconds, command_template=args.command_template,
-                judge_command_template=args.judge_command_template, strict=args.strict,
-                allow_partial=args.allow_partial, open_report=not args.no_open, isolation=args.isolation,
+        elif args.command == "interact":
+            value = run_interactive_scenario(
+                args.scenario, args.output, agent=args.agent, model=args.model,
+                reasoning=args.reasoning, timeout=args.timeout_seconds,
+                intervention=args.intervention, command_template=args.command_template,
+                user_mode=args.user_mode, user_agent=args.user_agent,
+                user_model=args.user_model, user_reasoning=args.user_reasoning,
+                user_command_template=args.user_command_template,
             )
+        elif args.command == "self-test":
+            if args.mode == "interactive":
+                value = run_interactive_self_test(
+                    args.intervention, args.output, suite=args.suite, scenario_paths=args.scenarios,
+                    agent=args.agent, judge=args.judge, model=args.model, judge_model=args.judge_model,
+                    reasoning=args.reasoning, judge_reasoning=args.judge_reasoning,
+                    timeout=args.timeout_seconds, command_template=args.command_template,
+                    judge_command_template=args.judge_command_template, strict=args.strict,
+                    allow_partial=args.allow_partial, open_report=not args.no_open,
+                    user_mode=args.user_mode, user_agent=args.user_agent, user_model=args.user_model,
+                    user_reasoning=args.user_reasoning, user_command_template=args.user_command_template,
+                )
+            else:
+                value = run_self_test(
+                    args.intervention, args.output, suite=args.suite, task_paths=args.tasks, contexts=args.contexts,
+                    agent=args.agent, judge=args.judge, model=args.model, judge_model=args.judge_model,
+                    reasoning=args.reasoning, judge_reasoning=args.judge_reasoning,
+                    timeout=args.timeout_seconds, command_template=args.command_template,
+                    judge_command_template=args.judge_command_template, strict=args.strict,
+                    allow_partial=args.allow_partial, open_report=not args.no_open, isolation=args.isolation,
+                )
         elif args.command == "calibrate-judge":
             value = run_live_calibration(args.output, judge=args.judge, model=args.model, reasoning=args.reasoning, timeout=args.timeout_seconds, command_template=args.command_template, case_ids=args.cases)
         elif args.command == "init-case":
@@ -253,7 +293,9 @@ def main() -> int:
         elif args.command == "report":
             payload = args.run_dir.resolve() / "results.json"
             result_payload = json.loads(payload.read_text(encoding="utf-8")) if payload.is_file() else {}
-            if result_payload.get("schema_version") == "growing-bench-self-test-results-1.0":
+            if result_payload.get("schema_version") == "growing-bench-interactive-self-test-results-1.0":
+                path = render_interactive_report(result_payload, args.output.resolve() if args.output else args.run_dir.resolve() / "report.html")
+            elif result_payload.get("schema_version") == "growing-bench-self-test-results-1.0":
                 path = render_paired_report(result_payload, args.output.resolve() if args.output else args.run_dir.resolve() / "report.html")
             elif isinstance(result_payload.get("results"), list):
                 path = render_workspace_report(args.run_dir, args.output)
@@ -266,7 +308,7 @@ def main() -> int:
                 raise FileNotFoundError("export-hf is available from a source checkout; clone the repository for dataset export")
             return subprocess.run([sys.executable, str(tool), "--output", str(args.output)], cwd=SOURCE_ROOT, check=False).returncode
         _emit(args.command, value, args.json)
-        if args.command == "run" and value.get("status") not in {"completed", "completed_pending_judgment"}:
+        if args.command in {"run", "interact"} and value.get("status") not in {"completed", "completed_pending_judgment"}:
             return 1
         if args.command == "calibrate-judge" and value.get("failed"):
             return 3
