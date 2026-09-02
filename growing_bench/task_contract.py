@@ -9,6 +9,7 @@ from .paths import REPOSITORY_ROOT
 
 TASK_KINDS = {"code", "writing", "internal_review", "external_peer_review"}
 CRITERION_KINDS = {"check", "file_exists", "file_contains", "json_field", "semantic"}
+ORACLE_POLICIES = {"not_applicable", "host_only"}
 
 
 def load_task(path: Path) -> dict[str, Any]:
@@ -72,6 +73,17 @@ def validate_task(task: dict[str, Any]) -> None:
         seen.add(criterion_id)
         if criterion.get("kind") not in CRITERION_KINDS:
             raise ValueError(f"criterion {criterion_id!r} has an invalid kind")
+    visibility = task.get("evaluation_visibility")
+    if visibility is not None:
+        if not isinstance(visibility, dict):
+            raise ValueError("evaluation_visibility must be an object")
+        for name in ("agent_visible", "hidden"):
+            values = visibility.get(name)
+            if not isinstance(values, list) or not all(isinstance(item, str) and item for item in values):
+                raise ValueError(f"evaluation_visibility.{name} must be a string array")
+        policy = visibility.get("oracle_policy")
+        if policy is not None and policy not in ORACLE_POLICIES:
+            raise ValueError(f"evaluation_visibility.oracle_policy must be one of {sorted(ORACLE_POLICIES)}")
 
 
 def resolve_fixture(task_path: Path, task: dict[str, Any]) -> Path:

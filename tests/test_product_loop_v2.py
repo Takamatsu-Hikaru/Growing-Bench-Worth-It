@@ -50,6 +50,10 @@ class ProductLoopV2Tests(unittest.TestCase):
                 }
             ],
             "budget": {"human_minutes": 10, "machine_minutes": 5, "compute_cost": 1},
+            "evaluation_visibility": {
+                "agent_visible": ["focused-check"], "hidden": [],
+                "oracle_policy": "not_applicable",
+            },
         }
         path = root / "task.json"
         path.write_text(json.dumps(task), encoding="utf-8")

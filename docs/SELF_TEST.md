@@ -23,6 +23,41 @@ Baseline and intervention use the same Agent, model settings, tasks, completion 
 
 `quick` contains one task from each context. `balanced` contains four matched decision boundaries. Use `--context` to select code, writing, internal review, or external peer review. Repeat `--task path/to/task.json` to run an explicit local set.
 
+### Custom-task visibility gate
+
+Every explicit local `--task` must declare an `evaluation_visibility` policy. The gate runs before either baseline or intervention, so a contaminated task cannot produce a comparative score.
+
+For a task whose outcome is completely specified by public behavioral checks:
+
+```json
+"evaluation_visibility": {
+  "agent_visible": ["focused-check"],
+  "hidden": [],
+  "oracle_policy": "not_applicable"
+}
+```
+
+For a task with a semantic answer that the Agent must infer, keep an oracle inventory outside `fixture/`:
+
+```json
+"evaluation_visibility": {
+  "agent_visible": ["format-check"],
+  "hidden": ["course-identity"],
+  "oracle_policy": "host_only",
+  "hidden_spec": "reference/hidden_spec.json"
+}
+```
+
+The hidden spec must contain a nonempty `oracle_values` array. Growing Bench scans the public task contract and every text file copied into the Agent workspace for those values. A direct overlap, a missing contract, or a hidden spec outside `reference/` rejects the task before Agent execution. The hidden spec stays in the host-side task package and is not copied into `before/` or `workspace/`.
+
+```json
+{
+  "oracle_values": ["Lab 5 -> Polarized Light"]
+}
+```
+
+The literal scan catches accidental direct disclosure; task authors should list meaningful spelling variants. The structural boundary does the main work: semantic reference material lives under `reference/`, while only `fixture/` is copied to the Agent.
+
 ## Judge contract
 
 The judge splits the visible trajectory into atomic actions and assigns `necessary`, `optional`, `avoidable`, or `unresolved`. Missing required work is recorded separately as `missed`.

@@ -14,6 +14,7 @@ from growing_bench.judging import JUDGMENT_SCHEMA_VERSION, validate_judgment
 from growing_bench.quality import trajectory_completeness
 from growing_bench.run_append import append_run
 from growing_bench.self_test import run_self_test
+from growing_bench.visibility import validate_custom_self_test_visibility
 
 
 class SelfTestProductTests(unittest.TestCase):
@@ -44,6 +45,10 @@ class SelfTestProductTests(unittest.TestCase):
                 {"criterion_id": "C1", "description": "answer.txt contains the requested value", "kind": "check", "check": "focused-check", "weight": 1.0}
             ],
             "budget": {"human_minutes": 10, "machine_minutes": 5, "compute_cost": 1},
+            "evaluation_visibility": {
+                "agent_visible": ["focused-check"], "hidden": [],
+                "oracle_policy": "not_applicable",
+            },
         }
         path = root / "task.json"; path.write_text(json.dumps(task), encoding="utf-8")
         return path
@@ -64,11 +69,71 @@ class SelfTestProductTests(unittest.TestCase):
             report = Path(result["report"]).read_text(encoding="utf-8")
             self.assertIn("Baseline and intervention", report)
             self.assertIn("Observed elapsed time", report)
+            self.assertIn("Evaluation integrity", report)
+            self.assertEqual(result["task_admission"][0]["evaluation_integrity"], "public_checks_only")
             appended = append_run(result_dir := root / "run", root / "case", "Repeated bounded answer work", redact=True, check=True)
             self.assertTrue(Path(appended["case"]).is_file())
             self.assertEqual(appended["status"], "local_draft")
             self.assertEqual(result_dir, root / "run")
 
+    def test_custom_self_test_rejects_missing_visibility_contract(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="growing-self-test-visibility-") as name:
+            task_path = self._task(Path(name))
+            task = json.loads(task_path.read_text(encoding="utf-8"))
+            task.pop("evaluation_visibility")
+            task_path.write_text(json.dumps(task), encoding="utf-8")
+            intervention = Path(name) / "SKILL.md"
+            intervention.write_text("Keep work proportionate.\n", encoding="utf-8")
+            output = Path(name) / "run"
+            with mock.patch("growing_bench.self_test.run_task") as mocked_run:
+                with self.assertRaisesRegex(ValueError, "require evaluation_visibility.oracle_policy"):
+                    run_self_test(intervention, output, task_paths=[task_path], open_report=False)
+            mocked_run.assert_not_called()
+            self.assertFalse(output.exists())
+
+    def test_custom_self_test_rejects_visible_semantic_oracle(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="growing-self-test-oracle-") as name:
+            root = Path(name); task_path = self._task(root)
+            reference = root / "reference"; reference.mkdir()
+            (reference / "hidden_spec.json").write_text(
+                json.dumps({"oracle_values": ["Lab 5 -> Polarized Light"]}), encoding="utf-8"
+            )
+            (root / "fixture" / "check.py").write_text(
+                "EXPECTED = 'Lab 5 -> Polarized Light'\n", encoding="utf-8"
+            )
+            task = json.loads(task_path.read_text(encoding="utf-8"))
+            task["completion_criteria"].append({
+                "criterion_id": "C2", "description": "Infer the current course mapping",
+                "kind": "semantic", "weight": 1.0,
+            })
+            task["evaluation_visibility"] = {
+                "agent_visible": ["format-check"], "hidden": ["course-identity"],
+                "oracle_policy": "host_only", "hidden_spec": "reference/hidden_spec.json",
+            }
+            task_path.write_text(json.dumps(task), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "semantic oracle is Agent-visible in: fixture/check.py"):
+                validate_custom_self_test_visibility(task_path)
+
+    def test_custom_self_test_admits_host_only_oracle(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="growing-self-test-host-only-") as name:
+            root = Path(name); task_path = self._task(root)
+            reference = root / "reference"; reference.mkdir()
+            (reference / "hidden_spec.json").write_text(
+                json.dumps({"oracle_values": ["Lab 5 -> Polarized Light"]}), encoding="utf-8"
+            )
+            task = json.loads(task_path.read_text(encoding="utf-8"))
+            task["completion_criteria"].append({
+                "criterion_id": "C2", "description": "Infer the current course mapping",
+                "kind": "semantic", "weight": 1.0,
+            })
+            task["evaluation_visibility"] = {
+                "agent_visible": ["format-check"], "hidden": ["course-identity"],
+                "oracle_policy": "host_only", "hidden_spec": "reference/hidden_spec.json",
+            }
+            task_path.write_text(json.dumps(task), encoding="utf-8")
+            result = validate_custom_self_test_visibility(task_path)
+            self.assertEqual(result["evaluation_integrity"], "host_only_oracle")
+            self.assertTrue(result["oracle_overlap_checked"])
     def test_necessary_gate_calibration_is_complete(self) -> None:
         result = run_gate_calibration()
         self.assertGreaterEqual(result["case_count"], 12)

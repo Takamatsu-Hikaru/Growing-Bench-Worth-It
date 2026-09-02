@@ -62,6 +62,8 @@ growing-bench self-test examples/interventions/proportional-work.md \
 
 Use `--context code`, `--context writing`, `--context internal_review`, or `--context external_peer_review` when an intervention targets one kind of work. `self-test --help` also documents explicit task files, output, and partial-run behavior.
 
+Explicit local tasks pass a visibility admission gate before either condition runs. Semantic oracle material stays under host-only `reference/`; details and task JSON examples are in [docs/SELF_TEST.md](docs/SELF_TEST.md).
+
 The complete artifact and exit-code contract is in [docs/SELF_TEST.md](docs/SELF_TEST.md).
 
 ## See the product without model calls

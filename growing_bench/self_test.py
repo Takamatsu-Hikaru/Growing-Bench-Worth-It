@@ -24,6 +24,7 @@ from .judging import (
 from .paths import REPOSITORY_ROOT
 from .quality import trajectory_completeness
 from .task_contract import load_task
+from .visibility import validate_custom_self_test_visibility
 
 
 SUITES = {
@@ -70,6 +71,31 @@ def suite_tasks(name: str, explicit: list[Path] | None = None) -> list[Path]:
     if name not in SUITES:
         raise ValueError(f"unknown suite {name!r}; choose from {sorted(SUITES)}")
     return [_task_path(task_id) for task_id in SUITES[name]]
+
+
+def _is_bundled_task(path: Path) -> bool:
+    task = load_task(path)
+    try:
+        return _task_path(task["task_id"]).resolve() == path.resolve()
+    except FileNotFoundError:
+        return False
+
+
+def _task_admissions(tasks: list[Path], explicit: bool) -> list[dict[str, Any]]:
+    rows = []
+    for path in tasks:
+        task = load_task(path)
+        if not explicit or _is_bundled_task(path):
+            rows.append({
+                "task_id": task["task_id"],
+                "status": "admitted",
+                "oracle_policy": "corpus_admission",
+                "evaluation_integrity": "bundled_hidden_oracle_boundary",
+                "oracle_overlap_checked": True,
+            })
+        else:
+            rows.append(validate_custom_self_test_visibility(path))
+    return rows
 
 
 def _call_judge(
@@ -263,7 +289,16 @@ def render_paired_report(result: dict[str, Any], output: Path) -> Path:
         agreement_panel = f'<section class="panel"><h2>Judge calibration</h2><p>Action extraction agreement {extraction:.0%} · label agreement {labels:.0%}</p><p class="meta">Disagreement categories: {html.escape(", ".join(categories) if categories else "none")}</p></section>'
     else:
         agreement_panel = '<section class="panel"><h2>Judge calibration</h2><p>Single judge mode. Run with <code>--strict</code> to record extraction and label agreement.</p></section>'
-    document = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Growing Bench self-test</title><style>{css}</style></head><body><main class="wrap"><h1>Was the work worth it?</h1><p class="lede">Baseline and intervention, judged blind with the same action contract.</p>{cards}{agreement_panel}{"".join(pairs)}</main></body></html>'
+    admissions = result.get("task_admission", [])
+    integrity_rows = "".join(
+        f'<li><b>{html.escape(str(row.get("task_id")))}</b>: {html.escape(str(row.get("evaluation_integrity")))}</li>'
+        for row in admissions
+    )
+    integrity_panel = (
+        f'<section class="panel"><h2>Evaluation integrity</h2><p>All tasks passed the visibility admission gate before either Agent condition ran.</p><ul>{integrity_rows}</ul></section>'
+        if integrity_rows else ""
+    )
+    document = f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Growing Bench self-test</title><style>{css}</style></head><body><main class="wrap"><h1>Was the work worth it?</h1><p class="lede">Baseline and intervention, judged blind with the same action contract.</p>{cards}{integrity_panel}{agreement_panel}{"".join(pairs)}</main></body></html>'
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(document, encoding="utf-8", newline="\n")
     return output
@@ -301,6 +336,8 @@ def run_self_test(
         tasks = [path for path in tasks if load_task(path)["kind"] in wanted]
         if not tasks:
             raise ValueError(f"no {suite} suite tasks match contexts {sorted(wanted)}")
+    admissions = _task_admissions(tasks, explicit=bool(task_paths))
+    admission_by_task = {row["task_id"]: row for row in admissions}
     output.mkdir(parents=True)
     results: list[dict[str, Any]] = []
     failures: list[dict[str, str]] = []
@@ -322,6 +359,7 @@ def run_self_test(
             "condition_identity_blinded": True,
         },
         "intervention_file": intervention.name,
+        "task_admission": admissions,
     }
     _write_json(output / "run-card.json", run_card)
     shutil.copy2(intervention, output / "intervention.md")
@@ -354,6 +392,7 @@ def run_self_test(
                 score, bundle = score_judgment(task, packet, judgment, f"self-test::{run_name}")
                 _write_json(judge_dir / "bundle.json", bundle)
                 score = _decorate_score(score, summary, judgment, agreement, run_name, condition)
+                score["evaluation_integrity"] = admission_by_task[task_slug]
                 score["trajectory_roi"] = None if score["selected_action_cost"] <= 0 else score["trajectory_value"] / score["selected_action_cost"]
                 results.append(score)
             except (ValueError, FileNotFoundError, json.JSONDecodeError) as exc:
@@ -368,6 +407,7 @@ def run_self_test(
         "strict": strict,
         "results": results,
         "failures": failures,
+        "task_admission": admissions,
         "summary": {
             "baseline": _condition_summary(baseline_rows),
             "intervention": _condition_summary(intervention_rows),

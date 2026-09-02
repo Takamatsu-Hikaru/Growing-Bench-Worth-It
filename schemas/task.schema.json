@@ -81,7 +81,18 @@
       },
       "additionalProperties": false
     },
-    "provenance": {"type": "object"}
+    "provenance": {"type": "object"},
+    "evaluation_visibility": {
+      "type": "object",
+      "required": ["agent_visible", "hidden"],
+      "properties": {
+        "agent_visible": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "hidden": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "oracle_policy": {"enum": ["not_applicable", "host_only"]},
+        "hidden_spec": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    }
   },
   "additionalProperties": true
 }
