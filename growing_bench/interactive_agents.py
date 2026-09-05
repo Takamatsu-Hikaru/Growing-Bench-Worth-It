@@ -9,6 +9,8 @@ from .agents import (
     BUILTIN_AGENTS,
     _claude_final,
     _command_final,
+    command_process_events,
+    diagnose_agent_failure,
     _executable,
     _openclaw_final,
     _run_captured,
@@ -45,6 +47,27 @@ def _command(
     timeout: float,
     command_template: str | None,
 ) -> tuple[list[str], str | None, str | None, str]:
+    if agent == "openai-compatible":
+        import os
+        import sys
+        base_url = os.environ.get("GROWING_BENCH_BASE_URL")
+        key_env = os.environ.get("GROWING_BENCH_API_KEY_ENV", "OPENAI_API_KEY")
+        protocol = os.environ.get("GROWING_BENCH_API_PROTOCOL", "chat")
+        if not base_url:
+            raise ValueError("openai-compatible requires --base-url")
+        if key_env not in os.environ:
+            raise ValueError(f"openai-compatible API key environment variable is missing: {key_env}")
+        if not model:
+            raise ValueError("openai-compatible requires --model")
+        current_id = session_id or f"openai-compatible-{uuid.uuid4()}"
+        command = [
+            sys.executable, "-m", "growing_bench.openai_compatible",
+            "--workspace", str(workspace), "--prompt-file", str(prompt_file),
+            "--final-file", str(final_file), "--session-dir", str(session_dir),
+            "--base-url", base_url, "--api-key-env", key_env,
+            "--protocol", protocol, "--model", model,
+        ]
+        return command, None, current_id, "adapter_managed"
     executable = _executable(agent) if agent != "command" else None
     if agent != "command" and executable is None:
         raise FileNotFoundError(f"{agent} CLI is not installed or not on PATH")
@@ -95,6 +118,7 @@ def _command(
         "{final_file}": str(final_file), "{session_dir}": str(session_dir),
         "{session_id}": current_id, "{turn_index}": str(turn_index),
         "{model}": model or "", "{reasoning}": reasoning,
+        "{prompt}": prompt_file.read_text(encoding="utf-8"),
     }
     return [replacements.get(part, part) for part in raw], None, current_id, "adapter_managed"
 
@@ -153,6 +177,13 @@ def run_agent_turn(
         final, usage = _command_final(stdout)
     final_file.write_text(final, encoding="utf-8", newline="\n")
     visible_events = normalize_agent_events(agent, records)
+    if agent == "command" and not visible_events:
+        visible_events = command_process_events(
+            started_at, finished_at, elapsed, returncode, status, final
+        )
+    failure = diagnose_agent_failure(status, returncode, stdout, stderr, final, visible_events)
+    if failure is not None and status == "completed":
+        status = "failed"
     with (artifacts / "events.jsonl").open("w", encoding="utf-8", newline="\n") as handle:
         for event in visible_events:
             handle.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
@@ -170,7 +201,7 @@ def run_agent_turn(
         "returncode": returncode, "elapsed_seconds": elapsed,
         "started_at": started_at, "finished_at": finished_at,
         "turn_index": turn_index, "session_id": resolved_id,
-        "session_persistence": persistence, "usage": usage,
+        "session_persistence": persistence, "usage": usage, "failure": failure,
         "intervention_policy_applied": intervention_applied,
         "visible_event_count": len(visible_events),
         "trajectory_completeness": trajectory_completeness(agent, visible_events),

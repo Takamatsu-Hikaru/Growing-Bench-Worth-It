@@ -40,6 +40,7 @@ ADAPTER_CAPABILITIES: dict[str, dict[str, str]] = {
         "exit_status": "native_when_tool_result_is_exposed",
     },
     "openclaw": {name: "declared_by_adapter" for name in COMMON_EVENT_CONTRACT},
+    "openai-compatible": {name: "declared_by_adapter" for name in COMMON_EVENT_CONTRACT},
     "command": {name: "declared_by_adapter" for name in COMMON_EVENT_CONTRACT},
 }
 

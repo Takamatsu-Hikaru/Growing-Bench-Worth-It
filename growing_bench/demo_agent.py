@@ -10,7 +10,15 @@ def main() -> int:
         raise SystemExit("usage: python -m growing_bench.demo_agent WORKSPACE")
     workspace = Path(sys.argv[1]).resolve()
     (workspace / "answer.txt").write_text("done\n", encoding="utf-8", newline="\n")
-    print(json.dumps({"final": "Created answer.txt and kept the change within the allowed scope."}))
+    print(json.dumps({
+        "final": "Created answer.txt and kept the change within the allowed scope.",
+        "events": [{
+            "kind": "file_write",
+            "target": "answer.txt",
+            "status": "success",
+            "content": "Created the requested file.",
+        }],
+    }))
     return 0
 
 

@@ -9,7 +9,7 @@ from growing_bench.trajectory import normalize_agent_events
 
 class AdapterContractV2Tests(unittest.TestCase):
     def test_all_public_adapters_declare_common_contract(self) -> None:
-        for adapter in ("codex", "claude-code", "openclaw", "command"):
+        for adapter in ("codex", "claude-code", "openclaw", "openai-compatible", "command"):
             self.assertEqual(set(adapter_capabilities(adapter)), set(COMMON_EVENT_CONTRACT))
 
     def test_custom_declared_failure_and_duration_are_preserved(self) -> None:

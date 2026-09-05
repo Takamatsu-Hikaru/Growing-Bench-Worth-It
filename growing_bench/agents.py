@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
+import sys
 import threading
 import time
 from pathlib import Path
@@ -13,7 +15,114 @@ from .quality import trajectory_completeness
 from .trajectory import normalize_agent_events, utc_now
 
 
-BUILTIN_AGENTS = ("codex", "claude-code", "openclaw", "command")
+BUILTIN_AGENTS = ("codex", "claude-code", "openclaw", "openai-compatible", "command")
+
+
+_API_ERROR = re.compile(
+    r"(?i)(?:api\s+error|http(?:\s+error)?|status(?:\s+code)?)\D{0,12}(401|402|403)\b"
+)
+
+
+def diagnose_agent_failure(
+    status: str,
+    returncode: int | None,
+    stdout: str,
+    stderr: str,
+    final: str,
+    visible_events: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Turn silent or misreported CLI exits into an agent-stage failure."""
+
+    api_error = _API_ERROR.search(f"{stdout}\n{stderr}")
+    if api_error:
+        code = api_error.group(1)
+        reason = {
+            "401": "authentication failed",
+            "402": "subscription or billing is unavailable",
+            "403": "the request was forbidden",
+        }[code]
+        return {
+            "code": f"agent_api_http_{code}",
+            "message": f"Agent API returned HTTP {code}: {reason}.",
+            "http_status": int(code),
+        }
+    if status == "timeout":
+        return {"code": "agent_timeout", "message": "Agent execution timed out."}
+    if status != "completed" or returncode not in {0, None}:
+        return {
+            "code": "agent_process_failed",
+            "message": f"Agent process failed with exit code {returncode}.",
+        }
+    if not final.strip():
+        return {
+            "code": "agent_empty_final",
+            "message": "Agent exited successfully but produced no final response.",
+        }
+    if not visible_events:
+        return {
+            "code": "agent_empty_trajectory",
+            "message": "Agent exited successfully but produced no visible trajectory events.",
+        }
+    return None
+
+
+def command_process_events(
+    started_at: str,
+    finished_at: str,
+    elapsed_seconds: float,
+    returncode: int | None,
+    status: str,
+    final: str,
+) -> list[dict[str, Any]]:
+    """Record the observable outer CLI process when it emits no native events."""
+
+    result_status = "success" if status == "completed" and returncode == 0 else "failure"
+    rows = [
+        {
+            "event_id": "agent-event-0001",
+            "kind": "command_start",
+            "timestamp": started_at,
+            "duration_ms": None,
+            "tool": "external-cli",
+            "target": None,
+            "status": "started",
+            "content": "External Agent CLI started.",
+            "visible_output": None,
+            "usage": None,
+            "source_adapter": "command",
+            "source_event_type": "outer_process",
+        },
+        {
+            "event_id": "agent-event-0002",
+            "kind": "command_result",
+            "timestamp": finished_at,
+            "duration_ms": elapsed_seconds * 1000.0,
+            "tool": "external-cli",
+            "target": None,
+            "status": result_status,
+            "content": "External Agent CLI finished.",
+            "visible_output": None,
+            "usage": None,
+            "source_adapter": "command",
+            "source_event_type": "outer_process",
+        },
+    ]
+    if final.strip():
+        rows.append({
+            "event_id": "agent-event-0003",
+            "kind": "assistant_message",
+            "timestamp": finished_at,
+            "duration_ms": None,
+            "tool": None,
+            "target": None,
+            "status": result_status,
+            "content": final,
+            "visible_output": None,
+            "usage": None,
+            "source_adapter": "command",
+            "source_event_type": "outer_process_final",
+        })
+    return rows
 
 
 def _executable(name: str) -> str | None:
@@ -28,6 +137,16 @@ def _executable(name: str) -> str | None:
 def probe_agent(name: str) -> dict[str, Any]:
     if name == "command":
         return {"agent": name, "available": True, "version": "user-supplied"}
+    if name == "openai-compatible":
+        key_name = os.environ.get("GROWING_BENCH_API_KEY_ENV", "OPENAI_API_KEY")
+        configured = bool(os.environ.get("GROWING_BENCH_BASE_URL") and os.environ.get(key_name))
+        return {
+            "agent": name,
+            "available": configured,
+            "version": "built-in",
+            "configured": configured,
+            "api_key_env": key_name,
+        }
     executable = _executable(name)
     if executable is None:
         return {"agent": name, "available": False, "version": None}
@@ -90,6 +209,22 @@ def _build_command(
     timeout: float,
     command_template: str | None,
 ) -> tuple[list[str], str | None]:
+    if agent == "openai-compatible":
+        base_url = os.environ.get("GROWING_BENCH_BASE_URL")
+        key_env = os.environ.get("GROWING_BENCH_API_KEY_ENV", "OPENAI_API_KEY")
+        protocol = os.environ.get("GROWING_BENCH_API_PROTOCOL", "chat")
+        if not base_url:
+            raise ValueError("openai-compatible requires --base-url")
+        if key_env not in os.environ:
+            raise ValueError(f"openai-compatible API key environment variable is missing: {key_env}")
+        if not model:
+            raise ValueError("openai-compatible requires --model")
+        return [
+            sys.executable, "-m", "growing_bench.openai_compatible",
+            "--workspace", str(workspace), "--prompt-file", str(prompt_file),
+            "--final-file", str(final_file), "--base-url", base_url,
+            "--api-key-env", key_env, "--protocol", protocol, "--model", model,
+        ], None
     executable = _executable(agent) if agent != "command" else None
     if agent != "command" and executable is None:
         raise FileNotFoundError(f"{agent} CLI is not installed or not on PATH")
@@ -131,6 +266,7 @@ def _build_command(
     replacements = {
         "{workspace}": str(workspace), "{prompt_file}": str(prompt_file),
         "{final_file}": str(final_file), "{model}": model or "", "{reasoning}": reasoning,
+        "{prompt}": prompt_file.read_text(encoding="utf-8"),
     }
     return [replacements.get(part, part) for part in raw], None
 
@@ -182,6 +318,9 @@ def _run_captured(
         process.kill()
         returncode = None
         process.wait()
+    from .provider_sandbox import provider_command, cleanup_workspace
+    if provider_command(json.dumps(command)):
+        cleanup_workspace(workspace)
     stdout_thread.join(timeout=5)
     stderr_thread.join(timeout=5)
     elapsed = time.perf_counter() - started
@@ -232,6 +371,13 @@ def run_agent(
         final, usage = _command_final(stdout)
     final_file.write_text(final, encoding="utf-8", newline="\n")
     visible_events = normalize_agent_events(agent, records)
+    if agent == "command" and not visible_events:
+        visible_events = command_process_events(
+            started_at, finished_at, elapsed, returncode, status, final
+        )
+    failure = diagnose_agent_failure(status, returncode, stdout, stderr, final, visible_events)
+    if failure is not None and status == "completed":
+        status = "failed"
     with (artifacts / "events.jsonl").open("w", encoding="utf-8", newline="\n") as handle:
         for event in visible_events:
             handle.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
@@ -241,7 +387,7 @@ def run_agent(
         "model": model, "reasoning": reasoning, "status": status,
         "returncode": returncode, "elapsed_seconds": elapsed,
         "started_at": started_at, "finished_at": finished_at,
-        "usage": usage, "visible_event_count": len(visible_events),
+        "usage": usage, "failure": failure, "visible_event_count": len(visible_events),
         "trajectory_completeness": trajectory_completeness(agent, visible_events),
         "visible_events": visible_events,
         "artifacts": {

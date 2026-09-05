@@ -1,12 +1,13 @@
 # Agent adapters
 
-Growing Bench owns benchmark semantics: fresh fixture copies, process working directory, exact baseline validation, completion checks, allowed-file scope, diffing, and trajectory storage. An adapter gives an Agent the prompt and disposable workspace, then translates visible events. Container, virtual-machine, and network isolation are outside the common runner contract; Codex receives its native workspace-write sandbox flag.
+Growing Bench owns benchmark semantics: fresh fixture copies, process working directory, exact baseline validation, completion checks, allowed-file scope, diffing, and trajectory storage. An adapter gives an Agent the prompt and disposable workspace, then translates visible events.
 
 | Adapter | Expected CLI | Invocation |
 |---|---|---|
 | `codex` | `codex` | ephemeral `codex exec` JSON stream |
 | `claude-code` | `claude` | non-persistent stream JSON mode |
 | `openclaw` | `openclaw` | headless agent execution with declared JSON events |
+| `openai-compatible` | built in | OpenAI Chat Completions or Responses tool loop with isolated Docker tools |
 | `command` | any executable | user-supplied JSON command array |
 
 Run `growing-bench doctor` to inspect local availability.
@@ -39,9 +40,24 @@ Normalized event kinds include assistant messages, file reads/writes, search, to
 
 Recorded offline examples for Codex, Claude Code, OpenClaw, and the custom command adapter live under `tests/fixtures/adapters/`. The golden and conformance tests cover command/result pairing, file writes, failure status, duration, exit status, and explicit missing-event reporting. The full capability table is in [ADAPTER_EVENT_CONTRACT.md](ADAPTER_EVENT_CONTRACT.md).
 
+## OpenAI-compatible endpoints
+
+```bash
+growing-bench setup-adapter
+
+growing-bench run path/to/task.json \
+  --agent openai-compatible \
+  --base-url https://your-provider.example/v1 \
+  --api-key-env YOUR_PROVIDER_API_KEY \
+  --model your-model-id \
+  --output runs/provider-task
+```
+
+`--api-protocol chat` is the default. Use `--api-protocol responses` for Responses-compatible endpoints. The API key remains in the host process. Only tool requests and ordinary workspace files cross the container bridge.
+
 ## Custom command adapter
 
-The command template is a JSON array. Exact elements may use `{workspace}`, `{prompt_file}`, `{final_file}`, `{model}`, and `{reasoning}`. The process runs with the disposable workspace as its current directory.
+The command template is a JSON array. Exact elements may use `{workspace}`, `{prompt_file}`, `{prompt}`, `{final_file}`, `{model}`, and `{reasoning}`. The process runs with the disposable workspace as its current directory.
 
 ```bash
 growing-bench run examples/tasks/adapter-smoke.json \
@@ -50,7 +66,9 @@ growing-bench run examples/tasks/adapter-smoke.json \
   --output runs/custom-agent
 ```
 
-A custom adapter may return `{"final":"...","events":[...]}`. Only canonical public event kinds are accepted.
+A CLI may print plain final text, or return `{"final":"...","events":[...]}`. Plain output receives observed outer-process events; declared events provide richer tool-level telemetry. Empty output or an empty final response is an Agent-stage failure.
+
+Growing Bench also detects successful exit codes that contain HTTP 401, 402, or 403 API failures. These stop before judging and surface the actual authentication, subscription, or permission error.
 
 ## Adding another adapter
 

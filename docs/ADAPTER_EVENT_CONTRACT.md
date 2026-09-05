@@ -27,7 +27,8 @@ Every run stores an adapter capability declaration and a trajectory completeness
 | Codex | Commands, command results, file changes, messages, duration, exit status | Individual file reads are not always exposed as structured events |
 | Claude Code | File reads, tool calls, messages, usage | Command results, file writes, durations, and exit status depend on stream detail |
 | OpenClaw | Uses declared normalized events | Completeness depends on the OpenClaw event producer |
-| Custom command | Uses declared normalized events | Plain stdout without declared events has low completeness |
+| OpenAI-compatible | Built-in tool loop emits normalized tool, command, file, message, duration, and status events | Provider usage fields vary |
+| Custom command | Uses declared normalized events when available | Plain output exposes only the outer process and final response |
 
 Custom and OpenClaw output may include an `events` array. Missing event types remain missing and lower completeness.
 

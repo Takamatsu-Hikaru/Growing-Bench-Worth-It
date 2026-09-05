@@ -157,7 +157,10 @@ def run_interactive_self_test(
                     user_command_template=user_command_template,
                 )
                 if summary["status"] not in {"completed", "completed_pending_judgment"}:
-                    raise ValueError(f"agent run ended with {summary['status']}")
+                    diagnostic = summary.get("agent_failure") or {}
+                    raise ValueError(
+                        diagnostic.get("message") or f"agent run ended with {summary['status']}"
+                    )
                 action_dir = output / "judgments" / run_name / "actions"
                 action_judgment, agreement = _judge_one(
                     run_dir, action_dir, judge, judge_model, judge_reasoning, timeout,

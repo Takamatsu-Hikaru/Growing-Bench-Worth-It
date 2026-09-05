@@ -26,21 +26,30 @@ def _check_command(command: list[str]) -> list[str]:
     return command
 
 
-def _run_checks(task: dict[str, Any], workspace: Path) -> list[dict[str, Any]]:
+def _run_checks(task: dict[str, Any], workspace: Path, *, container: bool = False) -> list[dict[str, Any]]:
     rows = []
     for check in task["checks"]:
         command = _check_command(check["command"])
         started_at = utc_now()
         started = time.perf_counter()
         try:
-            completed = subprocess.run(
-                command, cwd=workspace, text=True, encoding="utf-8", errors="replace",
-                capture_output=True, timeout=float(check.get("timeout_seconds", 180)), check=False,
-            )
-            row = {
-                "returncode": completed.returncode, "passed": completed.returncode == 0,
-                "stdout": completed.stdout, "stderr": completed.stderr,
-            }
+            if container:
+                from .provider_sandbox import execute
+                result = execute(workspace, task, "run_check", {"name": check["name"]})
+                row = {"returncode": result.get("returncode"),
+                       "passed": not result.get("error") and not result.get("timed_out") and result.get("returncode") == 0,
+                       "stdout": result.get("stdout", ""), "stderr": result.get("stderr", result.get("error", "")),
+                       "timed_out": result.get("timed_out", False),
+                       "execution_boundary": result["execution_boundary"]}
+            else:
+                completed = subprocess.run(
+                    command, cwd=workspace, text=True, encoding="utf-8", errors="replace",
+                    capture_output=True, timeout=float(check.get("timeout_seconds", 180)), check=False,
+                )
+                row = {
+                    "returncode": completed.returncode, "passed": completed.returncode == 0,
+                    "stdout": completed.stdout, "stderr": completed.stderr,
+                }
         except subprocess.TimeoutExpired as exc:
             row = {
                 "returncode": None, "passed": False, "stdout": exc.stdout or "",
@@ -73,9 +82,11 @@ def _baseline_valid(task: dict[str, Any], checks: list[dict[str, Any]]) -> bool:
 
 def _ignored(relative: str, ignored: list[str]) -> bool:
     normalized = relative.replace("\\", "/")
+    parts = normalized.split("/")
     return normalized == ".git" or normalized.startswith(".git/") or any(
-        normalized == value.rstrip("/") or normalized.startswith(value.rstrip("/") + "/")
-        for value in ignored if value.rstrip("/")
+        normalized == value or normalized.startswith(value + "/")
+        or ("/" not in value and value in parts)
+        for item in ignored if (value := item.replace("\\", "/").rstrip("/"))
     )
 
 
@@ -171,6 +182,10 @@ def run_task(
     isolation: str = "copy",
 ) -> dict[str, Any]:
     validate_isolation(agent, isolation)
+    from .provider_sandbox import provider_command, preflight, profile
+    container = agent == "openai-compatible" or provider_command(command_template)
+    if container:
+        preflight()
     total_started = time.perf_counter()
     task_path, output = task_path.resolve(), output.resolve()
     if output.exists():
@@ -182,7 +197,7 @@ def run_task(
     shutil.copytree(fixture, before)
     shutil.copytree(fixture, workspace)
     _write_json(output / "task.json", task)
-    baseline = _run_checks(task, before)
+    baseline = _run_checks(task, before, container=container)
     _write_json(output / "checks.before.json", baseline)
     baseline_ok = _baseline_valid(task, baseline)
     if not baseline_ok:
@@ -201,7 +216,7 @@ def run_task(
         agent, task["prompt"], workspace, output / "agent", model, reasoning,
         timeout, intervention, command_template,
     )
-    post = _run_checks(task, workspace)
+    post = _run_checks(task, workspace, container=container)
     _write_json(output / "checks.after.json", post)
     changes, patch = _diff(initial, _file_map(workspace, task["ignore_paths"]))
     _write_json(output / "changes.json", changes)
@@ -243,7 +258,8 @@ def run_task(
         "criterion_results": criterion_results,
         "elapsed_seconds": time.perf_counter() - total_started,
         "changes": changes, "agent_result": agent_summary,
-        "isolation": isolation_profile(agent, isolation),
+        "agent_failure": agent_summary.get("failure"),
+        "isolation": profile() if container else isolation_profile(agent, isolation),
         "artifacts": {
             "trajectory": "trajectory.jsonl", "agent_events": "agent/events.jsonl",
             "final": "agent/final.md", "raw_stdout": "agent/stdout.log",

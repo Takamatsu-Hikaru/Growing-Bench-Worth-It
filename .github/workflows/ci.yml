@@ -21,7 +21,7 @@ jobs:
       - run: python -m growing_bench --json doctor
       - run: python -m growing_bench smoke --output runs/ci-smoke
       - run: python -m growing_bench report data/releases/workspace-v0.2-calibration --output runs/calibration.html
-      - run: python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_adapter_golden_events tests.test_public_release tests.test_product_experience tests.test_workspace_runner_v2 tests.test_public_pipeline tests.test_workspace_validity_v2 tests.test_release_consistency tests.test_huggingface_export tests.test_self_test_product tests.test_product_loop_v2 tests.test_cli_exit_contract tests.test_adapter_contract_v2 tests.test_adapter_conformance_v2 tests.test_judgment_contract_v2 tests.test_interactive_product -v
+      - run: python -m unittest tests.test_public_cli tests.test_agent_adapters tests.test_openai_compatible_adapter tests.test_adapter_golden_events tests.test_public_release tests.test_product_experience tests.test_workspace_runner_v2 tests.test_public_pipeline tests.test_workspace_validity_v2 tests.test_release_consistency tests.test_huggingface_export tests.test_self_test_product tests.test_product_loop_v2 tests.test_cli_exit_contract tests.test_adapter_contract_v2 tests.test_adapter_conformance_v2 tests.test_judgment_contract_v2 tests.test_interactive_product -v
 
   workspace-admission:
     runs-on: ubuntu-latest
@@ -68,3 +68,18 @@ jobs:
         working-directory: /tmp
       - run: python -c "from growing_bench.interactive_self_test import suite_scenarios; assert len(suite_scenarios('quick')) == 4"
         working-directory: /tmp
+      - run: python -c "from pathlib import Path; import growing_bench; root=Path(growing_bench.__file__).parent; assert (root/'container_tool.py').is_file(); assert (root/'resources'/'agent.Dockerfile').is_file()"
+        working-directory: /tmp
+
+  docker-adapter-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e .
+      - run: python -m growing_bench setup-adapter
+      - run: python -m unittest tests.test_provider_sandbox -v
+        env:
+          GROWING_BENCH_TEST_DOCKER: "1"

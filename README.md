@@ -117,13 +117,33 @@ growing-bench run tracks/workspace-v0.2/tasks/<task-id>/task.json \
   --output runs/claude-task
 ```
 
-Built-in adapters support Codex, Claude Code, OpenClaw, and arbitrary command-line Agents.
+Built-in adapters support Codex, Claude Code, OpenClaw, OpenAI-compatible model endpoints, and arbitrary command-line Agents.
+
+For GLM, DeepSeek, Qwen, vLLM, or another endpoint with OpenAI function calling, prepare the isolated runtime once:
+
+```bash
+growing-bench setup-adapter
+```
+
+Then run the endpoint as a workspace Agent:
+
+```bash
+growing-bench self-test examples/interventions/proportional-work.md \
+  --agent openai-compatible \
+  --base-url https://your-provider.example/v1 \
+  --api-key-env YOUR_PROVIDER_API_KEY \
+  --model your-model-id \
+  --judge codex \
+  --output runs/your-provider
+```
+
+The API client keeps the credential outside the task container. Model-requested file operations, commands, and benchmark checks run in a disposable Docker workspace with no network, no host workspace mount, no Docker socket, and no GPU access. The run records the immutable image ID.
 
 ## Trajectory quality across Agents
 
 All adapters map visible work into a common event contract covering commands, results, reads, writes, tool calls, messages, duration, and exit status. Every run reports which events the adapter exposes and a trajectory completeness score. Missing telemetry stays visible.
 
-Growing Bench creates a fresh fixture copy and starts the Agent process inside that workspace. Codex also receives its native `workspace-write` sandbox flag. Growing Bench does not claim a container, virtual machine, or enforced network sandbox for every adapter.
+Growing Bench creates a fresh fixture copy and starts the Agent process inside that workspace. Codex receives its native `workspace-write` sandbox flag. The OpenAI-compatible adapter uses the Docker boundary described above. Other CLI adapters report their actual isolation profile.
 
 `--isolation copy` records the portable workspace-copy boundary. `--isolation agent-native` requires a supported native sandbox and currently works with Codex; unsupported adapters fail before the run starts.
 
@@ -169,6 +189,7 @@ growing-bench judge            recompute canonical scores
 growing-bench report           generate HTML
 growing-bench smoke            run the offline product tour
 growing-bench doctor           inspect local Agent CLIs
+growing-bench setup-adapter    build the isolated OpenAI-compatible runtime
 ```
 
 ## Contribute

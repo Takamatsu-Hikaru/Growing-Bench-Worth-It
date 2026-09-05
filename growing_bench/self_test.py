@@ -377,7 +377,11 @@ def run_self_test(
             summary["run_dir"] = str(run_dir)
             successful = summary["status"] in {"completed", "completed_pending_judgment"}
             if not successful:
-                failures.append({"run": run_name, "stage": "agent", "status": summary["status"]})
+                diagnostic = summary.get("agent_failure") or summary.get("agent_result", {}).get("failure") or {}
+                failures.append({
+                    "run": run_name, "stage": "agent", "status": summary["status"],
+                    "code": diagnostic.get("code"), "message": diagnostic.get("message"),
+                })
                 if not allow_partial:
                     continue
             if not (run_dir / "trajectory.jsonl").is_file():

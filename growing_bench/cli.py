@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -41,6 +42,27 @@ def _json(value: object) -> None:
     print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
 
 
+def _add_api_adapter_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--base-url", help="OpenAI-compatible API base URL")
+    parser.add_argument(
+        "--api-key-env", default="OPENAI_API_KEY",
+        help="environment variable containing the API key; the key is never written to run artifacts",
+    )
+    parser.add_argument(
+        "--api-protocol", choices=("chat", "responses"), default="chat",
+        help="OpenAI-compatible endpoint protocol",
+    )
+
+
+def _configure_api_adapter(args: argparse.Namespace) -> None:
+    if getattr(args, "base_url", None):
+        os.environ["GROWING_BENCH_BASE_URL"] = args.base_url
+    if hasattr(args, "api_key_env"):
+        os.environ["GROWING_BENCH_API_KEY_ENV"] = args.api_key_env
+    if hasattr(args, "api_protocol"):
+        os.environ["GROWING_BENCH_API_PROTOCOL"] = args.api_protocol
+
+
 def _human(command: str, value: dict[str, Any]) -> None:
     if command == "doctor":
         print("Agent          Available  Version")
@@ -54,18 +76,25 @@ def _human(command: str, value: dict[str, Any]) -> None:
         print(f"OK Score report: {value['report']}")
         print(f"OK Workspace report: {value['live_adapter']['report']}")
         print("NEXT Test your own skill: growing-bench self-test path/to/SKILL.md --agent codex --suite quick --output runs/my-skill")
+    elif command == "setup-adapter":
+        print(f"OK Docker Agent runtime: {value['image_id']}")
+        print("NEXT Use --agent openai-compatible with --base-url, --api-key-env, and --model.")
     elif command == "run":
         ok = value.get("status") in {"completed", "completed_pending_judgment"}
         print(f"{'OK' if ok else 'FAIL'} Run {value.get('status')}: {value.get('task_id')}")
         print(f"  completion checks: {'pass' if value.get('post_checks_passed') else 'fail'}")
         print(f"  allowed scope: {'pass' if value.get('allowed_paths_ok') else 'fail'}")
         print(f"  trajectory: {value.get('artifacts', {}).get('trajectory', '-')}")
+        if value.get("agent_failure"):
+            print(f"  agent error: {value['agent_failure']['message']}")
     elif command == "interact":
         ok = value.get("status") in {"completed", "completed_pending_judgment"}
         print(f"{'OK' if ok else 'FAIL'} Interactive run {value.get('status')}: {value.get('scenario_id')}")
         print(f"  turns: {value.get('turn_count', 0)}/{value.get('planned_turn_count', 0)}")
         print(f"  persistent session: {value.get('session_persistence') or 'unavailable'}")
         print(f"  trajectory: {value.get('artifacts', {}).get('trajectory', '-')}")
+        if value.get("agent_failure"):
+            print(f"  agent error: {value['agent_failure']['message']}")
     elif command == "self-test":
         baseline = value["summary"]["baseline"]
         intervention = value["summary"]["intervention"]
@@ -84,6 +113,9 @@ def _human(command: str, value: dict[str, Any]) -> None:
         print(f"  report: {value['report']}")
         if value["failures"]:
             print(f"  failed stages: {len(value['failures'])}")
+            for failure in value["failures"]:
+                detail = failure.get("message") or failure.get("status")
+                print(f"    {failure.get('run')}: {detail}")
     elif command == "calibrate-judge":
         print(f"{'OK' if value['failed'] == 0 else 'FAIL'} Judge calibration {value['passed']}/{value['case_count']}")
         print(f"  prompt: {value['prompt_version']}")
@@ -199,11 +231,14 @@ def build_parser() -> argparse.ArgumentParser:
     smoke.add_argument("--output", type=Path, default=Path("runs/smoke")); smoke.add_argument("--source", type=Path, default=DEFAULT_SMOKE_SOURCE)
     run = sub.add_parser("run", help="run one materialized workspace task")
     run.add_argument("task", type=Path); run.add_argument("--output", type=Path, required=True); run.add_argument("--agent", choices=BUILTIN_AGENTS, default="codex"); run.add_argument("--model"); run.add_argument("--reasoning", default="high"); run.add_argument("--timeout-seconds", type=float, default=1200); run.add_argument("--intervention", type=Path); run.add_argument("--command-template"); run.add_argument("--isolation", choices=("copy", "agent-native"), default="copy", help="fresh workspace copy, or require the adapter's native sandbox")
+    _add_api_adapter_options(run)
     interact = sub.add_parser("interact", help="run one persistent multi-turn Agent scenario in a real workspace")
     interact.add_argument("scenario", type=Path); interact.add_argument("--output", type=Path, required=True); interact.add_argument("--agent", choices=BUILTIN_AGENTS, default="codex"); interact.add_argument("--model"); interact.add_argument("--reasoning", default="high"); interact.add_argument("--timeout-seconds", type=float, default=1200); interact.add_argument("--intervention", type=Path); interact.add_argument("--command-template"); interact.add_argument("--user-mode", choices=("scripted", "simulated"), default="scripted"); interact.add_argument("--user-agent", choices=BUILTIN_AGENTS, default="codex"); interact.add_argument("--user-model"); interact.add_argument("--user-reasoning", default="medium"); interact.add_argument("--user-command-template")
+    _add_api_adapter_options(interact)
     selftest = sub.add_parser("self-test", help="compare one Agent with and without a skill or intervention")
     selftest.add_argument("--mode", choices=("workspace", "interactive"), default="workspace", help="single-turn workspace tasks or persistent multi-turn scenarios"); selftest.add_argument("--scenario", type=Path, action="append", dest="scenarios", help="explicit interactive scenario JSON; repeat to replace the built-in suite"); selftest.add_argument("--user-mode", choices=("scripted", "simulated"), default="scripted"); selftest.add_argument("--user-agent", choices=BUILTIN_AGENTS, default="codex"); selftest.add_argument("--user-model"); selftest.add_argument("--user-reasoning", default="medium"); selftest.add_argument("--user-command-template")
     selftest.add_argument("intervention", type=Path, help="skill, prompt, or intervention file to compare against baseline"); selftest.add_argument("--agent", choices=BUILTIN_AGENTS, default="codex", help="Agent that runs both baseline and intervention tasks"); selftest.add_argument("--judge", choices=BUILTIN_AGENTS, default="codex", help="condition-blind LLM action evaluator"); selftest.add_argument("--suite", choices=sorted(SUITES), default="quick", help="quick runs 4 contexts; balanced runs 4 matched boundaries"); selftest.add_argument("--context", choices=("code", "writing", "internal_review", "external_peer_review"), action="append", dest="contexts", help="run only this task context; repeat to combine contexts"); selftest.add_argument("--task", type=Path, action="append", dest="tasks", help="explicit task.json; repeat to replace the built-in suite"); selftest.add_argument("--output", type=Path, required=True, help="new directory for runs, judgments, results, and paired HTML"); selftest.add_argument("--model"); selftest.add_argument("--judge-model"); selftest.add_argument("--reasoning", default="high"); selftest.add_argument("--judge-reasoning", default="high"); selftest.add_argument("--timeout-seconds", type=float, default=1200); selftest.add_argument("--command-template"); selftest.add_argument("--judge-command-template"); selftest.add_argument("--strict", action="store_true", help="use two blind judges and a third adjudicator on disagreement"); selftest.add_argument("--allow-partial", action="store_true", help="keep partial results and return success when at least one score exists"); selftest.add_argument("--no-open", action="store_true", help="do not open the paired HTML report"); selftest.add_argument("--isolation", choices=("copy", "agent-native"), default="copy", help="fresh workspace copy, or require the adapter's native sandbox")
+    _add_api_adapter_options(selftest)
     calibrate = sub.add_parser("calibrate-judge", help="run the current LLM judge on frozen decision boundaries")
     calibrate.add_argument("--judge", choices=BUILTIN_AGENTS, default="codex", help="Agent CLI used as the semantic judge")
     calibrate.add_argument("--output", type=Path, required=True, help="new directory for packets, raw judge outputs, and results")
@@ -212,6 +247,8 @@ def build_parser() -> argparse.ArgumentParser:
     calibrate.add_argument("--timeout-seconds", type=float, default=1200)
     calibrate.add_argument("--command-template", help="JSON command array when --judge command is used")
     calibrate.add_argument("--case", action="append", dest="cases", help="run one calibration case; repeat to tune a failed subset")
+    _add_api_adapter_options(calibrate)
+    sub.add_parser("setup-adapter", help="build the isolated runtime for OpenAI-compatible Agents")
     init = sub.add_parser("init-case", help="create a portable Markdown + workspace case"); init.add_argument("name"); init.add_argument("--output", type=Path)
     add = sub.add_parser("ingest", help="preflight or materialize a Markdown case"); add.add_argument("case", type=Path); add.add_argument("--track"); add.add_argument("--tracks-root", type=Path, default=DEFAULT_TRACKS_ROOT); add.add_argument("--catalog", type=Path, default=DEFAULT_FIXTURE_CATALOG); add.add_argument("--check", action="store_true"); add.add_argument("--materialize", action="store_true"); add.add_argument("--validate", action="store_true"); add.add_argument("--curation", type=Path, help="AI curator JSON required for portable workspace materialization")
     append = sub.add_parser("append", help="turn a self-test run into a portable living-case draft")
@@ -224,9 +261,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     _configure_output(); parser = build_parser(); args = parser.parse_args()
+    _configure_api_adapter(args)
     try:
         if args.command == "doctor":
             value = doctor()
+        elif args.command == "setup-adapter":
+            from .provider_sandbox import build_image
+            value = build_image()
         elif args.command == "smoke":
             value = _product_smoke(args.output, args.source)
         elif args.command == "run":
@@ -317,7 +358,7 @@ def main() -> int:
                 return 0
             return 3 if any(row.get("stage") == "judge" for row in value.get("failures", [])) else 1
         return 0
-    except (FileNotFoundError, FileExistsError, ValueError, TimeoutError, json.JSONDecodeError) as exc:
+    except (FileNotFoundError, FileExistsError, ValueError, RuntimeError, TimeoutError, json.JSONDecodeError) as exc:
         if args.json:
             _json({"status": "error", "error": str(exc)})
         else:

@@ -170,6 +170,10 @@ def run_interactive_scenario(
 ) -> dict[str, Any]:
     """Execute a multi-turn scenario against one persistent workspace Agent."""
 
+    from .provider_sandbox import provider_command, preflight, profile
+    container = agent == "openai-compatible" or provider_command(command_template)
+    if container:
+        preflight()
     if user_mode not in USER_MODES:
         raise ValueError(f"unknown user mode {user_mode!r}; choose from {sorted(USER_MODES)}")
     scenario_path, output = scenario_path.resolve(), output.resolve()
@@ -185,7 +189,7 @@ def run_interactive_scenario(
     shutil.copytree(fixture, workspace)
     _write_json(output / "scenario.json", scenario)
     _write_json(output / "task.json", task)
-    baseline = _run_checks(task, before)
+    baseline = _run_checks(task, before, container=container)
     _write_json(output / "checks.before.json", baseline)
     if not _baseline_valid(task, baseline):
         summary = {
@@ -278,6 +282,7 @@ def run_interactive_scenario(
         turn_results.append({
             "turn_index": index, "move_id": turn["move_id"], "role": turn["role"],
             "status": result["status"], "elapsed_seconds": result["elapsed_seconds"],
+            "failure": result.get("failure"),
             "session_persistence": persistence, "changes": changes,
             "trajectory_completeness": result["trajectory_completeness"],
         })
@@ -285,7 +290,7 @@ def run_interactive_scenario(
             failed = True
             break
 
-    post = _run_checks(task, workspace)
+    post = _run_checks(task, workspace, container=container)
     _write_json(output / "checks.after.json", post)
     final_changes, final_patch = _diff(initial_files, _file_map(workspace, task["ignore_paths"]))
     _write_json(output / "changes.json", final_changes)
@@ -323,11 +328,16 @@ def run_interactive_scenario(
         "schema_version": RUN_SCHEMA_VERSION, "scenario_id": scenario["scenario_id"],
         "task_id": task["task_id"], "kind": task["kind"], "status": status,
         "agent": agent, "model": model, "user_mode": user_mode,
+        "isolation": profile() if container else {"enforced_container_or_vm": False},
         "user_simulator": None if user_mode == "scripted" else {"agent": user_agent, "model": user_model},
         "turn_count": len(turn_results), "planned_turn_count": len(scenario["turns"]),
         "correction_count": sum(row["role"] == "correction" for row in controller),
         "takeover_occurred": any(row["role"] == "takeover" for row in controller),
         "session_persistence": persistence, "turns": turn_results,
+        "agent_failure": next(
+            (row.get("failure") for row in reversed(turn_results) if row.get("failure")),
+            None,
+        ),
         "baseline_expectation_met": True, "post_checks_passed": post_ok,
         "allowed_paths_ok": not unexpected, "unexpected_changed_paths": unexpected,
         "machine_completion_passed": machine_ok, "semantic_completion_pending": semantic_pending,
